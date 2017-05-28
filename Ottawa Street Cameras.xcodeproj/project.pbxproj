@@ -66,18 +66,18 @@
 		9A31D4371DEA85B100C90D79 /* Ottawa Street Cameras */ = {
 			isa = PBXGroup;
 			children = (
-				9A31D4381DEA85B200C90D79 /* AppDelegate.swift */,
-				9A4507B31DFCE01C001036FC /* CameraViewController.swift */,
-				9A31D43C1DEA85B200C90D79 /* Main.storyboard */,
-				9A31D4421DEA85B200C90D79 /* Assets.xcassets */,
-				9A4507B51DFCFC70001036FC /* ic_launcher.png */,
-				9A31D4441DEA85B200C90D79 /* LaunchScreen.storyboard */,
-				9A31D4471DEA85B200C90D79 /* Info.plist */,
-				9A04B9261DEAAA4F00D0F07B /* ListItem.swift */,
-				9A04B9281DEAABF500D0F07B /* TableViewController.swift */,
-				9A79BBA21DEFF91A00E8F0AF /* Camera.swift */,
 				9A4507AF1DFCD297001036FC /* camera_list.json */,
 				9A4507B01DFCD297001036FC /* ints.json */,
+				9A31D4471DEA85B200C90D79 /* Info.plist */,
+				9A4507B51DFCFC70001036FC /* ic_launcher.png */,
+				9A31D4381DEA85B200C90D79 /* AppDelegate.swift */,
+				9A79BBA21DEFF91A00E8F0AF /* Camera.swift */,
+				9A4507B31DFCE01C001036FC /* CameraViewController.swift */,
+				9A04B9261DEAAA4F00D0F07B /* ListItem.swift */,
+				9A04B9281DEAABF500D0F07B /* TableViewController.swift */,
+				9A31D4421DEA85B200C90D79 /* Assets.xcassets */,
+				9A31D4441DEA85B200C90D79 /* LaunchScreen.storyboard */,
+				9A31D43C1DEA85B200C90D79 /* Main.storyboard */,
 			);
 			path = "Ottawa Street Cameras";
 			sourceTree = "<group>";
@@ -114,7 +114,7 @@
 				TargetAttributes = {
 					9A31D4341DEA85B100C90D79 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 4WB75P2NL9;
+						DevelopmentTeam = M628JEJSR8;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -285,7 +285,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 4WB75P2NL9;
+				DEVELOPMENT_TEAM = M628JEJSR8;
 				INFOPLIST_FILE = "Ottawa Street Cameras/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.json.textfield.Ottawa-Street-Cameras";
@@ -298,7 +298,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 4WB75P2NL9;
+				DEVELOPMENT_TEAM = M628JEJSR8;
 				INFOPLIST_FILE = "Ottawa Street Cameras/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.json.textfield.Ottawa-Street-Cameras";

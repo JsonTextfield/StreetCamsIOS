@@ -12,8 +12,9 @@ class TableViewController: UITableViewController {
     var camList = [Camera]()
     var filteredCameras = [Camera]()
     
-    
+    var SESSION_ID = ""
     let searchController = UISearchController(searchResultsController: nil)
+    
     @IBOutlet var listView: UITableView!
     
     func filterContentForSearchText(searchText: String, scope: String = "All") {
@@ -24,15 +25,20 @@ class TableViewController: UITableViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         tableView.estimatedRowHeight = tableView.rowHeight
         tableView.rowHeight = UITableViewAutomaticDimension
+        
         searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
         definesPresentationContext = true
         searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.barTintColor = UIColor.black
+        
         tableView.tableHeaderView = searchController.searchBar
         
+        let v = UIView()
+        v.backgroundColor = UIColor.black
+        tableView.backgroundView = v
         
         let dispatch_group = DispatchGroup()
         dispatch_group.enter()
@@ -45,26 +51,26 @@ class TableViewController: UITableViewController {
             let filePath = Bundle.main.path(forResource: "ints", ofType: "json")
             //NSData(contentsOfFile: <#T##String#>, options: <#T##NSData.ReadingOptions#>)
             
-            var data = NSData(contentsOfFile:filePath!)
+            let data = NSData(contentsOfFile:filePath!)
             
             do {
                 
                 let parsedData = try JSONSerialization.jsonObject(with: data! as Data, options: JSONSerialization.ReadingOptions.allowFragments) as! NSArray
                 //let currentConditions = parsedData["currently"] as! [String:Any]
-                
-                for var x in parsedData{
+
+                for x in parsedData{
+                    
                     let t = x as! [String:String]
                     self.camList.append(Camera.init(name: t["name"]!, id: t["id"]!))
                 }
-            
+                
             } catch let error as NSError {
                 print(error)
             }
             // JSONObjectWithData returns AnyObject so the first thing to do is to downcast this to a known type
-
+            
             self.listView.reloadData()
         })
-        self.listView.reloadData()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -81,6 +87,8 @@ class TableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -90,15 +98,27 @@ class TableViewController: UITableViewController {
         }
         return camList.count
     }
-
     
+
+    override func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        let cell  = tableView.cellForRow(at: indexPath)
+        cell!.contentView.backgroundColor = .blue
+    }
+    
+    override func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+        let cell  = tableView.cellForRow(at: indexPath)
+        cell!.contentView.backgroundColor = .clear
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "intersection", for: indexPath) as! ListItem
+        cell.selectionStyle = .none
         let camera: Camera
         if searchController.isActive && searchController.searchBar.text != "" {
             camera = filteredCameras[indexPath.row]
         } else {
+            
             camera = camList[indexPath.row]
         }
         
@@ -109,7 +129,6 @@ class TableViewController: UITableViewController {
         
         return cell
     }
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
@@ -164,14 +183,15 @@ class TableViewController: UITableViewController {
      */
     
     
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-    var SESSION_ID = ""
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    
+    
     func getSessionId(){
         let request = URLRequest(url: URL(string: "https://traffic.ottawa.ca/map")!)
         let task = URLSession.shared.dataTask(with: request as URLRequest) { data , urlResponse,_ in
@@ -185,25 +205,24 @@ class TableViewController: UITableViewController {
         task.resume()
     }
     
-    
+
     
 }
 
 
+
 extension TableViewController: UISearchBarDelegate {
     // MARK: - UISearchBar Delegate
-    func searchBar(searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         filterContentForSearchText(searchText: searchBar.text!, scope: searchBar.scopeButtonTitles![selectedScope])
     }
 }
 
 extension TableViewController: UISearchResultsUpdating {
-    @available(iOS 8.0, *)
-    public func updateSearchResults(for searchController: UISearchController) {
-        let searchBar = searchController.searchBar
+    func updateSearchResults(for searchController: UISearchController) {
         filterContentForSearchText(searchText: searchController.searchBar.text!)
     }
-
+    
     // MARK: - UISearchResultsUpdating Delegate
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         let searchBar = searchController.searchBar
