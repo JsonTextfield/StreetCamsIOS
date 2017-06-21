@@ -20,7 +20,7 @@ class TableViewController: UITableViewController {
     func filterContentForSearchText(searchText: String, scope: String = "All") {
         filteredSections = [:]
         for i in 0 ... sections.keys.count-1{
-            var sectionTitle = sections.keys.sorted()[i]
+            let sectionTitle = sections.keys.sorted()[i]
             filteredSections[sectionTitle] = sections[sectionTitle]?.filter({( candy : Camera) -> Bool in
                 return candy.name.lowercased().contains(searchText.lowercased())
             })
