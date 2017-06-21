@@ -13,10 +13,11 @@
 		9A31D43E1DEA85B200C90D79 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A31D43C1DEA85B200C90D79 /* Main.storyboard */; };
 		9A31D4431DEA85B200C90D79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A31D4421DEA85B200C90D79 /* Assets.xcassets */; };
 		9A31D4461DEA85B200C90D79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A31D4441DEA85B200C90D79 /* LaunchScreen.storyboard */; };
+		9A40AAAE1EF81A28004A0E46 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A40AAAD1EF81A28004A0E46 /* GameKit.framework */; };
+		9A40AAB01EF81A2D004A0E46 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A40AAAF1EF81A2D004A0E46 /* StoreKit.framework */; };
 		9A4507B11DFCD297001036FC /* camera_list.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A4507AF1DFCD297001036FC /* camera_list.json */; };
 		9A4507B21DFCD297001036FC /* ints.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A4507B01DFCD297001036FC /* ints.json */; };
 		9A4507B41DFCE01D001036FC /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4507B31DFCE01C001036FC /* CameraViewController.swift */; };
-		9A4507B61DFCFC71001036FC /* ic_launcher.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A4507B51DFCFC70001036FC /* ic_launcher.png */; };
 		9A79BBA31DEFF91A00E8F0AF /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A79BBA21DEFF91A00E8F0AF /* Camera.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,10 +30,11 @@
 		9A31D4421DEA85B200C90D79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A31D4451DEA85B200C90D79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9A31D4471DEA85B200C90D79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A40AAAD1EF81A28004A0E46 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		9A40AAAF1EF81A2D004A0E46 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		9A4507AF1DFCD297001036FC /* camera_list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = camera_list.json; path = ../../../Desktop/camera_list.json; sourceTree = "<group>"; };
 		9A4507B01DFCD297001036FC /* ints.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = ints.json; path = ../../../Desktop/ints.json; sourceTree = "<group>"; };
 		9A4507B31DFCE01C001036FC /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
-		9A4507B51DFCFC70001036FC /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_launcher.png; path = ../../../Desktop/ic_launcher.png; sourceTree = "<group>"; };
 		9A79BBA21DEFF91A00E8F0AF /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -41,6 +43,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A40AAAE1EF81A28004A0E46 /* GameKit.framework in Frameworks */,
+				9A40AAB01EF81A2D004A0E46 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,6 +56,7 @@
 			children = (
 				9A31D4371DEA85B100C90D79 /* Ottawa Street Cameras */,
 				9A31D4361DEA85B100C90D79 /* Products */,
+				9A40AAAC1EF81A28004A0E46 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -69,7 +74,6 @@
 				9A4507AF1DFCD297001036FC /* camera_list.json */,
 				9A4507B01DFCD297001036FC /* ints.json */,
 				9A31D4471DEA85B200C90D79 /* Info.plist */,
-				9A4507B51DFCFC70001036FC /* ic_launcher.png */,
 				9A31D4381DEA85B200C90D79 /* AppDelegate.swift */,
 				9A79BBA21DEFF91A00E8F0AF /* Camera.swift */,
 				9A4507B31DFCE01C001036FC /* CameraViewController.swift */,
@@ -80,6 +84,15 @@
 				9A31D43C1DEA85B200C90D79 /* Main.storyboard */,
 			);
 			path = "Ottawa Street Cameras";
+			sourceTree = "<group>";
+		};
+		9A40AAAC1EF81A28004A0E46 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9A40AAAF1EF81A2D004A0E46 /* StoreKit.framework */,
+				9A40AAAD1EF81A28004A0E46 /* GameKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -116,6 +129,14 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = M628JEJSR8;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 1;
+							};
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -143,7 +164,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A4507B11DFCD297001036FC /* camera_list.json in Resources */,
-				9A4507B61DFCFC71001036FC /* ic_launcher.png in Resources */,
 				9A31D4461DEA85B200C90D79 /* LaunchScreen.storyboard in Resources */,
 				9A4507B21DFCD297001036FC /* ints.json in Resources */,
 				9A31D4431DEA85B200C90D79 /* Assets.xcassets in Resources */,
@@ -284,11 +304,11 @@
 		9A31D44B1DEA85B200C90D79 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				DEVELOPMENT_TEAM = M628JEJSR8;
 				INFOPLIST_FILE = "Ottawa Street Cameras/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.json.textfield.Ottawa-Street-Cameras";
+				PRODUCT_BUNDLE_IDENTIFIER = com.json.textfield.streetcams;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -297,11 +317,11 @@
 		9A31D44C1DEA85B200C90D79 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				DEVELOPMENT_TEAM = M628JEJSR8;
 				INFOPLIST_FILE = "Ottawa Street Cameras/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.json.textfield.Ottawa-Street-Cameras";
+				PRODUCT_BUNDLE_IDENTIFIER = com.json.textfield.streetcams;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

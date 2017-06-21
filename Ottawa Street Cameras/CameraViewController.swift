@@ -35,7 +35,7 @@ class CameraViewController: UIViewController {
         getDataFromUrl(url: url) { (data, response, error)  in
             guard let data = data, error == nil else { return }
             DispatchQueue.main.async() { () -> Void in
-                print("image")
+                //print("image")
                 self.cameraImage.image = UIImage(data: data)
             }
         }

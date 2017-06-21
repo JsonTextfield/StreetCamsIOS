@@ -10,17 +10,31 @@ import UIKit
 
 class TableViewController: UITableViewController {
     var camList = [Camera]()
-    var filteredCameras = [Camera]()
+    var sections = [String: [Camera]]()
+    var filteredSections = [String: [Camera]]()
     
-    var SESSION_ID = ""
     let searchController = UISearchController(searchResultsController: nil)
     
     @IBOutlet var listView: UITableView!
     
     func filterContentForSearchText(searchText: String, scope: String = "All") {
-        filteredCameras = camList.filter({( candy : Camera) -> Bool in
-            return candy.name.lowercased().contains(searchText.lowercased())
-        })
+        filteredSections = [:]
+        for c in camList{
+            if c.name.lowercased().contains(searchText.lowercased()){
+                let d = c.name.characters.first!.description
+                if self.filteredSections[d] != nil{
+                    self.filteredSections[d]!.append(c)
+                    //self.sections['0'] += 1
+                }
+                else{
+                    self.filteredSections[d] = [c]
+                }
+            }
+        }
+        /*
+         filteredCameras = camList.filter({( candy : Camera) -> Bool in
+         return candy.name.lowercased().contains(searchText.lowercased())
+         })*/
         listView.reloadData()
     }
     override func viewDidLoad() {
@@ -40,37 +54,41 @@ class TableViewController: UITableViewController {
         v.backgroundColor = UIColor.black
         tableView.backgroundView = v
         
-        let dispatch_group = DispatchGroup()
-        dispatch_group.enter()
-        getSessionId()
-        dispatch_group.leave()
-        dispatch_group.notify(queue: DispatchQueue.main,execute: {
-            // Won't get here until everything has finished
+        // Won't get here until everything has finished
+        
+        
+        let filePath = Bundle.main.path(forResource: "ints", ofType: "json")
+        //NSData(contentsOfFile: <#T##String#>, options: <#T##NSData.ReadingOptions#>)
+        
+        let data = NSData(contentsOfFile:filePath!)
+        
+        do {
             
+            let parsedData = try JSONSerialization.jsonObject(with: data! as Data, options: JSONSerialization.ReadingOptions.allowFragments) as! NSArray
+            //let currentConditions = parsedData["currently"] as! [String:Any]
             
-            let filePath = Bundle.main.path(forResource: "ints", ofType: "json")
-            //NSData(contentsOfFile: <#T##String#>, options: <#T##NSData.ReadingOptions#>)
-            
-            let data = NSData(contentsOfFile:filePath!)
-            
-            do {
+            for x in parsedData{
                 
-                let parsedData = try JSONSerialization.jsonObject(with: data! as Data, options: JSONSerialization.ReadingOptions.allowFragments) as! NSArray
-                //let currentConditions = parsedData["currently"] as! [String:Any]
-
-                for x in parsedData{
-                    
-                    let t = x as! [String:String]
-                    self.camList.append(Camera.init(name: t["name"]!, id: t["id"]!))
-                }
-                
-            } catch let error as NSError {
-                print(error)
+                let t = x as! [String:String]
+                self.camList.append(Camera.init(name: t["name"]!, id: t["id"]!))
             }
-            // JSONObjectWithData returns AnyObject so the first thing to do is to downcast this to a known type
             
-            self.listView.reloadData()
-        })
+        } catch let error as NSError {
+            print(error)
+        }
+        // JSONObjectWithData returns AnyObject so the first thing to do is to downcast this to a known type
+        for c in self.camList {
+            let d = c.name.characters.first!.description
+            if self.sections[d] != nil{
+                self.sections[d]!.append(c)
+                //self.sections['0'] += 1
+            }
+            else{
+                self.sections[d] = [c]
+            }
+        }
+        self.listView.reloadData()
+        
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -79,7 +97,10 @@ class TableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        if searchController.isActive && searchController.searchBar.text != "" {
+            return filteredSections.keys.count
+        }
+        return sections.keys.count
     }
     
     override func didReceiveMemoryWarning() {
@@ -92,14 +113,24 @@ class TableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         // #warning Incomplete implementation, return the number of rows
         if searchController.isActive && searchController.searchBar.text != "" {
-            return filteredCameras.count
+            //return filteredCameras.count
+            return filteredSections[filteredSections.keys.sorted()[section]]!.count
         }
-        return camList.count
+        return sections[sections.keys.sorted()[section]]!.count
+        //return camList.count
+    }
+    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        if searchController.isActive && searchController.searchBar.text != "" {
+            //return filteredCameras.count
+            return filteredSections.keys.sorted()
+        }
+        return sections.keys.sorted()
     }
     
-
+    
     override func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
         let cell  = tableView.cellForRow(at: indexPath)
         cell!.contentView.backgroundColor = .blue
@@ -116,10 +147,11 @@ class TableViewController: UITableViewController {
         cell.selectionStyle = .none
         let camera: Camera
         if searchController.isActive && searchController.searchBar.text != "" {
-            camera = filteredCameras[indexPath.row]
+            //camera = filteredCameras[indexPath.row]
+            camera = (filteredSections[filteredSections.keys.sorted()[indexPath.section]]?[indexPath.row])!
         } else {
             
-            camera = camList[indexPath.row]
+            camera = (sections[sections.keys.sorted()[indexPath.section]]?[indexPath.row])!
         }
         
         cell.name.text = camera.name
@@ -140,9 +172,9 @@ class TableViewController: UITableViewController {
         
         let destination: CameraViewController = storyboard.instantiateViewController(withIdentifier: "camera") as! CameraViewController
         
-        destination.cam = camList[indexPath.row]
+        destination.cam = (sections[sections.keys.sorted()[indexPath.section]]?[indexPath.row])!
         if searchController.isActive && searchController.searchBar.text != "" {
-            destination.cam = filteredCameras[indexPath.row]
+            destination.cam = (filteredSections[filteredSections.keys.sorted()[indexPath.section]]?[indexPath.row])!
         }
         navigationController?.pushViewController(destination, animated: true)
     }
@@ -192,20 +224,9 @@ class TableViewController: UITableViewController {
     }
     
     
-    func getSessionId(){
-        let request = URLRequest(url: URL(string: "https://traffic.ottawa.ca/map")!)
-        let task = URLSession.shared.dataTask(with: request as URLRequest) { data , urlResponse,_ in
-            if let httpUrlResponse = urlResponse as? HTTPURLResponse
-            {
-                self.SESSION_ID = httpUrlResponse.allHeaderFields["Set-Cookie"]! as! String // Error
-                
-            }
-            
-        }
-        task.resume()
-    }
     
-
+    
+    
     
 }
 
