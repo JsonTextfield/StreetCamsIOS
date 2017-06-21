@@ -310,9 +310,7 @@
 			buildSettings = {
 <<<<<<< HEAD
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
-=======
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
->>>>>>> 4d23d3ea9b41fe331d85141f83c4190f323e7d6e
+4d23d3ea9b41fe331d85141f83c4190f323e7d6e
 				DEVELOPMENT_TEAM = M628JEJSR8;
 				INFOPLIST_FILE = "Ottawa Street Cameras/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -327,9 +325,7 @@
 			buildSettings = {
 <<<<<<< HEAD
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
-=======
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
->>>>>>> 4d23d3ea9b41fe331d85141f83c4190f323e7d6e
+ 4d23d3ea9b41fe331d85141f83c4190f323e7d6e
 				DEVELOPMENT_TEAM = M628JEJSR8;
 				INFOPLIST_FILE = "Ottawa Street Cameras/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
