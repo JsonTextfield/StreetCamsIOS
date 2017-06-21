@@ -9,6 +9,7 @@
 import UIKit
 
 class TableViewController: UITableViewController {
+
     var sections = [String: [Camera]]()
     var filteredSections = [String: [Camera]]()
     
@@ -151,6 +152,7 @@ class TableViewController: UITableViewController {
         } else {
             
             camera = (sections[sections.keys.sorted()[indexPath.section]]?[indexPath.row])!
+
         }
         
         cell.name.text = camera.name
@@ -220,9 +222,10 @@ class TableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+
     }
     
-    
+
     
     
     

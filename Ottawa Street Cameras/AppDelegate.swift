@@ -17,7 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         UIApplication.shared.statusBarStyle = .lightContent
+<<<<<<< HEAD
         getSessionId()
+=======
+>>>>>>> 4d23d3ea9b41fe331d85141f83c4190f323e7d6e
         // Override point for customization after application launch.
         return true
     }

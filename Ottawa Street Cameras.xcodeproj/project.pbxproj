@@ -74,6 +74,10 @@
 				9A4507AF1DFCD297001036FC /* camera_list.json */,
 				9A4507B01DFCD297001036FC /* ints.json */,
 				9A31D4471DEA85B200C90D79 /* Info.plist */,
+<<<<<<< HEAD
+=======
+				9A4507B51DFCFC70001036FC /* ic_launcher.png */,
+>>>>>>> 4d23d3ea9b41fe331d85141f83c4190f323e7d6e
 				9A31D4381DEA85B200C90D79 /* AppDelegate.swift */,
 				9A79BBA21DEFF91A00E8F0AF /* Camera.swift */,
 				9A4507B31DFCE01C001036FC /* CameraViewController.swift */,
@@ -304,7 +308,11 @@
 		9A31D44B1DEA85B200C90D79 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+<<<<<<< HEAD
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+=======
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+>>>>>>> 4d23d3ea9b41fe331d85141f83c4190f323e7d6e
 				DEVELOPMENT_TEAM = M628JEJSR8;
 				INFOPLIST_FILE = "Ottawa Street Cameras/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -317,7 +325,11 @@
 		9A31D44C1DEA85B200C90D79 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+<<<<<<< HEAD
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+=======
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+>>>>>>> 4d23d3ea9b41fe331d85141f83c4190f323e7d6e
 				DEVELOPMENT_TEAM = M628JEJSR8;
 				INFOPLIST_FILE = "Ottawa Street Cameras/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
