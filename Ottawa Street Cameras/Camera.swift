@@ -14,4 +14,8 @@ class Camera{
         self.name = name
         self.id = id
     }
+    init(dict:[String: String]){
+        self.name = dict["name"]!
+        self.id = dict["id"]!
+    }
 }

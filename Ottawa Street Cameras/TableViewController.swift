@@ -9,7 +9,6 @@
 import UIKit
 
 class TableViewController: UITableViewController {
-    var camList = [Camera]()
     var sections = [String: [Camera]]()
     var filteredSections = [String: [Camera]]()
     
@@ -19,8 +18,12 @@ class TableViewController: UITableViewController {
     
     func filterContentForSearchText(searchText: String, scope: String = "All") {
         filteredSections = [:]
-        for c in camList{
-            if c.name.lowercased().contains(searchText.lowercased()){
+        for i in 0 ... sections.keys.count-1{
+            var sectionTitle = sections.keys.sorted()[i]
+            filteredSections[sectionTitle] = sections[sectionTitle]?.filter({( candy : Camera) -> Bool in
+                return candy.name.lowercased().contains(searchText.lowercased())
+            })
+            /*if c.name.lowercased().contains(searchText.lowercased()){
                 let d = c.name.characters.first!.description
                 if self.filteredSections[d] != nil{
                     self.filteredSections[d]!.append(c)
@@ -29,7 +32,7 @@ class TableViewController: UITableViewController {
                 else{
                     self.filteredSections[d] = [c]
                 }
-            }
+            }*/
         }
         /*
          filteredCameras = camList.filter({( candy : Camera) -> Bool in
@@ -49,6 +52,7 @@ class TableViewController: UITableViewController {
         searchController.searchBar.barTintColor = UIColor.black
         
         tableView.tableHeaderView = searchController.searchBar
+        tableView.sectionIndexBackgroundColor = UIColor.black
         
         let v = UIView()
         v.backgroundColor = UIColor.black
@@ -68,24 +72,19 @@ class TableViewController: UITableViewController {
             //let currentConditions = parsedData["currently"] as! [String:Any]
             
             for x in parsedData{
-                
-                let t = x as! [String:String]
-                self.camList.append(Camera.init(name: t["name"]!, id: t["id"]!))
+                let camera = Camera.init(dict: x as! [String:String])
+                let d = camera.name.characters.first!.description
+                if self.sections[d] != nil{
+                    self.sections[d]!.append(camera)
+                }
+                else{
+                    self.sections[d] = [camera]
+                }
+
             }
             
         } catch let error as NSError {
             print(error)
-        }
-        // JSONObjectWithData returns AnyObject so the first thing to do is to downcast this to a known type
-        for c in self.camList {
-            let d = c.name.characters.first!.description
-            if self.sections[d] != nil{
-                self.sections[d]!.append(c)
-                //self.sections['0'] += 1
-            }
-            else{
-                self.sections[d] = [c]
-            }
         }
         self.listView.reloadData()
         

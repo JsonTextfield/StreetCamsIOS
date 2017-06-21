@@ -97,7 +97,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let task = URLSession.shared.dataTask(with: request as URLRequest) { data , urlResponse,_ in
             if let httpUrlResponse = urlResponse as? HTTPURLResponse
             {
-                self.SESSION_ID = httpUrlResponse.allHeaderFields["Set-Cookie"]! as! String // Error
+                if let sessionId = httpUrlResponse.allHeaderFields["Set-Cookie"]{
+                    self.SESSION_ID = sessionId as! String // Error
+                }
                 
             }
             
