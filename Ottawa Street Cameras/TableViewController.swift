@@ -24,21 +24,7 @@ class TableViewController: UITableViewController {
             filteredSections[sectionTitle] = sections[sectionTitle]?.filter({( candy : Camera) -> Bool in
                 return candy.name.lowercased().contains(searchText.lowercased())
             })
-            /*if c.name.lowercased().contains(searchText.lowercased()){
-                let d = c.name.characters.first!.description
-                if self.filteredSections[d] != nil{
-                    self.filteredSections[d]!.append(c)
-                    //self.sections['0'] += 1
-                }
-                else{
-                    self.filteredSections[d] = [c]
-                }
-            }*/
         }
-        /*
-         filteredCameras = camList.filter({( candy : Camera) -> Bool in
-         return candy.name.lowercased().contains(searchText.lowercased())
-         })*/
         listView.reloadData()
     }
     override func viewDidLoad() {
