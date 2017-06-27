@@ -51,7 +51,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2726" y="435"/>
+            <point key="canvasLocation" x="2066" y="475"/>
         </scene>
         <!--tableView Controller-->
         <scene sceneID="mlg-Fb-RXR">
@@ -97,6 +97,11 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="StreetCams" id="Nlg-TJ-nzk">
                         <barButtonItem key="backBarButtonItem" title="Back" id="7ua-cj-QRr"/>
+                        <barButtonItem key="rightBarButtonItem" title="Map" id="VMw-Qy-g6P">
+                            <connections>
+                                <segue destination="hV6-Wj-J4B" kind="show" identifier="showMap" id="fI8-Xn-bR1"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="listView" destination="V36-C5-RN3" id="nq8-rs-xfC"/>
@@ -105,7 +110,40 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jkx-3i-28r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2728" y="-175"/>
+            <point key="canvasLocation" x="2068" y="-135"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="7xo-Ba-tLX">
+            <objects>
+                <viewController title="Map" id="hV6-Wj-J4B" customClass="MapViewController" customModule="Ottawa_Street_Cameras" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SXN-Wm-bfy"/>
+                        <viewControllerLayoutGuide type="bottom" id="hcb-dk-Un0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="URx-hz-8jt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="aAX-NH-P59">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hcb-dk-Un0" firstAttribute="top" secondItem="aAX-NH-P59" secondAttribute="bottom" id="9zA-mV-xQP"/>
+                            <constraint firstItem="aAX-NH-P59" firstAttribute="top" secondItem="URx-hz-8jt" secondAttribute="topMargin" id="IFc-Xe-1Cu"/>
+                            <constraint firstAttribute="trailing" secondItem="aAX-NH-P59" secondAttribute="trailing" id="K5V-dB-Kk5"/>
+                            <constraint firstItem="aAX-NH-P59" firstAttribute="centerY" secondItem="URx-hz-8jt" secondAttribute="centerY" id="P87-4A-h5B"/>
+                            <constraint firstItem="aAX-NH-P59" firstAttribute="leading" secondItem="URx-hz-8jt" secondAttribute="leading" id="b4l-zf-ihB"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="aAX-NH-P59" id="qfc-dN-Ye3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gf5-qM-9EO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2818" y="475"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2xP-q7-FwW">

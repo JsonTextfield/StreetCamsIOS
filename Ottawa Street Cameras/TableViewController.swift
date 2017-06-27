@@ -11,6 +11,7 @@ import UIKit
 class TableViewController: UITableViewController {
 
     var sections = [String: [Camera]]()
+    var cameras = [Camera]()
     var filteredSections = [String: [Camera]]()
     
     let searchController = UISearchController(searchResultsController: nil)
@@ -61,6 +62,7 @@ class TableViewController: UITableViewController {
             for x in parsedData{
                 i += 1
                 let camera = Camera(dict: x as! [String:AnyObject])
+                cameras.append(camera)
                 let d = camera.name.characters.first!.description
                 if self.sections[d] != nil{
                     self.sections[d]!.append(camera)
@@ -211,6 +213,10 @@ class TableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "showMap"{
+            let dest = segue.destination as! MapViewController
+            dest.cameras = cameras
+        }
 
     }
     
