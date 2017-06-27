@@ -95,7 +95,9 @@
                             <outlet property="delegate" destination="Cgt-uo-vLf" id="rYb-mM-QNq"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="StreetCams" id="Nlg-TJ-nzk"/>
+                    <navigationItem key="navigationItem" title="StreetCams" id="Nlg-TJ-nzk">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="7ua-cj-QRr"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="listView" destination="V36-C5-RN3" id="nq8-rs-xfC"/>
                         <outlet property="tableView" destination="V36-C5-RN3" id="usj-Sc-9FJ"/>

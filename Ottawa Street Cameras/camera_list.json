@@ -1,0 +1,2050 @@
+[{
+		"type": "MTO",
+		"descriptionFr": "(MTO) Autoroute 416 bretelle vers autoroute 417 est",
+		"number": 25,
+		"id": 309,
+		"latitude": 45.341343,
+		"longitude": -75.81467,
+		"description": "(MTO) Hwy 416 NB ramp to Hwy 417 East"
+	}, {
+		"type": "MTO",
+		"descriptionFr": "(MTO) Autoroute 417 entre l\u0027avenue Holland et l\u0027avenue Parkdale",
+		"number": 5,
+		"id": 162,
+		"latitude": 45.395966,
+		"longitude": -75.729321,
+		"description": "(MTO) Hwy 417 between Holland Ave and Parkdale Ave"
+	}, {
+		"type": "MTO",
+		"descriptionFr": "(MTO) Autoroute 417 à l\u0027est du chemin Eagleson",
+		"number": 29,
+		"id": 305,
+		"latitude": 45.326547,
+		"longitude": -75.869782,
+		"description": "(MTO) Hwy 417 east of Eagleson Rd"
+	}, {
+		"type": "MTO",
+		"descriptionFr": "(MTO) Autoroute 417 à l\u0027est de la promenade Moodie",
+		"number": 26,
+		"id": 308,
+		"latitude": 45.341919,
+		"longitude": -75.826734,
+		"description": "(MTO) Hwy 417 east of Moodie Drive"
+	}, {
+		"type": "MTO",
+		"descriptionFr": "(MTO) Autoroute 417 près de la promenade Aviation",
+		"number": 16,
+		"id": 315,
+		"latitude": 45.424053,
+		"longitude": -75.619479,
+		"description": "(MTO) Hwy 417 near Aviation Parkway"
+	}, {
+		"type": "MTO",
+		"descriptionFr": "(MTO) Autoroute 417 près de l\u0027avenue Bayswater ",
+		"number": 37,
+		"id": 321,
+		"latitude": 45.400964,
+		"longitude": -75.717902,
+		"description": "(MTO) Hwy 417 near Bayswater Ave"
+	}, {
+		"type": "MTO",
+		"descriptionFr": "(MTO) Hwy 417 près du chemin Belfast",
+		"number": 19,
+		"id": 322,
+		"latitude": 45.419178,
+		"longitude": -75.647274,
+		"description": "(MTO) Hwy 417 Near Belfast Rd"
+	}, {
+		"type": "MTO",
+		"descriptionFr": "(MTO) Autoroute 417 près de l\u0027avenue Bronson",
+		"number": 23,
+		"id": 311,
+		"latitude": 45.404673,
+		"longitude": -75.702151,
+		"description": "(MTO) Hwy 417 near Bronson Ave"
+	}, {
+		"type": "MTO",
+		"descriptionFr": "(MTO) Autoroute 417 près de l\u0027avenue Carling",
+		"number": 6,
+		"id": 161,
+		"latitude": 45.386052,
+		"longitude": -75.737085,
+		"description": "(MTO) Hwy 417 near Carling Ave"
+	}, {
+		"type": "MTO",
+		"descriptionFr": "(MTO) Autoroute 417 près le chemin Carp",
+		"number": 34,
+		"id": 300,
+		"latitude": 45.280801,
+		"longitude": -75.956864,
+		"description": "(MTO) Hwy 417 near Carp Rd"
+	}, {
+		"type": "MTO",
+		"descriptionFr": "(MTO) Autoroute 417 près de l\u0027avenue Churchill",
+		"number": 7,
+		"id": 160,
+		"latitude": 45.379568,
+		"longitude": -75.745438,
+		"description": "(MTO) Hwy 417 near Churchill Ave"
+	}, {
+		"type": "MTO",
+		"descriptionFr": "(MTO) Autoroute 417 près le chemin Eagleson",
+		"number": 30,
+		"id": 304,
+		"latitude": 45.320404,
+		"longitude": -75.885902,
+		"description": "(MTO) Hwy 417 near Eagleson Rd"
+	}, {
+		"type": "MTO",
+		"descriptionFr": "(MTO) Autoroute 417 près de autoroute 174",
+		"number": 1,
+		"id": 167,
+		"latitude": 45.423742,
+		"longitude": -75.620581,
+		"description": "(MTO) Hwy 417 near Hwy 174"
+	}, {
+		"type": "MTO",
+		"descriptionFr": "(MTO) Autoroute 417 près de autoroute 7",
+		"number": 35,
+		"id": 299,
+		"latitude": 45.271037,
+		"longitude": -75.974625,
+		"description": "(MTO) Hwy 417 near Hwy 7"
+	}, {
+		"type": "MTO",
+		"descriptionFr": "(MTO) Autoroute 417 près du chemin Innes",
+		"number": 15,
+		"id": 316,
+		"latitude": 45.413954,
+		"longitude": -75.610957,
+		"description": "(MTO) Hwy 417 near Innes Rd"
+	}, {
+		"type": "MTO",
+		"descriptionFr": "(MTO) Autoroute 417 près de l\u0027avenue Kanata",
+		"number": 31,
+		"id": 303,
+		"latitude": 45.310771,
+		"longitude": -75.902063,
+		"description": "(MTO) Hwy 417 near Kanata Ave"
+	}, {
+		"type": "MTO",
+		"descriptionFr": "(MTO) Autoroute 417 près de l\u0027avenue Lees",
+		"number": 21,
+		"id": 164,
+		"latitude": 45.4168835,
+		"longitude": -75.6739088,
+		"description": "(MTO) Hwy 417 near Lees Ave"
+	}, {
+		"type": "MTO",
+		"descriptionFr": "(MTO) Autoroute 417 près de la promenade Moodie",
+		"number": 27,
+		"id": 307,
+		"latitude": 45.337677,
+		"longitude": -75.842231,
+		"description": "(MTO) Hwy 417 near Moodie Drive"
+	}, {
+		"type": "MTO",
+		"descriptionFr": "(MTO) Autoroute 417 près de la rue O\u0027Connor",
+		"number": 22,
+		"id": 312,
+		"latitude": 45.410137,
+		"longitude": -75.688676,
+		"description": "(MTO) Hwy 417 near O\u0027Connor St"
+	}, {
+		"type": "MTO",
+		"descriptionFr": "(MTO) Autoroute 417 près de la promenade Palladium ",
+		"number": 33,
+		"id": 301,
+		"latitude": 45.293194,
+		"longitude": -75.937241,
+		"description": "(MTO) Hwy 417 near Palladium Drive"
+	}, {
+		"type": "MTO",
+		"descriptionFr": "(MTO) Autoroute 417 près le chemin Pinecrest",
+		"number": 9,
+		"id": 158,
+		"latitude": 45.349009,
+		"longitude": -75.790139,
+		"description": "(MTO) Hwy 417 near Pinecrest Rd"
+	}, {
+		"type": "MTO",
+		"descriptionFr": "(MTO) Autoroute 417 près de le boulevard St Laurent ",
+		"number": 18,
+		"id": 314,
+		"latitude": 45.420018,
+		"longitude": -75.63554,
+		"description": "(MTO) Hwy 417 near St Laurent Blvd"
+	}, {
+		"type": "MTO",
+		"descriptionFr": "(MTO) Autoroute 417 près de la promenade Terry Fox",
+		"number": 32,
+		"id": 302,
+		"latitude": 45.305097,
+		"longitude": -75.911313,
+		"description": "(MTO) Hwy 417 near Terry Fox Drive"
+	}, {
+		"type": "MTO",
+		"descriptionFr": "(MTO) Autoroute 417 près de la promenade Vanier",
+		"number": 20,
+		"id": 313,
+		"latitude": 45.417257,
+		"longitude": -75.656728,
+		"description": "(MTO) Hwy 417 near Vanier Parkway"
+	}, {
+		"type": "MTO",
+		"descriptionFr": "(MTO) Autoroute 417 près du chemin Walkley",
+		"number": 14,
+		"id": 317,
+		"latitude": 45.3981,
+		"longitude": -75.592864,
+		"description": "(MTO) Hwy 417 near Walkley Rd"
+	}, {
+		"type": "MTO",
+		"descriptionFr": "(MTO) Autoroute 417 près de l\u0027avenue Woodroffe",
+		"number": 8,
+		"id": 159,
+		"latitude": 45.361007,
+		"longitude": -75.767995,
+		"description": "(MTO) Hwy 417 near Woodroffe Ave"
+	}, {
+		"type": "MTO",
+		"descriptionFr": "(MTO) Autoroute 417 à l\u0027ouest du chemin Holly Acres",
+		"number": 24,
+		"id": 310,
+		"latitude": 45.34392,
+		"longitude": -75.815315,
+		"description": "(MTO) Hwy 417 west of Holly Acres Rd"
+	}, {
+		"type": "MTO",
+		"descriptionFr": "(MTO) Autoroute 417 à l\u0027ouest de la promenade Moodie ",
+		"number": 28,
+		"id": 306,
+		"latitude": 45.329826,
+		"longitude": -75.86164,
+		"description": "(MTO) Hwy 417 west of Moodie Drive"
+	}, {
+		"type": "MTO",
+		"descriptionFr": "(MTO) Sud de l\u0027autoroute 417 entre l\u0027autoroute 416 et le chemin Richmond",
+		"number": 11,
+		"id": 157,
+		"latitude": 45.344907,
+		"longitude": -75.807794,
+		"description": "(MTO) South of Hwy 417 between Hwy 416 and Richmond Rd"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Promenade de l\u0027Aéroport et Uplands",
+		"number": 176,
+		"id": 229,
+		"latitude": 45.329167,
+		"longitude": -75.653535,
+		"description": "Airport Parkway \u0026 Uplands"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Albert et Booth",
+		"number": 43,
+		"id": 34,
+		"latitude": 45.412903,
+		"longitude": -75.712646,
+		"description": "Albert \u0026 Booth"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Albert et Lyon",
+		"number": 41,
+		"id": 55,
+		"latitude": 45.418135,
+		"longitude": -75.704411,
+		"description": "Albert \u0026 Lyon"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Albert et O\u0027Connor",
+		"number": 42,
+		"id": 56,
+		"latitude": 45.420842,
+		"longitude": -75.698319,
+		"description": "Albert \u0026 O\u0027Connor"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Albert et Preston",
+		"number": 78,
+		"id": 121,
+		"latitude": 45.411434,
+		"longitude": -75.716046,
+		"description": "Albert \u0026 Preston"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Albion et Leitrim",
+		"number": 222,
+		"id": 283,
+		"latitude": 45.320368,
+		"longitude": -75.623688,
+		"description": "Albion \u0026 Leitrim"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Albion et Lester",
+		"number": 129,
+		"id": 177,
+		"latitude": 45.337714,
+		"longitude": -75.633703,
+		"description": "Albion \u0026 Lester"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Alexander-Taché/Laurier et Eddy",
+		"number": 55,
+		"id": 69,
+		"latitude": 45.424711,
+		"longitude": -75.719782,
+		"description": "Alexander-Tache/Laurier \u0026 Eddy"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Algonquin et Woodroffe",
+		"number": 170,
+		"id": 223,
+		"latitude": 45.346946,
+		"longitude": -75.759517,
+		"description": "Algonquin \u0026 Woodroffe"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Alta Vista et Heron",
+		"number": 194,
+		"id": 266,
+		"latitude": 45.378957,
+		"longitude": -75.661199,
+		"description": "Alta Vista \u0026 Heron"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Alta Vista et Industrial",
+		"number": 221,
+		"id": 279,
+		"latitude": 45.411783,
+		"longitude": -75.655718,
+		"description": "Alta Vista \u0026 Industrial"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Altavista et Smyth",
+		"number": 21,
+		"id": 236,
+		"latitude": 45.398574,
+		"longitude": -75.661672,
+		"description": "Altavista \u0026 Smyth"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Promenade Aviation et Ogilvie",
+		"number": 116,
+		"id": 185,
+		"latitude": 45.427972,
+		"longitude": -75.627022,
+		"description": "Aviation Parkway \u0026 Ogilvie"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Bank et Aylmer (Pont de la rue Bank)",
+		"number": 27,
+		"id": 46,
+		"latitude": 45.396207,
+		"longitude": -75.684482,
+		"description": "Bank \u0026 Aylmer (Bank St. Bridge)"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Bank et Catherine",
+		"number": 104,
+		"id": 149,
+		"latitude": 45.409527,
+		"longitude": -75.692079,
+		"description": "Bank \u0026 Catherine"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Bank et Chamberlain",
+		"number": 151,
+		"id": 204,
+		"latitude": 45.408486,
+		"longitude": -75.691488,
+		"description": "Bank \u0026 Chamberlain"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Bank et Fifth",
+		"number": 189,
+		"id": 206,
+		"latitude": 45.401661,
+		"longitude": -75.687592,
+		"description": "Bank \u0026 Fifth"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Bank et Findlay Creek",
+		"number": 144,
+		"id": 200,
+		"latitude": 45.320479,
+		"longitude": -75.593787,
+		"description": "Bank \u0026 Findlay Creek"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Bank et First",
+		"number": 152,
+		"id": 205,
+		"latitude": 45.404422,
+		"longitude": -75.68915,
+		"description": "Bank \u0026 First"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Bank et Gladstone",
+		"number": 103,
+		"id": 148,
+		"latitude": 45.41219,
+		"longitude": -75.693599,
+		"description": "Bank \u0026 Gladstone"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Bank et Heron",
+		"number": 81,
+		"id": 124,
+		"latitude": 45.378576,
+		"longitude": -75.667528,
+		"description": "Bank \u0026 Heron"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Bank et Hunt Club",
+		"number": 16,
+		"id": 50,
+		"latitude": 45.353713,
+		"longitude": -75.647382,
+		"description": "Bank \u0026 Hunt Club"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Bank et Laurier",
+		"number": 123,
+		"id": 171,
+		"latitude": 45.418549,
+		"longitude": -75.69906,
+		"description": "Bank \u0026 Laurier"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Bank et Riverside",
+		"number": 48,
+		"id": 45,
+		"latitude": 45.388824,
+		"longitude": -75.677266,
+		"description": "Bank \u0026 Riverside"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Bank et Somerset",
+		"number": 64,
+		"id": 47,
+		"latitude": 45.41541,
+		"longitude": -75.696381,
+		"description": "Bank \u0026 Somerset"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Bank et Sunnyside",
+		"number": 223,
+		"id": 285,
+		"latitude": 45.394286,
+		"longitude": -75.683434,
+		"description": "Bank \u0026 Sunnyside"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Bank et Walkley",
+		"number": 5,
+		"id": 44,
+		"latitude": 45.370411,
+		"longitude": -75.663325,
+		"description": "Bank \u0026 Walkley"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Bank et Wellington",
+		"number": 39,
+		"id": 48,
+		"latitude": 45.421802,
+		"longitude": -75.701927,
+		"description": "Bank \u0026 Wellington"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Bankfield et Prince of Wales",
+		"number": 99,
+		"id": 144,
+		"latitude": 45.21803,
+		"longitude": -75.715887,
+		"description": "Bankfield \u0026 Prince of Wales"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Baseline et Clyde",
+		"number": 59,
+		"id": 41,
+		"latitude": 45.361396,
+		"longitude": -75.739746,
+		"description": "Baseline \u0026 Clyde"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Baseline et Fisher",
+		"number": 225,
+		"id": 284,
+		"latitude": 45.371506,
+		"longitude": -75.716528,
+		"description": "Baseline \u0026 Fisher"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Baseline et Greenbank",
+		"number": 1,
+		"id": 40,
+		"latitude": 45.340963,
+		"longitude": -75.787972,
+		"description": "Baseline \u0026 Greenbank"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Baseline et Merivale",
+		"number": 52,
+		"id": 42,
+		"latitude": 45.365308,
+		"longitude": -75.730766,
+		"description": "Baseline \u0026 Merivale"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Baseline et Richmond",
+		"number": 212,
+		"id": 260,
+		"latitude": 45.33428,
+		"longitude": -75.813067,
+		"description": "Baseline \u0026 Richmond"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Baseline et Woodroffe",
+		"number": 2,
+		"id": 39,
+		"latitude": 45.351474,
+		"longitude": -75.762974,
+		"description": "Baseline \u0026 Woodroffe"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Baseline et Prince of Wales",
+		"number": 24,
+		"id": 43,
+		"latitude": 45.375121,
+		"longitude": -75.707463,
+		"description": "Baseline/Heron \u0026 Prince of Wales"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Bay et Laurier",
+		"number": 157,
+		"id": 210,
+		"latitude": 45.416144,
+		"longitude": -75.704829,
+		"description": "Bay \u0026 Laurier"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Bay et Slater",
+		"number": 112,
+		"id": 181,
+		"latitude": 45.416897,
+		"longitude": -75.705492,
+		"description": "Bay \u0026 Slater"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Bay et Wellington",
+		"number": 180,
+		"id": 233,
+		"latitude": 45.419357,
+		"longitude": -75.70764,
+		"description": "Bay \u0026 Wellington"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Bayshore et Carling",
+		"number": 132,
+		"id": 189,
+		"latitude": 45.353714,
+		"longitude": -75.80821,
+		"description": "Bayshore \u0026 Carling"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Bayshore et Richmond",
+		"number": 60,
+		"id": 38,
+		"latitude": 45.348111,
+		"longitude": -75.803526,
+		"description": "Bayshore \u0026 Richmond"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Bayview et Scott",
+		"number": 242,
+		"id": 318,
+		"latitude": 45.407942,
+		"longitude": -75.724333,
+		"description": "Bayview \u0026 Scott"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Beechwood/St. Patrick et Vanier",
+		"number": 100,
+		"id": 145,
+		"latitude": 45.438362,
+		"longitude": -75.677779,
+		"description": "Beechwood/St. Patrick \u0026 Vanier"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Belfast et St. Laurent",
+		"number": 8,
+		"id": 37,
+		"latitude": 45.411858,
+		"longitude": -75.630376,
+		"description": "Belfast \u0026 St. Laurent"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Belfast et Trainyards",
+		"number": 118,
+		"id": 187,
+		"latitude": 45.414939,
+		"longitude": -75.642914,
+		"description": "Belfast \u0026 Trainyards"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Besserer et Waller",
+		"number": 184,
+		"id": 237,
+		"latitude": 45.426742,
+		"longitude": -75.688348,
+		"description": "Besserer \u0026 Waller"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Blair et Innes",
+		"number": 6,
+		"id": 36,
+		"latitude": 45.419344,
+		"longitude": -75.595636,
+		"description": "Blair \u0026 Innes"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Blair et Ogilvie",
+		"number": 73,
+		"id": 35,
+		"latitude": 45.435277,
+		"longitude": -75.609058,
+		"description": "Blair \u0026 Ogilvie"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Booth et Promenade Sir-John-A.-Macdonald",
+		"number": 49,
+		"id": 33,
+		"latitude": 45.416354,
+		"longitude": -75.714726,
+		"description": "Booth \u0026 Sir John A. Macdonald Parkway"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Booth et Somerset",
+		"number": 97,
+		"id": 141,
+		"latitude": 45.409487,
+		"longitude": -75.71057,
+		"description": "Booth \u0026 Somerset"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Boteler et Sussex",
+		"number": 214,
+		"id": 276,
+		"latitude": 45.433891,
+		"longitude": -75.699255,
+		"description": "Boteler \u0026 Sussex"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Bridge et Manotick Main",
+		"number": 98,
+		"id": 143,
+		"latitude": 45.226445,
+		"longitude": -75.686249,
+		"description": "Bridge \u0026 Manotick Main"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Bridge/Mitch Owens et River",
+		"number": 136,
+		"id": 192,
+		"latitude": 45.23391,
+		"longitude": -75.675958,
+		"description": "Bridge/Mitch Owens \u0026 River"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Bridle Path/Daze et Hunt Club",
+		"number": 139,
+		"id": 195,
+		"latitude": 45.351548,
+		"longitude": -75.651438,
+		"description": "Bridle Path/Daze \u0026 Hunt Club"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Bronson et Carling",
+		"number": 4,
+		"id": 51,
+		"latitude": 45.401101,
+		"longitude": -75.699733,
+		"description": "Bronson \u0026 Carling"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Bronson et Catherine",
+		"number": 177,
+		"id": 230,
+		"latitude": 45.40538,
+		"longitude": -75.702141,
+		"description": "Bronson \u0026 Catherine"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Bronson et Gladstone",
+		"number": 165,
+		"id": 219,
+		"latitude": 45.407876,
+		"longitude": -75.703676,
+		"description": "Bronson \u0026 Gladstone"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Bronson et Heron",
+		"number": 85,
+		"id": 128,
+		"latitude": 45.37731,
+		"longitude": -75.684949,
+		"description": "Bronson \u0026 Heron"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Bronson et Laurier",
+		"number": 44,
+		"id": 52,
+		"latitude": 45.414919,
+		"longitude": -75.707774,
+		"description": "Bronson \u0026 Laurier"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Bronson et Somerset",
+		"number": 187,
+		"id": 240,
+		"latitude": 45.411471,
+		"longitude": -75.705777,
+		"description": "Bronson \u0026 Somerset"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Bronson et Sunnyside",
+		"number": 171,
+		"id": 225,
+		"latitude": 45.389932,
+		"longitude": -75.693852,
+		"description": "Bronson \u0026 Sunnyside"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Brookfield/Hog\u0027s Back et Riverside",
+		"number": 69,
+		"id": 77,
+		"latitude": 45.373071,
+		"longitude": -75.690942,
+		"description": "Brookfield/Hog\u0027s Back \u0026 Riverside"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Campeau et March",
+		"number": 28,
+		"id": 116,
+		"latitude": 45.32254,
+		"longitude": -75.88714,
+		"description": "Campeau \u0026 March"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Campeau et Terry Fox",
+		"number": 126,
+		"id": 174,
+		"latitude": 45.30959,
+		"longitude": -75.917772,
+		"description": "Campeau \u0026 Terry Fox"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Carling et Churchill",
+		"number": 160,
+		"id": 214,
+		"latitude": 45.380501,
+		"longitude": -75.746936,
+		"description": "Carling \u0026 Churchill"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Carling et Holland",
+		"number": 62,
+		"id": 58,
+		"latitude": 45.38955,
+		"longitude": -75.725785,
+		"description": "Carling \u0026 Holland"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Carling et Kirkwood (Nord)",
+		"number": 68,
+		"id": 59,
+		"latitude": 45.384871,
+		"longitude": -75.740477,
+		"description": "Carling \u0026 Kirkwood (North)"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Carling et Kirkwood (Sud)",
+		"number": 158,
+		"id": 211,
+		"latitude": 45.383474,
+		"longitude": -75.739512,
+		"description": "Carling \u0026 Kirkwood (South)"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Carling et Maitland",
+		"number": 66,
+		"id": 60,
+		"latitude": 45.375881,
+		"longitude": -75.757624,
+		"description": "Carling \u0026 Maitland"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Carling et Merivale",
+		"number": 63,
+		"id": 61,
+		"latitude": 45.386725,
+		"longitude": -75.732658,
+		"description": "Carling \u0026 Merivale"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Carling et Pinecrest",
+		"number": 29,
+		"id": 62,
+		"latitude": 45.359398,
+		"longitude": -75.7953,
+		"description": "Carling \u0026 Pinecrest"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Carling et Preston",
+		"number": 93,
+		"id": 136,
+		"latitude": 45.397551,
+		"longitude": -75.707692,
+		"description": "Carling \u0026 Preston"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Carling et Transitway",
+		"number": 149,
+		"id": 203,
+		"latitude": 45.365768,
+		"longitude": -75.780776,
+		"description": "Carling \u0026 Transitway"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Carling et Woodroffe",
+		"number": 67,
+		"id": 63,
+		"latitude": 45.369212,
+		"longitude": -75.772802,
+		"description": "Carling \u0026 Woodroffe"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Carp et Hazeldean",
+		"number": 125,
+		"id": 173,
+		"latitude": 45.267755,
+		"longitude": -75.939204,
+		"description": "Carp \u0026 Hazeldean"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Carp et Autoroute 417",
+		"number": 134,
+		"id": 191,
+		"latitude": 45.282034,
+		"longitude": -75.95848,
+		"description": "Carp \u0026 Highway 417"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Castlefrank et Hazeldean",
+		"number": 192,
+		"id": 247,
+		"latitude": 45.297433,
+		"longitude": -75.889543,
+		"description": "Castlefrank \u0026 Hazeldean"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Cathering et Kent",
+		"number": 179,
+		"id": 232,
+		"latitude": 45.408836,
+		"longitude": -75.693728,
+		"description": "Catherine \u0026 Kent"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Catherine et Metcalfe",
+		"number": 161,
+		"id": 215,
+		"latitude": 45.411437,
+		"longitude": -75.687522,
+		"description": "Catherine \u0026 Metcalfe"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Catherine et O\u0027Connor",
+		"number": 213,
+		"id": 282,
+		"latitude": 45.410625,
+		"longitude": -75.689427,
+		"description": "Catherine \u0026 O\u0027Connor"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Cedarview et Hunt Club",
+		"number": 88,
+		"id": 134,
+		"latitude": 45.313796,
+		"longitude": -75.79963,
+		"description": "Cedarview \u0026  Hunt Club"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Autoroute 174 et Champlain",
+		"number": 197,
+		"id": 243,
+		"latitude": 45.479437,
+		"longitude": -75.517715,
+		"description": "Champlain \u0026 Highway 174"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Chapel et Rideau",
+		"number": 190,
+		"id": 242,
+		"latitude": 45.430816,
+		"longitude": -75.680901,
+		"description": "Chapel \u0026 Rideau"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Charlotte et Rideau",
+		"number": 94,
+		"id": 138,
+		"latitude": 45.432745,
+		"longitude": -75.676212,
+		"description": "Charlotte \u0026 Rideau"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Churchill et Richmond",
+		"number": 124,
+		"id": 172,
+		"latitude": 45.392155,
+		"longitude": -75.753809,
+		"description": "Churchill \u0026 Richmond"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Clegg et Colonel By",
+		"number": 241,
+		"id": 319,
+		"latitude": 45.40467,
+		"longitude": -75.680282,
+		"description": "Clegg \u0026 Colonel By"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Conroy et Walkley",
+		"number": 23,
+		"id": 65,
+		"latitude": 45.383718,
+		"longitude": -75.630466,
+		"description": "Conroy \u0026 Walkley"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Corkstown et Moodie",
+		"number": 20,
+		"id": 66,
+		"latitude": 45.3429,
+		"longitude": -75.842285,
+		"description": "Corkstown \u0026 Moodie"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Coventry/Ogilvie et St. Laurent",
+		"number": 57,
+		"id": 67,
+		"latitude": 45.424229,
+		"longitude": -75.637306,
+		"description": "Coventry/Ogilvie \u0026 St. Laurent"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Cumberland et Laurier",
+		"number": 206,
+		"id": 255,
+		"latitude": 45.424559,
+		"longitude": -75.684734,
+		"description": "Cumberland \u0026 Laurier"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Cumberland et Murray",
+		"number": 96,
+		"id": 140,
+		"latitude": 45.431192,
+		"longitude": -75.690084,
+		"description": "Cumberland \u0026 Murray"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Cummings et Ogilvie",
+		"number": 147,
+		"id": 277,
+		"latitude": 45.426016,
+		"longitude": -75.631685,
+		"description": "Cummings \u0026 Ogilvie"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Cyrville et Innes",
+		"number": 146,
+		"id": 244,
+		"latitude": 45.416489,
+		"longitude": -75.602432,
+		"description": "Cyrville \u0026 Innes"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Dalhousie et Murray",
+		"number": 185,
+		"id": 238,
+		"latitude": 45.430288,
+		"longitude": -75.692304,
+		"description": "Dalhousie \u0026 Murray"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Dalhousie et Rideau",
+		"number": 107,
+		"id": 152,
+		"latitude": 45.427129,
+		"longitude": -75.689662,
+		"description": "Dalhousie \u0026 Rideau"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Donald et St. Laurent",
+		"number": 195,
+		"id": 269,
+		"latitude": 45.428871,
+		"longitude": -75.640021,
+		"description": "Donald \u0026 St. Laurent"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Eagleson et Hazeldean/Robertson",
+		"number": 3,
+		"id": 68,
+		"latitude": 45.304052,
+		"longitude": -75.876786,
+		"description": "Eagleson \u0026 Hazeldean/Robertson"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Eagleson et Katimavik/Timm",
+		"number": 178,
+		"id": 231,
+		"latitude": 45.314348,
+		"longitude": -75.882488,
+		"description": "Eagleson \u0026 Katimavik/Timm"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Eagleson et Michael Cowpland/Stonehaven",
+		"number": 191,
+		"id": 248,
+		"latitude": 45.28788,
+		"longitude": -75.867925,
+		"description": "Eagleson \u0026 Michael Cowpland/Stonehaven"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Earl Armstrong et Limebank",
+		"number": 142,
+		"id": 198,
+		"latitude": 45.28054,
+		"longitude": -75.666913,
+		"description": "Earl Armstrong \u0026 Limebank"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Earl Armstrong et River",
+		"number": 143,
+		"id": 199,
+		"latitude": 45.269284,
+		"longitude": -75.699937,
+		"description": "Earl Armstrong \u0026 River"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Earl Grey et Kanata",
+		"number": 110,
+		"id": 155,
+		"latitude": 45.312028,
+		"longitude": -75.911428,
+		"description": "Earl Grey \u0026 Kanata "
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Elgin et Gladstone",
+		"number": 216,
+		"id": 273,
+		"latitude": 45.414645,
+		"longitude": -75.68754,
+		"description": "Elgin \u0026 Gladstone"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Elgin et Laurier",
+		"number": 35,
+		"id": 70,
+		"latitude": 45.421115,
+		"longitude": -75.692977,
+		"description": "Elgin \u0026 Laurier"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Elgin et Pretoria/Queen Elizabeth",
+		"number": 54,
+		"id": 71,
+		"latitude": 45.411373,
+		"longitude": -75.684054,
+		"description": "Elgin \u0026 Pretoria/Queen Elizabeth"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Elgin et Queen",
+		"number": 34,
+		"id": 104,
+		"latitude": 45.423239,
+		"longitude": -75.694817,
+		"description": "Elgin \u0026 Queen"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Fallowfield et Greenbank",
+		"number": 61,
+		"id": 74,
+		"latitude": 45.288122,
+		"longitude": -75.756975,
+		"description": "Fallowfield \u0026 Greenbank"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Fallowfield et Merivale",
+		"number": 15,
+		"id": 72,
+		"latitude": 45.30679,
+		"longitude": -75.708194,
+		"description": "Fallowfield \u0026 Merivale"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Fallowfield \u0026 Prince of Wales",
+		"number": 226,
+		"id": 296,
+		"latitude": 45.309605,
+		"longitude": -75.701653,
+		"description": "Fallowfield \u0026 Prince of Wales"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Fallowfield et Transitway",
+		"number": 148,
+		"id": 202,
+		"latitude": 45.29537,
+		"longitude": -75.739208,
+		"description": "Fallowfield \u0026 Transitway"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Fallowfield et Woodroffe",
+		"number": 9,
+		"id": 73,
+		"latitude": 45.298554,
+		"longitude": -75.731226,
+		"description": "Fallowfield \u0026 Woodroffe"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Fifth et promenade Reine-Élizabeth ",
+		"number": 218,
+		"id": 281,
+		"latitude": 45.40396,
+		"longitude": -75.681997,
+		"description": "Fifth and Queens Elizabeth Driveway"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Fisher et Meadowlands",
+		"number": 167,
+		"id": 221,
+		"latitude": 45.362648,
+		"longitude": -75.711412,
+		"description": "Fisher \u0026 Meadowlands"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Foxfield \u0026 Greenbank",
+		"number": 233,
+		"id": 288,
+		"latitude": 45.283267,
+		"longitude": -75.754104,
+		"description": "Foxfield \u0026 Greenbank"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Gilligan et Leitrim",
+		"number": 153,
+		"id": 265,
+		"latitude": 45.317358,
+		"longitude": -75.630413,
+		"description": "Gilligan \u0026 Leitrim"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Gladstone et Preston",
+		"number": 101,
+		"id": 146,
+		"latitude": 45.404626,
+		"longitude": -75.711937,
+		"description": "Gladstone \u0026 Preston"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Greenbank et Berrigan/Wessex",
+		"number": 74,
+		"id": 115,
+		"latitude": 45.274935,
+		"longitude": -75.748987,
+		"description": "Greenbank \u0026 Berrigan/Wessex"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Greenbank et Hunt Club",
+		"number": 90,
+		"id": 133,
+		"latitude": 45.322147,
+		"longitude": -75.777009,
+		"description": "Greenbank \u0026 Hunt Club"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Greenbank et Iris",
+		"number": 150,
+		"id": 212,
+		"latitude": 45.347601,
+		"longitude": -75.788774,
+		"description": "Greenbank \u0026 Iris"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Greenbank et Strandherd",
+		"number": 120,
+		"id": 168,
+		"latitude": 45.270529,
+		"longitude": -75.746377,
+		"description": "Greenbank \u0026 Strandherd"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Greenfield et Main",
+		"number": 228,
+		"id": 295,
+		"latitude": 45.414348,
+		"longitude": -75.681108,
+		"description": "Greenfield \u0026 Main"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Hawthorne et Hunt Club",
+		"number": 117,
+		"id": 186,
+		"latitude": 45.374033,
+		"longitude": -75.597258,
+		"description": "Hawthorne \u0026 Hunt Club"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Hawthorne et Main",
+		"number": 229,
+		"id": 294,
+		"latitude": 45.412719,
+		"longitude": -75.680142,
+		"description": "Hawthorne \u0026 Main"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Hazeldean et Huntmar",
+		"number": 127,
+		"id": 175,
+		"latitude": 45.283089,
+		"longitude": -75.911772,
+		"description": "Hazeldean \u0026 Huntmar"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Hazeldean et Stittsville Main",
+		"number": 119,
+		"id": 188,
+		"latitude": 45.272394,
+		"longitude": -75.929655,
+		"description": "Hazeldean \u0026 Stittsville Main"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Hazeldean et Terry Fox",
+		"number": 32,
+		"id": 75,
+		"latitude": 45.293498,
+		"longitude": -75.895678,
+		"description": "Hazeldean \u0026 Terry Fox"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Heron et Riverside",
+		"number": 193,
+		"id": 246,
+		"latitude": 45.376832,
+		"longitude": -75.691477,
+		"description": "Heron \u0026 Riverside"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Autoroute 174 et Cameron",
+		"number": 145,
+		"id": 190,
+		"latitude": 45.518277,
+		"longitude": -75.41121,
+		"description": "Highway 174 \u0026 Cameron"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Autoroute 174 et Jeanne D\u0027Arc",
+		"number": 198,
+		"id": 245,
+		"latitude": 45.468985,
+		"longitude": -75.545787,
+		"description": "Highway 174 \u0026 Jeanne D\u0027Arc"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Autoroute 174 et Trim",
+		"number": 72,
+		"id": 85,
+		"latitude": 45.495197,
+		"longitude": -75.482157,
+		"description": "Highway 174 \u0026 Trim"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Autoroute 174 à l\u0027est du chemin Blair",
+		"number": 200,
+		"id": 251,
+		"latitude": 45.435084,
+		"longitude": -75.598764,
+		"description": "Highway 174 east of Blair"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Autoroute 174 à l\u0027est du chemin Montréal",
+		"number": 199,
+		"id": 252,
+		"latitude": 45.455385,
+		"longitude": -75.580482,
+		"description": "Highway 174 east of Montreal"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Autoroute 174 à l\u0027ouest du chemin Blair",
+		"number": 201,
+		"id": 250,
+		"latitude": 45.428041,
+		"longitude": -75.612116,
+		"description": "Highway 174 west of Blair"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Autoroute 417 et Kanata",
+		"number": 45,
+		"id": 118,
+		"latitude": 45.311453,
+		"longitude": -75.902921,
+		"description": "Highway 417 \u0026 Kanata"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Autoroute 417 et Pinecrest",
+		"number": 70,
+		"id": 88,
+		"latitude": 45.350843,
+		"longitude": -75.790593,
+		"description": "Highway 417 \u0026 Pinecrest"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Autoroute 417 et Vanier",
+		"number": 80,
+		"id": 123,
+		"latitude": 45.41936,
+		"longitude": -75.656744,
+		"description": "Highway 417 \u0026 Vanier"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Autoroute 417 et Woodroffe",
+		"number": 181,
+		"id": 234,
+		"latitude": 45.359845,
+		"longitude": -75.767576,
+		"description": "Highway 417 \u0026 Woodroffe"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Autoroute 417 (Est) et Innes",
+		"number": 30,
+		"id": 87,
+		"latitude": 45.413297,
+		"longitude": -75.612127,
+		"description": "Highway 417 (East) \u0026 Innes"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Autoroute 417 (Est) et Maitland",
+		"number": 164,
+		"id": 218,
+		"latitude": 45.36946,
+		"longitude": -75.754073,
+		"description": "Highway 417 (East) \u0026 Maitland"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Autoroute 417 (Est) et St Laurent",
+		"number": 238,
+		"id": 298,
+		"latitude": 45.419283,
+		"longitude": -75.63459,
+		"description": "Highway 417 (East) \u0026 St Laurent"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Autoroute 417 (Ouest) et Innes",
+		"number": 237,
+		"id": 291,
+		"latitude": 45.414744,
+		"longitude": -75.607679,
+		"description": "Highway 417 (West) \u0026 Innes"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Autoroute 417 (Ouest) et Maitland",
+		"number": 186,
+		"id": 239,
+		"latitude": 45.371317,
+		"longitude": -75.75512,
+		"description": "Highway 417 (West) \u0026 Maitland"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Holland et Scott",
+		"number": 114,
+		"id": 183,
+		"latitude": 45.40375,
+		"longitude": -75.734321,
+		"description": "Holland \u0026 Scott"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Holland et Wellington",
+		"number": 182,
+		"id": 235,
+		"latitude": 45.399755,
+		"longitude": -75.731937,
+		"description": "Holland \u0026 Wellington"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Holly Acres/Nanaimo et Richmond",
+		"number": 89,
+		"id": 131,
+		"latitude": 45.342597,
+		"longitude": -75.807631,
+		"description": "Holly Acres/Nanaimo \u0026 Richmond"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Hunt Club et Promenade de l\u0027Aéroport",
+		"number": 17,
+		"id": 79,
+		"latitude": 45.350134,
+		"longitude": -75.654939,
+		"description": "Hunt Club \u0026 Airport Parkway"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Hunt Club et Knoxdale",
+		"number": 156,
+		"id": 209,
+		"latitude": 45.322846,
+		"longitude": -75.77215,
+		"description": "Hunt Club \u0026 Knoxdale"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Hunt Club et Lowes",
+		"number": 203,
+		"id": 268,
+		"latitude": 45.339249,
+		"longitude": -75.713611,
+		"description": "Hunt Club \u0026 Lowes"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Hunt Club et Merivale",
+		"number": 22,
+		"id": 82,
+		"latitude": 45.334749,
+		"longitude": -75.724039,
+		"description": "Hunt Club \u0026 Merivale"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Hunt Club et Prince of Wales",
+		"number": 11,
+		"id": 81,
+		"latitude": 45.334235,
+		"longitude": -75.70055,
+		"description": "Hunt Club \u0026 Prince of Wales"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Hunt Club et Riverside",
+		"number": 19,
+		"id": 80,
+		"latitude": 45.334617,
+		"longitude": -75.693139,
+		"description": "Hunt Club \u0026 Riverside"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Hunt Club et Uplands",
+		"number": 219,
+		"id": 271,
+		"latitude": 45.344997,
+		"longitude": -75.665932,
+		"description": "Hunt Club \u0026 Uplands"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Hunt Club et Woodroffe",
+		"number": 12,
+		"id": 83,
+		"latitude": 45.328782,
+		"longitude": -75.748975,
+		"description": "Hunt Club \u0026 Woodroffe"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Industrial et Riverside",
+		"number": 131,
+		"id": 201,
+		"latitude": 45.412186,
+		"longitude": -75.658399,
+		"description": "Industrial \u0026 Riverside"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Industrial et Trainyards",
+		"number": 204,
+		"id": 278,
+		"latitude": 45.411587,
+		"longitude": -75.645504,
+		"description": "Industrial \u0026 Trainyards"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Innes et Bearbrook",
+		"number": 208,
+		"id": 259,
+		"latitude": 45.431719,
+		"longitude": -75.564458,
+		"description": "Innes \u0026 Bearbrook"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Innes et rocade de Blackburn Bypass",
+		"number": 215,
+		"id": 264,
+		"latitude": 45.425639,
+		"longitude": -75.575037,
+		"description": "Innes \u0026 Blackburn Hamlet Bypass"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Innes et Jeanne D\u0027Arc",
+		"number": 82,
+		"id": 125,
+		"latitude": 45.455703,
+		"longitude": -75.504788,
+		"description": "Innes \u0026 Jeanne D\u0027Arc"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Innes et Orléans",
+		"number": 71,
+		"id": 91,
+		"latitude": 45.444451,
+		"longitude": -75.532775,
+		"description": "Innes \u0026 Orleans"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Innes et Tenth Line",
+		"number": 77,
+		"id": 120,
+		"latitude": 45.460854,
+		"longitude": -75.487759,
+		"description": "Innes \u0026 Tenth Line "
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Innes/Industrial et St. Laurent",
+		"number": 14,
+		"id": 90,
+		"latitude": 45.406627,
+		"longitude": -75.627473,
+		"description": "Innes/Industrial \u0026 St. Laurent"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Iris et Woodroffe",
+		"number": 84,
+		"id": 127,
+		"latitude": 45.357563,
+		"longitude": -75.766298,
+		"description": "Iris \u0026 Woodroffe"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Isabella et Metcalfe",
+		"number": 162,
+		"id": 216,
+		"latitude": 45.410609,
+		"longitude": -75.68679,
+		"description": "Isabella \u0026 Metcalfe"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Island Park et Scott",
+		"number": 113,
+		"id": 182,
+		"latitude": 45.398829,
+		"longitude": -75.745958,
+		"description": "Island Park \u0026 Scott"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Island Park et Promenade Sir-John-A.-Macdonald",
+		"number": 47,
+		"id": 95,
+		"latitude": 45.40256,
+		"longitude": -75.752816,
+		"description": "Island Park \u0026 Sir John A. Macdonald Parkway"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Jeanne D\u0027Arc et St Joseph",
+		"number": 135,
+		"id": 180,
+		"latitude": 45.464164,
+		"longitude": -75.540112,
+		"description": "Jeanne D\u0027Arc \u0026 St Joseph"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Katimavik/Palladium et Terry Fox",
+		"number": 53,
+		"id": 96,
+		"latitude": 45.302036,
+		"longitude": -75.907514,
+		"description": "Katimavik/Palladium \u0026 Terry Fox"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Kent et Queen",
+		"number": 217,
+		"id": 267,
+		"latitude": 45.41965,
+		"longitude": -75.7029,
+		"description": "Kent \u0026 Queen"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Kent et Slater",
+		"number": 46,
+		"id": 323,
+		"latitude": 45.418445,
+		"longitude": -75.701901,
+		"description": "Kent \u0026 Slater"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "King Edward et Laurier",
+		"number": 95,
+		"id": 139,
+		"latitude": 45.425358,
+		"longitude": -75.682877,
+		"description": "King Edward \u0026 Laurier"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "King Edward et Mann",
+		"number": 130,
+		"id": 178,
+		"latitude": 45.419011,
+		"longitude": -75.677358,
+		"description": "King Edward \u0026 Mann"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "King Edward et Rideau",
+		"number": 38,
+		"id": 98,
+		"latitude": 45.428792,
+		"longitude": -75.685726,
+		"description": "King Edward \u0026 Rideau"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "King Edward et St. Patrick",
+		"number": 65,
+		"id": 99,
+		"latitude": 45.432537,
+		"longitude": -75.688987,
+		"description": "King Edward \u0026 St. Patrick"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "King Edward et Sussex",
+		"number": 51,
+		"id": 100,
+		"latitude": 45.438595,
+		"longitude": -75.696484,
+		"description": "King Edward \u0026 Sussex"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Kirkwood et Richmond",
+		"number": 31,
+		"id": 101,
+		"latitude": 45.395238,
+		"longitude": -75.746702,
+		"description": "Kirkwood \u0026 Richmond"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Klondike et March",
+		"number": 138,
+		"id": 194,
+		"latitude": 45.355101,
+		"longitude": -75.932468,
+		"description": "Klondike \u0026 March"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Knoxdale et Woodroffe",
+		"number": 18,
+		"id": 102,
+		"latitude": 45.333918,
+		"longitude": -75.752092,
+		"description": "Knoxdale \u0026 Woodroffe"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Lansdowne",
+		"number": 188,
+		"id": 241,
+		"latitude": 45.39882,
+		"longitude": -75.68596,
+		"description": "Lansdowne"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Laurier et Nicholas",
+		"number": 36,
+		"id": 103,
+		"latitude": 45.423329,
+		"longitude": -75.687542,
+		"description": "Laurier \u0026 Nicholas"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Laurier et O\u0027Connor",
+		"number": 163,
+		"id": 217,
+		"latitude": 45.419401,
+		"longitude": -75.697084,
+		"description": "Laurier \u0026 O\u0027Connor"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Laurier et Le Transitway",
+		"number": 202,
+		"id": 254,
+		"latitude": 45.423764,
+		"longitude": -75.686531,
+		"description": "Laurier \u0026 Transitway"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Leitrim et Limebank",
+		"number": 91,
+		"id": 132,
+		"latitude": 45.297856,
+		"longitude": -75.676851,
+		"description": "Leitrim \u0026 Limebank"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Lemieux \u0026 St Laurent",
+		"number": 236,
+		"id": 290,
+		"latitude": 45.422332,
+		"longitude": -75.636288,
+		"description": "Lemieux \u0026 St Laurent"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Limebank et River",
+		"number": 86,
+		"id": 129,
+		"latitude": 45.321357,
+		"longitude": -75.688692,
+		"description": "Limebank \u0026 River"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Station Lincoln Fields et Promenade Sir-John-A.-Macdonald",
+		"number": 108,
+		"id": 153,
+		"latitude": 45.367224,
+		"longitude": -75.783457,
+		"description": "Lincoln Fields Station \u0026 Sir John A. Macdonald Parkway"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Longfields et Strandherd",
+		"number": 79,
+		"id": 114,
+		"latitude": 45.27397,
+		"longitude": -75.738475,
+		"description": "Longfields \u0026 Strandherd"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Mackenzie et Waller",
+		"number": 37,
+		"id": 105,
+		"latitude": 45.424997,
+		"longitude": -75.68768,
+		"description": "Mackenzie \u0026 Waller"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Main et Lees",
+		"number": 211,
+		"id": 261,
+		"latitude": 45.41205,
+		"longitude": -75.67975,
+		"description": "Main \u0026 Lees"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Main et Riverdale",
+		"number": 230,
+		"id": 292,
+		"latitude": 45.402755,
+		"longitude": -75.674418,
+		"description": "Main \u0026 Riverdale"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "March et Maxwell Bridge/Old Carp",
+		"number": 140,
+		"id": 196,
+		"latitude": 45.358362,
+		"longitude": -75.936675,
+		"description": "March \u0026 Maxwell Bridge/Old Carp"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "March et Terry Fox",
+		"number": 137,
+		"id": 193,
+		"latitude": 45.34913,
+		"longitude": -75.92492,
+		"description": "March \u0026 Terry Fox"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Meadowlands et Merivale",
+		"number": 92,
+		"id": 135,
+		"latitude": 45.350905,
+		"longitude": -75.733533,
+		"description": "Meadowlands \u0026 Merivale"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Meadowlands/Hog\u0027s Back et  Prince of Wales",
+		"number": 105,
+		"id": 150,
+		"latitude": 45.368409,
+		"longitude": -75.701215,
+		"description": "Meadowlands/Hog\u0027s Back \u0026  Prince of Wales"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Meadowlands/Tallwood et Woodroffe",
+		"number": 25,
+		"id": 112,
+		"latitude": 45.342067,
+		"longitude": -75.756682,
+		"description": "Meadowlands/Tallwood \u0026 Woodroffe"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Merivale et Slack",
+		"number": 155,
+		"id": 208,
+		"latitude": 45.325897,
+		"longitude": -75.719037,
+		"description": "Merivale \u0026 Slack"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Merivale et Viewmount",
+		"number": 166,
+		"id": 220,
+		"latitude": 45.343879,
+		"longitude": -75.729333,
+		"description": "Merivale \u0026 Viewmount"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Metcalfe et Slater",
+		"number": 13,
+		"id": 108,
+		"latitude": 45.421032,
+		"longitude": -75.69584,
+		"description": "Metcalfe \u0026 Slater"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Montreal et Promenade Aviation",
+		"number": 210,
+		"id": 257,
+		"latitude": 45.443616,
+		"longitude": -75.638981,
+		"description": "Montreal \u0026 Aviation"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Montreal et Blair",
+		"number": 205,
+		"id": 256,
+		"latitude": 45.446387,
+		"longitude": -75.615292,
+		"description": "Montreal \u0026 Blair"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Montreal et Ogilvie",
+		"number": 141,
+		"id": 197,
+		"latitude": 45.447339,
+		"longitude": -75.594177,
+		"description": "Montreal \u0026 Ogilvie"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Montreal et Shefford",
+		"number": 183,
+		"id": 253,
+		"latitude": 45.450016,
+		"longitude": -75.588173,
+		"description": "Montreal \u0026 Shefford"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Montréal et St. Laurent",
+		"number": 7,
+		"id": 107,
+		"latitude": 45.441102,
+		"longitude": -75.646835,
+		"description": "Montreal \u0026 St. Laurent"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Montreal et Vanier",
+		"number": 174,
+		"id": 228,
+		"latitude": 45.434419,
+		"longitude": -75.665832,
+		"description": "Montreal \u0026 Vanier"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Moodie et Robertson",
+		"number": 83,
+		"id": 126,
+		"latitude": 45.322091,
+		"longitude": -75.833324,
+		"description": "Moodie \u0026 Robertson"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Orléans et St. Joseph",
+		"number": 10,
+		"id": 111,
+		"latitude": 45.468625,
+		"longitude": -75.530235,
+		"description": "Orleans \u0026 St. Joseph"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Parkdale et Scott",
+		"number": 243,
+		"id": 320,
+		"latitude": 45.404901,
+		"longitude": -75.731614,
+		"description": "Parkdale \u0026 Scott"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Parkdale et Wellington",
+		"number": 109,
+		"id": 154,
+		"latitude": 45.400774,
+		"longitude": -75.729137,
+		"description": "Parkdale \u0026 Wellington "
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Parkdale et Westmount",
+		"number": 128,
+		"id": 176,
+		"latitude": 45.397706,
+		"longitude": -75.727273,
+		"description": "Parkdale \u0026 Westmount"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Pinecrest et Richmond",
+		"number": 173,
+		"id": 227,
+		"latitude": 45.358022,
+		"longitude": -75.794516,
+		"description": "Pinecrest \u0026 Richmond"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Place d\u0027Orleans et St. Joseph",
+		"number": 196,
+		"id": 270,
+		"latitude": 45.474802,
+		"longitude": -75.517839,
+		"description": "Place d\u0027Orleans \u0026 St. Joseph"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Preston et Somerset",
+		"number": 169,
+		"id": 224,
+		"latitude": 45.408367,
+		"longitude": -75.714206,
+		"description": "Preston \u0026 Somerset"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Prince of Wales et Strandherd",
+		"number": 159,
+		"id": 213,
+		"latitude": 45.270372,
+		"longitude": -75.705181,
+		"description": "Prince of Wales \u0026 Strandherd"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Richmond et Woodroffe",
+		"number": 102,
+		"id": 147,
+		"latitude": 45.377535,
+		"longitude": -75.774972,
+		"description": "Richmond \u0026 Woodroffe"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Rideau et Sussex",
+		"number": 33,
+		"id": 64,
+		"latitude": 45.425489,
+		"longitude": -75.693365,
+		"description": "Rideau \u0026 Sussex"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Riocan et Strandherd",
+		"number": 122,
+		"id": 170,
+		"latitude": 45.271906,
+		"longitude": -75.743242,
+		"description": "Riocan \u0026 Strandherd"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Riverside et Tremblay",
+		"number": 172,
+		"id": 293,
+		"latitude": 45.415928,
+		"longitude": -75.656662,
+		"description": "Riverside \u0026 Tremblay"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Riverside et Walkley",
+		"number": 106,
+		"id": 151,
+		"latitude": 45.360735,
+		"longitude": -75.687946,
+		"description": "Riverside \u0026 Walkley"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Russell et Walkley",
+		"number": 26,
+		"id": 119,
+		"latitude": 45.39286,
+		"longitude": -75.607575,
+		"description": "Russell \u0026 Walkley"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Sheffield et Walkley",
+		"number": 121,
+		"id": 169,
+		"latitude": 45.395439,
+		"longitude": -75.600074,
+		"description": "Sheffield \u0026 Walkley"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Promenade Sir-John-A.-Macdonald et Vimy",
+		"number": 232,
+		"id": 286,
+		"latitude": 45.414477,
+		"longitude": -75.718374,
+		"description": "Sir John A. Macdonald Parkway \u0026 Vimy"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Promenade Sir-John-A.-Macdonald/Wellington et pont Portage",
+		"number": 40,
+		"id": 110,
+		"latitude": 45.419058,
+		"longitude": -75.711335,
+		"description": "Sir John A. Macdonald Parkway/Wellington \u0026 Portage Bridge"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Slack et Woodroffe",
+		"number": 154,
+		"id": 207,
+		"latitude": 45.317209,
+		"longitude": -75.741892,
+		"description": "Slack  \u0026 Woodroffe"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Smyth et l\u0027hôpital",
+		"number": 209,
+		"id": 258,
+		"latitude": 45.39935,
+		"longitude": -75.647875,
+		"description": "Smyth \u0026 Hospital"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Smyth et St. Laurent",
+		"number": 168,
+		"id": 222,
+		"latitude": 45.401389,
+		"longitude": -75.624198,
+		"description": "Smyth \u0026 St. Laurent"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "St. Laurent et Walkley",
+		"number": 220,
+		"id": 272,
+		"latitude": 45.38894,
+		"longitude": -75.61751,
+		"description": "St. Laurent \u0026 Walkley"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Stranherd et Woodroffe",
+		"number": 75,
+		"id": 113,
+		"latitude": 45.275825,
+		"longitude": -75.718598,
+		"description": "Strandherd \u0026 Woodroffe"
+	}, {
+		"type": "CITY",
+		"descriptionFr": "Transitway \u0026 Walkley",
+		"number": 87,
+		"id": 130,
+		"latitude": 45.369026,
+		"longitude": -75.666653,
+		"description": "Transitway \u0026 Walkley"
+	}
+]

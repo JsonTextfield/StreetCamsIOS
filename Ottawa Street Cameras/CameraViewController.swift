@@ -9,7 +9,7 @@
 import UIKit
 
 class CameraViewController: UIViewController {
-    var cam: Camera = Camera.init(name: "", id: "")
+    var cam: Camera = Camera()
     @IBOutlet var cameraImage: UIImageView!
     @IBOutlet var errorLbl: UILabel!
     
@@ -27,7 +27,7 @@ class CameraViewController: UIViewController {
         super.viewDidLoad()
         
         title = cam.name
-        url = "https://traffic.ottawa.ca/map/camera?id=\(cam.id)"
+        url = "https://traffic.ottawa.ca/map/camera?id=\(cam.num)"
         
         getSessionId()
         

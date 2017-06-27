@@ -48,7 +48,7 @@ class TableViewController: UITableViewController {
         // Won't get here until everything has finished
         
         
-        let filePath = Bundle.main.path(forResource: "ints", ofType: "json")
+        let filePath = Bundle.main.path(forResource: "camera_list", ofType: "json")
         //NSData(contentsOfFile: <#T##String#>, options: <#T##NSData.ReadingOptions#>)
         
         let data = NSData(contentsOfFile:filePath!)
@@ -57,9 +57,10 @@ class TableViewController: UITableViewController {
             
             let parsedData = try JSONSerialization.jsonObject(with: data! as Data, options: JSONSerialization.ReadingOptions.allowFragments) as! NSArray
             //let currentConditions = parsedData["currently"] as! [String:Any]
-            
+            var i = 0
             for x in parsedData{
-                let camera = Camera.init(dict: x as! [String:String])
+                i += 1
+                let camera = Camera(dict: x as! [String:AnyObject])
                 let d = camera.name.characters.first!.description
                 if self.sections[d] != nil{
                     self.sections[d]!.append(camera)
@@ -69,11 +70,13 @@ class TableViewController: UITableViewController {
                 }
 
             }
+            searchController.searchBar.placeholder = "Search from \(i) locations"
             
         } catch let error as NSError {
             print(error)
         }
         self.listView.reloadData()
+        
         
         
         // Uncomment the following line to preserve selection between presentations

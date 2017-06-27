@@ -9,13 +9,27 @@
 import Foundation
 class Camera{
     var name = ""
-    var id = ""
-    init(name:String, id:String){
-        self.name = name
-        self.id = id
+    var owner = ""
+    var nameFr = ""
+    var id = 0
+    var num = 0
+    var lat = 0.0
+    var lng = 0.0
+    
+    init(dict:[String: AnyObject]){
+        name = dict["description"] as! String
+        nameFr = dict["descriptionFr"] as! String
+        owner = dict["type"] as! String
+        num = dict["number"] as! Int
+        if owner == "MTO"{
+            num += 2000
+        }
+        id = dict["id"] as! Int
+        lat = dict["latitude"] as! Double
+        lng = dict["longitude"] as! Double
+        
     }
-    init(dict:[String: String]){
-        self.name = dict["name"]!
-        self.id = dict["id"]!
+    init(){
+    
     }
 }

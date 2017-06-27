@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iTunesArtwork@1x.png" translatesAutoresizingMaskIntoConstraints="NO" id="A3Q-lK-iz2">
+                            <imageView userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iTunesArtwork@1x.png" translatesAutoresizingMaskIntoConstraints="NO" id="A3Q-lK-iz2">
                                 <rect key="frame" x="112" y="258" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="QRJ-85-ldl"/>
