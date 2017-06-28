@@ -75,16 +75,16 @@
 				9A4507B01DFCD297001036FC /* ints.json */,
 				9A31D4471DEA85B200C90D79 /* Info.plist */,
 				9A0EC3551EFAFDFC00DF3A4D /* iTunesArtwork@1x.png */,
+				9A0EC3531EFAFC1600DF3A4D /* iTunesArtwork@3x.png */,
 				9A31D4381DEA85B200C90D79 /* AppDelegate.swift */,
 				9A79BBA21DEFF91A00E8F0AF /* Camera.swift */,
 				9A4507B31DFCE01C001036FC /* CameraViewController.swift */,
 				9A04B9261DEAAA4F00D0F07B /* ListItem.swift */,
+				9A7AA7681F02FAA300C7B5D2 /* MapViewController.swift */,
 				9A04B9281DEAABF500D0F07B /* TableViewController.swift */,
-				9A0EC3531EFAFC1600DF3A4D /* iTunesArtwork@3x.png */,
 				9A31D4421DEA85B200C90D79 /* Assets.xcassets */,
 				9A31D4441DEA85B200C90D79 /* LaunchScreen.storyboard */,
 				9A31D43C1DEA85B200C90D79 /* Main.storyboard */,
-				9A7AA7681F02FAA300C7B5D2 /* MapViewController.swift */,
 			);
 			path = "Ottawa Street Cameras";
 			sourceTree = "<group>";

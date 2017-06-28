@@ -22,9 +22,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qz5-On-Bdv">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="49q-f0-0qn">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please connect to a network and try again" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FfH-DE-P52">
                                 <rect key="frame" x="46" y="323.5" width="283" height="20.5"/>
@@ -33,25 +35,33 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Qz5-On-Bdv" secondAttribute="trailing" id="0BQ-N2-7cw"/>
                             <constraint firstItem="FfH-DE-P52" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="27i-ht-V2X"/>
                             <constraint firstItem="49q-f0-0qn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="5Sr-ja-Pdf"/>
+                            <constraint firstAttribute="bottom" secondItem="Qz5-On-Bdv" secondAttribute="bottom" id="5Te-Il-Ihs"/>
+                            <constraint firstItem="Qz5-On-Bdv" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="CX8-aM-JcH"/>
+                            <constraint firstItem="Qz5-On-Bdv" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="YuW-4b-j7s"/>
                             <constraint firstItem="49q-f0-0qn" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Z6I-Ii-K7o"/>
                             <constraint firstItem="FfH-DE-P52" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eoM-C1-IGd"/>
+                            <constraint firstItem="Qz5-On-Bdv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="fud-Cq-Z39"/>
                             <constraint firstAttribute="trailingMargin" secondItem="FfH-DE-P52" secondAttribute="trailing" constant="30" id="gfW-Zk-MsY"/>
+                            <constraint firstItem="Qz5-On-Bdv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jbe-4s-fqL"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="49q-f0-0qn" secondAttribute="bottom" id="sGZ-Uy-FH1"/>
                             <constraint firstItem="FfH-DE-P52" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="v1l-v6-yIW"/>
                             <constraint firstItem="49q-f0-0qn" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" constant="16" id="xiZ-10-R8U"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backgroundImage" destination="Qz5-On-Bdv" id="GMT-J4-4E9"/>
                         <outlet property="cameraImage" destination="49q-f0-0qn" id="GmP-Z2-06q"/>
                         <outlet property="errorLbl" destination="FfH-DE-P52" id="RCD-f9-QH2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2066" y="475"/>
+            <point key="canvasLocation" x="2068" y="663"/>
         </scene>
         <!--tableView Controller-->
         <scene sceneID="mlg-Fb-RXR">
@@ -74,7 +84,7 @@
                                             <rect key="frame" x="8" y="18" width="359" height="43.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
+                                            <color key="highlightedColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                     </subviews>
                                     <constraints>
