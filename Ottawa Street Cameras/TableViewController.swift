@@ -145,7 +145,14 @@ class TableViewController: UITableViewController {
         
         return cell
     }
+    override func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        tableView.cellForRow(at: indexPath)?.backgroundColor = UIColor.darkGray
+    }
+    override func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+        tableView.cellForRow(at: indexPath)?.backgroundColor = UIColor.black
+    }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         tableView.deselectRow(at: indexPath, animated: true)
         
         let storyboard : UIStoryboard = UIStoryboard(
@@ -160,6 +167,7 @@ class TableViewController: UITableViewController {
         }
         navigationController?.pushViewController(destination, animated: true)
     }
+
     
     /*
      // Override to support conditional editing of the table view.

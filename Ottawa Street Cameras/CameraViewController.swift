@@ -45,7 +45,7 @@ class CameraViewController: UIViewController {
         
         
         getSessionId()
-        timer = Timer.scheduledTimer(timeInterval: 0.7, target: self, selector: #selector(CameraViewController.downloadImage), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(CameraViewController.downloadImage), userInfo: nil, repeats: true)
         
     }
     func getDataFromUrl(url: URL, completion: @escaping (_ data: Data?, _  response: URLResponse?, _ error: Error?) -> Void) {
