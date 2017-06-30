@@ -37,10 +37,11 @@ class TableViewController: UITableViewController {
         searchController.searchBar.delegate = self
         definesPresentationContext = true
         searchController.dimsBackgroundDuringPresentation = false
-        searchController.searchBar.barTintColor = UIColor.black
+        searchController.searchBar.barTintColor = UIColor.clear
+        searchController.searchBar.backgroundColor = UIColor.clear
         
         tableView.tableHeaderView = searchController.searchBar
-        tableView.sectionIndexBackgroundColor = UIColor.black
+        tableView.sectionIndexBackgroundColor = UIColor.clear
         
         let v = UIView()
         v.backgroundColor = UIColor.black
@@ -50,7 +51,6 @@ class TableViewController: UITableViewController {
         
         
         let filePath = Bundle.main.path(forResource: "camera_list", ofType: "json")
-        //NSData(contentsOfFile: <#T##String#>, options: <#T##NSData.ReadingOptions#>)
         
         let data = NSData(contentsOfFile:filePath!)
         
