@@ -30,6 +30,8 @@ class TableViewController: UITableViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        cameras = CamDB.database().cameras() as! [Camera]
+        print(cameras.count)
         tableView.estimatedRowHeight = tableView.rowHeight
         tableView.rowHeight = UITableViewAutomaticDimension
         
@@ -48,9 +50,23 @@ class TableViewController: UITableViewController {
         tableView.backgroundView = v
         
         // Won't get here until everything has finished
-        
-        
-        let filePath = Bundle.main.path(forResource: "camera_list", ofType: "json")
+        var i = 0
+        for camera in cameras{
+            i += 1
+            let d = camera.name.characters.first!.description
+            if self.sections[d] != nil{
+                self.sections[d]!.append(camera)
+            }
+            else{
+                self.sections[d] = [camera]
+            }
+            
+        }
+        searchController.searchBar.placeholder = "Search from \(i) locations"
+
+        self.listView.reloadData()
+
+       /* let filePath = Bundle.main.path(forResource: "camera_list", ofType: "json")
         
         let data = NSData(contentsOfFile:filePath!)
         
@@ -77,7 +93,7 @@ class TableViewController: UITableViewController {
         } catch let error as NSError {
             print(error)
         }
-        self.listView.reloadData()
+        self.listView.reloadData()*/
         
         
         

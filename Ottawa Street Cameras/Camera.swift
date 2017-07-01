@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class Camera{
+@objc class Camera: NSObject{
     var name = ""
     var owner = ""
     var nameFr = ""
@@ -29,7 +29,7 @@ class Camera{
         lng = dict["longitude"] as! Double
         
     }
-    init(){
+    override init(){
     
     }
 }
