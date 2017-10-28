@@ -30,6 +30,7 @@ class TableViewController: UITableViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        getCameraList()
         cameras = CamDB.database().cameras() as! [Camera]
         print(cameras.count)
         tableView.estimatedRowHeight = tableView.rowHeight
@@ -50,19 +51,17 @@ class TableViewController: UITableViewController {
         tableView.backgroundView = v
         
         // Won't get here until everything has finished
-        var i = 0
         for camera in cameras{
-            i += 1
-            let d = camera.name.characters.first!.description
-            if self.sections[d] != nil{
-                self.sections[d]!.append(camera)
+            let regex = try! NSRegularExpression(pattern: "\\W", options: [])
+            let d = regex.stringByReplacingMatches(in: camera.name, options: [], range: NSRange(location: 0, length:camera.name.characters.count), withTemplate: "").characters.first!.description
+
+            if self.sections[d] == nil{
+                self.sections[d] = []
             }
-            else{
-                self.sections[d] = [camera]
-            }
+            self.sections[d]!.append(camera)
             
         }
-        searchController.searchBar.placeholder = "Search from \(i) locations"
+        searchController.searchBar.placeholder = "Search from \(cameras.count) locations"
 
         self.listView.reloadData()
 
@@ -183,7 +182,14 @@ class TableViewController: UITableViewController {
         }
         navigationController?.pushViewController(destination, animated: true)
     }
-
+    func getCameraList(){
+        
+        let request = URLRequest(url: URL(string: "https://traffic.ottawa.ca/map/camera_list")!)
+        let task = URLSession.shared.dataTask(with: request as URLRequest) { data , urlResponse,_ in
+            print(data!)
+        }
+        task.resume()
+    }
     
     /*
      // Override to support conditional editing of the table view.

@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "05850D35EA3E8794DA6948434C4742054FD1BF9B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "7D9C11FD907D70A2983C076EC805B8C5503CEE47" : 9223372036854775807,
+    "05850D35EA3E8794DA6948434C4742054FD1BF9B" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "CC467579-6B29-49FA-B15B-C1DF9D3DD713",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "7D9C11FD907D70A2983C076EC805B8C5503CEE47" : "..\/Desktop\/Ottawa%20Basketball%20Courts",
+    "05850D35EA3E8794DA6948434C4742054FD1BF9B" : "Ottawa%20Street%20Cameras\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Ottawa Street Cameras",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Ottawa Street Cameras.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/JsonTextfield\/StreetCamsIOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "05850D35EA3E8794DA6948434C4742054FD1BF9B"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/JsonTextfield\/OttawaBasketballCourtsIOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "7D9C11FD907D70A2983C076EC805B8C5503CEE47"
+    }
+  ]
+}
