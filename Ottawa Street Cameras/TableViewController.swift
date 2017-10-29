@@ -32,7 +32,6 @@ class TableViewController: UITableViewController {
         super.viewDidLoad()
         getCameraList()
         cameras = CamDB.database().cameras() as! [Camera]
-        print(cameras.count)
         tableView.estimatedRowHeight = tableView.rowHeight
         tableView.rowHeight = UITableViewAutomaticDimension
         
@@ -148,16 +147,10 @@ class TableViewController: UITableViewController {
             //camera = filteredCameras[indexPath.row]
             camera = (filteredSections[filteredSections.keys.sorted()[indexPath.section]]?[indexPath.row])!
         } else {
-            
             camera = (sections[sections.keys.sorted()[indexPath.section]]?[indexPath.row])!
-
         }
         
         cell.name.text = camera.name
-        
-        // Configure the cell...
-        
-        
         return cell
     }
     override func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
@@ -185,8 +178,8 @@ class TableViewController: UITableViewController {
     func getCameraList(){
         
         let request = URLRequest(url: URL(string: "https://traffic.ottawa.ca/map/camera_list")!)
-        let task = URLSession.shared.dataTask(with: request as URLRequest) { data , urlResponse,_ in
-            print(data!)
+        let task = URLSession.shared.dataTask(with: request) { data,response,_ in
+            
         }
         task.resume()
     }
