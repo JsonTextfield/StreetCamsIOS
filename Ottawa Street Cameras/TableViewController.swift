@@ -9,13 +9,12 @@
 import UIKit
 
 class TableViewController: UITableViewController {
-    
+    var toolbar = UIToolbar()
     var selectModeOn = false
     var sections = [String: [Camera]]()
     var cameras = [Camera]()
     var filteredSections = [String: [Camera]]()
     var selectedCameras = [Camera]()
-    var gest = UILongPressGestureRecognizer(target: self, action: #selector(longPress(_:)))
     
     let searchController = UISearchController(searchResultsController: nil)
     
@@ -30,8 +29,8 @@ class TableViewController: UITableViewController {
             filteredSections = sections
         }
         else{
-            for i in 0 ... sections.keys.count-1{
-                let sectionTitle = sections.keys.sorted()[i]
+            for i in 0 ... filteredSections.keys.count-1{
+                let sectionTitle = filteredSections.keys.sorted()[i]
                 filteredSections[sectionTitle] = filteredSections[sectionTitle]?.filter({( candy : Camera) -> Bool in
                     return candy.name.lowercased().contains(searchText.lowercased())
                 })
@@ -39,15 +38,11 @@ class TableViewController: UITableViewController {
                     filteredSections.removeValue(forKey: sectionTitle)
                 }
             }}
-        listView.reloadData()
-    }
-    @objc func longPress(_ sender: UILongPressGestureRecognizer){
-        selectModeOn = true
+        tableView.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        gest.minimumPressDuration = 1
         let dispatch_group = DispatchGroup()
         
         dispatch_group.enter()
@@ -69,31 +64,57 @@ class TableViewController: UITableViewController {
             self.filteredSections = self.sections
             self.searchController.searchBar.placeholder = "Search from \(self.cameras.count) locations"
             
-            self.listView.reloadData()
+            self.tableView.reloadData()
+            
+            
+            
+            self.tableView.estimatedRowHeight = self.tableView.rowHeight
+            self.tableView.rowHeight = UITableViewAutomaticDimension
+            
+            self.searchController.searchResultsUpdater = self
+            self.searchController.searchBar.delegate = self
+            self.definesPresentationContext = true
+            self.searchController.dimsBackgroundDuringPresentation = false
+            self.searchController.searchBar.barTintColor = UIColor.clear
+            self.searchController.searchBar.backgroundColor = UIColor.clear
+            
+            self.tableView.tableHeaderView = self.searchController.searchBar
+            var f = UIBarButtonItem()
+            f.title = "Clear selection"
+            var g = UIBarButtonItem()
+            f.title = "Go"
+            self.toolbar.items = [f, g]
+            self.tableView.tableFooterView = self.toolbar
+            self.tableView.sectionIndexBackgroundColor = UIColor.clear
+            
+            let v = UIView()
+            v.backgroundColor = UIColor.black
+            self.tableView.backgroundView = v
+          
+            
+            let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(TableViewController.longPress))
+            self.view.addGestureRecognizer(longPressRecognizer)
         })
         
-        tableView.estimatedRowHeight = tableView.rowHeight
-        tableView.rowHeight = UITableViewAutomaticDimension
+    }
+    
+    func longPress(longPressGestureRecognizer: UILongPressGestureRecognizer) {
         
-        searchController.searchResultsUpdater = self
-        searchController.searchBar.delegate = self
-        definesPresentationContext = true
-        searchController.dimsBackgroundDuringPresentation = false
-        searchController.searchBar.barTintColor = UIColor.clear
-        searchController.searchBar.backgroundColor = UIColor.clear
-        
-        tableView.tableHeaderView = searchController.searchBar
-        tableView.sectionIndexBackgroundColor = UIColor.clear
-        
-        let v = UIView()
-        v.backgroundColor = UIColor.black
-        tableView.backgroundView = v
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        if longPressGestureRecognizer.state == UIGestureRecognizerState.began {
+            if(selectModeOn){
+                return
+            }
+            selectModeOn = true
+            
+            let editButton = UIBarButtonItem(image: nil,  style: .plain, target: self, action: #selector(TableViewController.didTapButton))
+            editButton.title = "Go"
+            navigationItem.rightBarButtonItems?.append(editButton)
+            let touchPoint = longPressGestureRecognizer.location(in: self.view)
+            if let indexPath = tableView.indexPathForRow(at: touchPoint) {
+                selectedCameras = [filteredSections[filteredSections.keys.sorted()[(indexPath.section)]]![(indexPath.row)]]
+                tableView.selectRow(at: indexPath, animated: true, scrollPosition: UITableViewScrollPosition.none)
+            }
+        }
     }
     override func numberOfSections(in tableView: UITableView) -> Int {
         return filteredSections.keys.count
@@ -122,7 +143,6 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "intersection", for: indexPath) as! ListItem
-        cell.addGestureRecognizer(gest)
         //cell.selectionStyle = .none
         let camera = (filteredSections[filteredSections.keys.sorted()[indexPath.section]]?[indexPath.row])!
         
@@ -135,9 +155,22 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
         tableView.cellForRow(at: indexPath)?.backgroundColor = UIColor.black
     }
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        let camera = (filteredSections[filteredSections.keys.sorted()[indexPath.section]]?[indexPath.row])!
+        if (selectModeOn){
+            if let i = selectedCameras.index(of: camera){
+                selectedCameras.remove(at: i)
+                if(selectedCameras.count == 0){
+                    selectModeOn = false
+                    navigationItem.rightBarButtonItems?.remove(at: 1)
+                }
+            }
+        }
+    }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let camera = (filteredSections[filteredSections.keys.sorted()[indexPath.section]]?[indexPath.row])!
         if (selectModeOn) {
-            selectedCameras.append((filteredSections[filteredSections.keys.sorted()[indexPath.section]]?[indexPath.row])!)
+                selectedCameras.append(camera)
         }else{
             tableView.deselectRow(at: indexPath, animated: true)
             
@@ -145,7 +178,7 @@ class TableViewController: UITableViewController {
             
             let destination: CameraViewController = storyboard.instantiateViewController(withIdentifier: "camera") as! CameraViewController
             
-            destination.cameras = [(filteredSections[filteredSections.keys.sorted()[indexPath.section]]?[indexPath.row])!]
+            destination.cameras = [camera]
             navigationController?.pushViewController(destination, animated: true)
             
         }
@@ -161,6 +194,7 @@ class TableViewController: UITableViewController {
                     let camera = Camera(dict: item as! [String:AnyObject])
                     self.cameras.append(camera)
                 }
+                print(parsedData.count)
                 
             } catch let error as NSError {
                 print(error)
@@ -168,6 +202,10 @@ class TableViewController: UITableViewController {
         }
         task.resume()
     }
+    func didTapButton(sender: AnyObject){
+        performSegue(withIdentifier: "showMultiple", sender: sender)
+    }
+
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -177,6 +215,12 @@ class TableViewController: UITableViewController {
             let dest = segue.destination as! MapViewController
             dest.cameras = cameras
         }
+        
+        if segue.identifier == "showMultiple"{
+            let dest = segue.destination as! CameraViewController
+            dest.cameras = selectedCameras
+        }
+        
     }
 }
 

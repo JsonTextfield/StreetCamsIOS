@@ -8,16 +8,23 @@
 
 import UIKit
 
-class CameraViewController: UIViewController {
-    
+class CameraViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var cameras = [Camera]()
-    var imageViews = [UIImageView]()
     
+    @IBOutlet var imageTableView: UITableView!
     @IBOutlet var backgroundImg: UIImageView!
     @IBOutlet var errorLbl: UILabel!
     var timer:Timer = Timer.init()
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return cameras.count
+    }
     
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = imageTableView.dequeueReusableCell(withIdentifier: "camImage", for: indexPath) as! CameraTableViewCell
+        return cell
+    }
     
     func getSessionId(){
         let request = URLRequest(url: URL(string: "https://traffic.ottawa.ca/map")!)
@@ -42,7 +49,12 @@ class CameraViewController: UIViewController {
         self.navigationItem.titleView = label
         
         getSessionId()
-        timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(CameraViewController.downloadImage), userInfo: nil, repeats: true)
+        
+        imageTableView.delegate = self
+        imageTableView.dataSource = self
+        
+        
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(CameraViewController.downloadImage), userInfo: nil, repeats: true)
         
         
         
@@ -66,28 +78,33 @@ class CameraViewController: UIViewController {
                  return
                  }*/
                 
-                /*let currentFilter = CIFilter(name: "CIGaussianBlur")
-                let beginImage = CIImage(image: UIImage(data: data!)!)
-                currentFilter!.setValue(beginImage, forKey: kCIInputImageKey)
-                currentFilter!.setValue(10, forKey: kCIInputRadiusKey)
-                
-                let cropFilter = CIFilter(name: "CICrop")
-                cropFilter!.setValue(currentFilter!.outputImage, forKey: kCIInputImageKey)
-                cropFilter!.setValue(CIVector(cgRect: beginImage!.extent), forKey: "inputRectangle")
-                
-                let output = cropFilter!.outputImage
-                let processedImage = UIImage(ciImage: output!)
-                */
-                
+
                 DispatchQueue.main.async() { () -> Void in
                     //self.cameraImage.isHidden = false
-                
-                    self.imageViews[i].image = UIImage(data: data!)
-                    //self.backgroundImg.image = processedImage
                     
+                    if let cell = (self.imageTableView.cellForRow(at: IndexPath.init(row: i, section: 0))){
+                        let c = cell as! CameraTableViewCell
+                        c.sourceImageView.image = UIImage(data: data!)
+                        
+                    }
+                    if(i == 0){
+                        let currentFilter = CIFilter(name: "CIGaussianBlur")
+                        let beginImage = CIImage(image: UIImage(data: data!)!)
+                        currentFilter!.setValue(beginImage, forKey: kCIInputImageKey)
+                        currentFilter!.setValue(10, forKey: kCIInputRadiusKey)
+                        
+                        let cropFilter = CIFilter(name: "CICrop")
+                        cropFilter!.setValue(currentFilter!.outputImage, forKey: kCIInputImageKey)
+                        cropFilter!.setValue(CIVector(cgRect: beginImage!.extent), forKey: "inputRectangle")
+                        
+                        let output = cropFilter!.outputImage
+                        let processedImage = UIImage(ciImage: output!)
+                        
+                        self.backgroundImg.image = processedImage
+                        
+                    }
                 }
             }
-            
         }
     }
     override func didReceiveMemoryWarning() {
