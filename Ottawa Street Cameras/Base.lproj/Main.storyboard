@@ -45,9 +45,9 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qmp-em-O3q">
-                                                    <rect key="frame" x="170" y="179" width="36.5" height="21"/>
+                                                    <rect key="frame" x="173" y="184" width="29" height="16"/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -60,7 +60,7 @@
                                                 <constraint firstItem="qmp-em-O3q" firstAttribute="centerX" secondItem="noe-YA-fo0" secondAttribute="centerX" id="c9V-g8-eja"/>
                                                 <constraint firstItem="joN-dS-1Gx" firstAttribute="centerY" secondItem="noe-YA-fo0" secondAttribute="centerY" id="mGQ-XB-Kzr"/>
                                                 <constraint firstItem="joN-dS-1Gx" firstAttribute="centerX" secondItem="noe-YA-fo0" secondAttribute="centerX" id="mL7-85-EtK"/>
-                                                <constraint firstItem="qmp-em-O3q" firstAttribute="top" secondItem="noe-YA-fo0" secondAttribute="top" constant="179" id="o8T-Ok-1Qf"/>
+                                                <constraint firstItem="qmp-em-O3q" firstAttribute="top" relation="lessThanOrEqual" secondItem="noe-YA-fo0" secondAttribute="top" constant="190" id="o8T-Ok-1Qf"/>
                                                 <constraint firstItem="joN-dS-1Gx" firstAttribute="leading" secondItem="noe-YA-fo0" secondAttribute="leading" id="q2I-c3-Tcg"/>
                                             </constraints>
                                         </tableViewCellContentView>
