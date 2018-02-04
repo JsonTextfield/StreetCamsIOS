@@ -9,13 +9,14 @@
 import UIKit
 
 class TableViewController: UITableViewController {
-    var toolbar = UIToolbar()
     var selectModeOn = false
     var sections = [String: [Camera]]()
     var cameras = [Camera]()
     var filteredSections = [String: [Camera]]()
     var selectedCameras = [Camera]()
+    let maxNum = 4
     
+    var showCamsBtn = UIBarButtonItem(title: "Show (1)",  style: .plain, target: self, action: #selector(TableViewController.didTapButton))
     let searchController = UISearchController(searchResultsController: nil)
     
     @IBOutlet var listView: UITableView!
@@ -29,8 +30,8 @@ class TableViewController: UITableViewController {
             filteredSections = sections
         }
         else{
-            for i in 0 ... filteredSections.keys.count-1{
-                let sectionTitle = filteredSections.keys.sorted()[i]
+            for i in 0 ... sections.keys.count-1{
+                let sectionTitle = sections.keys.sorted()[i]
                 filteredSections[sectionTitle] = filteredSections[sectionTitle]?.filter({( candy : Camera) -> Bool in
                     return candy.name.lowercased().contains(searchText.lowercased())
                 })
@@ -51,22 +52,10 @@ class TableViewController: UITableViewController {
         
         dispatch_group.notify(queue: DispatchQueue.main, work: DispatchWorkItem(){
             // Won't get here until everything has finished
-            for camera in self.cameras{
-                let regex = try! NSRegularExpression(pattern: "\\W", options: [])
-                let firstLetter = regex.stringByReplacingMatches(in: camera.name, options: [], range: NSRange(location: 0, length:camera.name.count), withTemplate: "").first!.description
-                
-                if self.sections[firstLetter] == nil{
-                    self.sections[firstLetter] = []
-                }
-                self.sections[firstLetter]!.append(camera)
-                
-            }
-            self.filteredSections = self.sections
+            
             self.searchController.searchBar.placeholder = "Search from \(self.cameras.count) locations"
             
             self.tableView.reloadData()
-            
-            
             
             self.tableView.estimatedRowHeight = self.tableView.rowHeight
             self.tableView.rowHeight = UITableViewAutomaticDimension
@@ -78,14 +67,8 @@ class TableViewController: UITableViewController {
             self.searchController.searchBar.barTintColor = UIColor.clear
             self.searchController.searchBar.backgroundColor = UIColor.clear
             
-            self.tableView.tableHeaderView = self.searchController.searchBar
-            var f = UIBarButtonItem()
-            f.title = "Clear selection"
-            var g = UIBarButtonItem()
-            f.title = "Go"
-            self.toolbar.items = [f, g]
-            self.tableView.tableFooterView = self.toolbar
             self.tableView.sectionIndexBackgroundColor = UIColor.clear
+            self.tableView.tableHeaderView = self.searchController.searchBar
             
             let v = UIView()
             v.backgroundColor = UIColor.black
@@ -94,6 +77,7 @@ class TableViewController: UITableViewController {
             
             let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(TableViewController.longPress))
             self.view.addGestureRecognizer(longPressRecognizer)
+            self.showCamsBtn = UIBarButtonItem(title: "Show (1)",  style: .plain, target: self, action: #selector(TableViewController.didTapButton))
         })
         
     }
@@ -106,9 +90,8 @@ class TableViewController: UITableViewController {
             }
             selectModeOn = true
             
-            let editButton = UIBarButtonItem(image: nil,  style: .plain, target: self, action: #selector(TableViewController.didTapButton))
-            editButton.title = "Go"
-            navigationItem.rightBarButtonItems?.append(editButton)
+            
+            navigationItem.rightBarButtonItem = showCamsBtn
             let touchPoint = longPressGestureRecognizer.location(in: self.view)
             if let indexPath = tableView.indexPathForRow(at: touchPoint) {
                 selectedCameras = [filteredSections[filteredSections.keys.sorted()[(indexPath.section)]]![(indexPath.row)]]
@@ -160,9 +143,11 @@ class TableViewController: UITableViewController {
         if (selectModeOn){
             if let i = selectedCameras.index(of: camera){
                 selectedCameras.remove(at: i)
+                showCamsBtn.title = "Show (\(selectedCameras.count))"
                 if(selectedCameras.count == 0){
+                    showCamsBtn.title = "Show (1)"
                     selectModeOn = false
-                    navigationItem.rightBarButtonItems?.remove(at: 1)
+                    navigationItem.rightBarButtonItems?.removeFirst()
                 }
             }
         }
@@ -170,7 +155,12 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let camera = (filteredSections[filteredSections.keys.sorted()[indexPath.section]]?[indexPath.row])!
         if (selectModeOn) {
+            if(selectedCameras.count < maxNum){
                 selectedCameras.append(camera)
+            }else{
+                tableView.deselectRow(at: indexPath, animated: true)
+            }
+            showCamsBtn.title = "Show (\(selectedCameras.count))"
         }else{
             tableView.deselectRow(at: indexPath, animated: true)
             
@@ -194,8 +184,17 @@ class TableViewController: UITableViewController {
                     let camera = Camera(dict: item as! [String:AnyObject])
                     self.cameras.append(camera)
                 }
-                print(parsedData.count)
-                
+                for camera in self.cameras{
+                    let regex = try! NSRegularExpression(pattern: "\\W", options: [])
+                    let firstLetter = regex.stringByReplacingMatches(in: camera.name, options: [], range: NSRange(location: 0, length:camera.name.count), withTemplate: "").first!.description
+                    
+                    if self.sections[firstLetter] == nil{
+                        self.sections[firstLetter] = []
+                    }
+                    self.sections[firstLetter]!.append(camera)
+                    
+                }
+                self.filteredSections = self.sections
             } catch let error as NSError {
                 print(error)
             }

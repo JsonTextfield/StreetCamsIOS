@@ -39,19 +39,34 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="joN-dS-1Gx">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="200" id="qB8-hH-hJF"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qmp-em-O3q">
+                                                    <rect key="frame" x="170" y="179" width="36.5" height="21"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="qmp-em-O3q" secondAttribute="trailing" constant="180" id="58I-jV-aaE"/>
+                                                <constraint firstAttribute="bottom" secondItem="qmp-em-O3q" secondAttribute="bottom" id="R04-6V-igP"/>
+                                                <constraint firstItem="qmp-em-O3q" firstAttribute="leading" relation="lessThanOrEqual" secondItem="noe-YA-fo0" secondAttribute="leading" constant="180" id="Tic-Mi-hom"/>
+                                                <constraint firstItem="qmp-em-O3q" firstAttribute="centerX" secondItem="noe-YA-fo0" secondAttribute="centerX" id="c9V-g8-eja"/>
                                                 <constraint firstItem="joN-dS-1Gx" firstAttribute="centerY" secondItem="noe-YA-fo0" secondAttribute="centerY" id="mGQ-XB-Kzr"/>
                                                 <constraint firstItem="joN-dS-1Gx" firstAttribute="centerX" secondItem="noe-YA-fo0" secondAttribute="centerX" id="mL7-85-EtK"/>
+                                                <constraint firstItem="qmp-em-O3q" firstAttribute="top" secondItem="noe-YA-fo0" secondAttribute="top" constant="179" id="o8T-Ok-1Qf"/>
                                                 <constraint firstItem="joN-dS-1Gx" firstAttribute="leading" secondItem="noe-YA-fo0" secondAttribute="leading" id="q2I-c3-Tcg"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
+                                            <outlet property="camName" destination="qmp-em-O3q" id="z9w-IO-4YC"/>
                                             <outlet property="sourceImageView" destination="joN-dS-1Gx" id="9UX-1Y-bRQ"/>
                                         </connections>
                                     </tableViewCell>
@@ -81,7 +96,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="996" y="824"/>
+            <point key="canvasLocation" x="996" y="823.53823088455783"/>
         </scene>
         <!--tableView Controller-->
         <scene sceneID="mlg-Fb-RXR">
@@ -127,7 +142,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="StreetCams" id="Nlg-TJ-nzk">
                         <barButtonItem key="backBarButtonItem" title="Back" id="7ua-cj-QRr"/>
-                        <barButtonItem key="rightBarButtonItem" title="Map" id="VMw-Qy-g6P">
+                        <barButtonItem key="leftBarButtonItem" title="Map" id="VMw-Qy-g6P">
                             <connections>
                                 <segue destination="hV6-Wj-J4B" kind="show" identifier="showMap" id="fI8-Xn-bR1"/>
                             </connections>

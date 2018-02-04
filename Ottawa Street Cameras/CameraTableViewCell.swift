@@ -12,6 +12,7 @@ class CameraTableViewCell: UITableViewCell {
 
     @IBOutlet var sourceImageView: UIImageView!
     
+    @IBOutlet var camName: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

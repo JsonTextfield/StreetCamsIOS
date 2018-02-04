@@ -23,6 +23,7 @@ class CameraViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = imageTableView.dequeueReusableCell(withIdentifier: "camImage", for: indexPath) as! CameraTableViewCell
+        cell.camName.text = cameras[indexPath.row].name
         return cell
     }
     
@@ -54,7 +55,7 @@ class CameraViewController: UIViewController, UITableViewDelegate, UITableViewDa
         imageTableView.dataSource = self
         
         
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(CameraViewController.downloadImage), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(CameraViewController.downloadImage), userInfo: nil, repeats: true)
         
         
         

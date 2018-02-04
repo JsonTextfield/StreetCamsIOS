@@ -20,6 +20,8 @@
 		9A31D4461DEA85B200C90D79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A31D4441DEA85B200C90D79 /* LaunchScreen.storyboard */; };
 		9A4507B41DFCE01D001036FC /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4507B31DFCE01C001036FC /* CameraViewController.swift */; };
 		9A4C2D132026A8DF008D9595 /* CameraTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4C2D122026A8DF008D9595 /* CameraTableViewCell.swift */; };
+		9A4C2D1520276334008D9595 /* icons8-wall-mount-camera-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A4C2D1420276334008D9595 /* icons8-wall-mount-camera-50.png */; };
+		9A4C2D1720276346008D9595 /* icons8-map-pin-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A4C2D1620276346008D9595 /* icons8-map-pin-50.png */; };
 		9A79BBA31DEFF91A00E8F0AF /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A79BBA21DEFF91A00E8F0AF /* Camera.swift */; };
 		9A7AA7671F02EFE600C7B5D2 /* camera_list.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A7AA7661F02EFE600C7B5D2 /* camera_list.json */; };
 		9A7AA7691F02FAA300C7B5D2 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7AA7681F02FAA300C7B5D2 /* MapViewController.swift */; };
@@ -44,6 +46,8 @@
 		9A31D4471DEA85B200C90D79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A4507B31DFCE01C001036FC /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		9A4C2D122026A8DF008D9595 /* CameraTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraTableViewCell.swift; sourceTree = "<group>"; };
+		9A4C2D1420276334008D9595 /* icons8-wall-mount-camera-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-wall-mount-camera-50.png"; path = "../../../Desktop/icons8-wall-mount-camera-50.png"; sourceTree = "<group>"; };
+		9A4C2D1620276346008D9595 /* icons8-map-pin-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-map-pin-50.png"; path = "../../../Desktop/icons8-map-pin-50.png"; sourceTree = "<group>"; };
 		9A79BBA21DEFF91A00E8F0AF /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		9A7AA7661F02EFE600C7B5D2 /* camera_list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = camera_list.json; sourceTree = "<group>"; };
 		9A7AA7681F02FAA300C7B5D2 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +86,8 @@
 			isa = PBXGroup;
 			children = (
 				9A1BACD61F08604400E30F0D /* camera_list.db */,
+				9A4C2D1620276346008D9595 /* icons8-map-pin-50.png */,
+				9A4C2D1420276334008D9595 /* icons8-wall-mount-camera-50.png */,
 				9A1BACD11F08550900E30F0D /* CamDB.h */,
 				9A1BACCB1F084AE000E30F0D /* Ottawa Street Cameras-Bridging-Header.h */,
 				9A7AA7661F02EFE600C7B5D2 /* camera_list.json */,
@@ -184,8 +190,10 @@
 				9A31D4461DEA85B200C90D79 /* LaunchScreen.storyboard in Resources */,
 				9A0EC3561EFAFDFC00DF3A4D /* iTunesArtwork@1x.png in Resources */,
 				9A7AA7671F02EFE600C7B5D2 /* camera_list.json in Resources */,
+				9A4C2D1520276334008D9595 /* icons8-wall-mount-camera-50.png in Resources */,
 				9A1BACD71F08604400E30F0D /* camera_list.db in Resources */,
 				9A31D4431DEA85B200C90D79 /* Assets.xcassets in Resources */,
+				9A4C2D1720276346008D9595 /* icons8-map-pin-50.png in Resources */,
 				9A0EC3541EFAFC1600DF3A4D /* iTunesArtwork@3x.png in Resources */,
 				9A31D43E1DEA85B200C90D79 /* Main.storyboard in Resources */,
 			);
