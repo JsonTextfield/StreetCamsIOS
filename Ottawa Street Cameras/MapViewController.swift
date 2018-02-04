@@ -38,7 +38,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         for c in cameras{
             if c.name == (view.annotation?.title)!{
-                destination.cam = c
+                destination.cameras = [c]
             }
         }
         

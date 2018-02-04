@@ -9,29 +9,69 @@
 import UIKit
 
 class TableViewController: UITableViewController {
-
+    
+    var selectModeOn = false
     var sections = [String: [Camera]]()
     var cameras = [Camera]()
     var filteredSections = [String: [Camera]]()
+    var selectedCameras = [Camera]()
+    var gest = UILongPressGestureRecognizer(target: self, action: #selector(longPress(_:)))
     
     let searchController = UISearchController(searchResultsController: nil)
     
     @IBOutlet var listView: UITableView!
     
     func filterContentForSearchText(searchText: String, scope: String = "All") {
-        filteredSections = [:]
-        for i in 0 ... sections.keys.count-1{
-            let sectionTitle = sections.keys.sorted()[i]
-            filteredSections[sectionTitle] = sections[sectionTitle]?.filter({( candy : Camera) -> Bool in
-                return candy.name.lowercased().contains(searchText.lowercased())
-            })
+        filteredSections = sections
+        let regex = try! NSRegularExpression(pattern: "\\W", options: [])
+        let firstLetter = regex.stringByReplacingMatches(in: searchText, options: [], range: NSRange(location: 0, length:searchText.count), withTemplate: "")
+        
+        if(firstLetter.count < 1){
+            filteredSections = sections
         }
+        else{
+            for i in 0 ... sections.keys.count-1{
+                let sectionTitle = sections.keys.sorted()[i]
+                filteredSections[sectionTitle] = filteredSections[sectionTitle]?.filter({( candy : Camera) -> Bool in
+                    return candy.name.lowercased().contains(searchText.lowercased())
+                })
+                if(filteredSections[sectionTitle]!.count == 0){
+                    filteredSections.removeValue(forKey: sectionTitle)
+                }
+            }}
         listView.reloadData()
     }
+    @objc func longPress(_ sender: UILongPressGestureRecognizer){
+        selectModeOn = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        gest.minimumPressDuration = 1
+        let dispatch_group = DispatchGroup()
+        
+        dispatch_group.enter()
         getCameraList()
-        cameras = CamDB.database().cameras() as! [Camera]
+        dispatch_group.leave()
+        
+        dispatch_group.notify(queue: DispatchQueue.main, work: DispatchWorkItem(){
+            // Won't get here until everything has finished
+            for camera in self.cameras{
+                let regex = try! NSRegularExpression(pattern: "\\W", options: [])
+                let firstLetter = regex.stringByReplacingMatches(in: camera.name, options: [], range: NSRange(location: 0, length:camera.name.count), withTemplate: "").first!.description
+                
+                if self.sections[firstLetter] == nil{
+                    self.sections[firstLetter] = []
+                }
+                self.sections[firstLetter]!.append(camera)
+                
+            }
+            self.filteredSections = self.sections
+            self.searchController.searchBar.placeholder = "Search from \(self.cameras.count) locations"
+            
+            self.listView.reloadData()
+        })
+        
         tableView.estimatedRowHeight = tableView.rowHeight
         tableView.rowHeight = UITableViewAutomaticDimension
         
@@ -49,52 +89,6 @@ class TableViewController: UITableViewController {
         v.backgroundColor = UIColor.black
         tableView.backgroundView = v
         
-        // Won't get here until everything has finished
-        for camera in cameras{
-            let regex = try! NSRegularExpression(pattern: "\\W", options: [])
-            let d = regex.stringByReplacingMatches(in: camera.name, options: [], range: NSRange(location: 0, length:camera.name.characters.count), withTemplate: "").characters.first!.description
-
-            if self.sections[d] == nil{
-                self.sections[d] = []
-            }
-            self.sections[d]!.append(camera)
-            
-        }
-        searchController.searchBar.placeholder = "Search from \(cameras.count) locations"
-
-        self.listView.reloadData()
-
-       /* let filePath = Bundle.main.path(forResource: "camera_list", ofType: "json")
-        
-        let data = NSData(contentsOfFile:filePath!)
-        
-        do {
-            
-            let parsedData = try JSONSerialization.jsonObject(with: data! as Data, options: JSONSerialization.ReadingOptions.allowFragments) as! NSArray
-            //let currentConditions = parsedData["currently"] as! [String:Any]
-            var i = 0
-            for x in parsedData{
-                i += 1
-                let camera = Camera(dict: x as! [String:AnyObject])
-                cameras.append(camera)
-                let d = camera.name.characters.first!.description
-                if self.sections[d] != nil{
-                    self.sections[d]!.append(camera)
-                }
-                else{
-                    self.sections[d] = [camera]
-                }
-
-            }
-            searchController.searchBar.placeholder = "Search from \(i) locations"
-            
-        } catch let error as NSError {
-            print(error)
-        }
-        self.listView.reloadData()*/
-        
-        
-        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -102,10 +96,7 @@ class TableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     override func numberOfSections(in tableView: UITableView) -> Int {
-        if searchController.isActive && searchController.searchBar.text != "" {
-            return filteredSections.keys.count
-        }
-        return sections.keys.count
+        return filteredSections.keys.count
     }
     
     override func didReceiveMemoryWarning() {
@@ -119,36 +110,21 @@ class TableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        // #warning Incomplete implementation, return the number of rows
-        if searchController.isActive && searchController.searchBar.text != "" {
-            //return filteredCameras.count
-            return filteredSections[filteredSections.keys.sorted()[section]]!.count
-        }
-        return sections[sections.keys.sorted()[section]]!.count
-        //return camList.count
+        return filteredSections[filteredSections.keys.sorted()[section]]!.count
+        
     }
     override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        if searchController.isActive && searchController.searchBar.text != "" {
-            //return filteredCameras.count
-            return filteredSections.keys.sorted()
-        }
-        return sections.keys.sorted()
+        
+        return filteredSections.keys.sorted()
     }
     
-    
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "intersection", for: indexPath) as! ListItem
-        cell.selectionStyle = .none
-        let camera: Camera
-        if searchController.isActive && searchController.searchBar.text != "" {
-            //camera = filteredCameras[indexPath.row]
-            camera = (filteredSections[filteredSections.keys.sorted()[indexPath.section]]?[indexPath.row])!
-        } else {
-            camera = (sections[sections.keys.sorted()[indexPath.section]]?[indexPath.row])!
-        }
+        cell.addGestureRecognizer(gest)
+        //cell.selectionStyle = .none
+        let camera = (filteredSections[filteredSections.keys.sorted()[indexPath.section]]?[indexPath.row])!
         
         cell.name.text = camera.name
         return cell
@@ -160,67 +136,38 @@ class TableViewController: UITableViewController {
         tableView.cellForRow(at: indexPath)?.backgroundColor = UIColor.black
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-        let storyboard : UIStoryboard = UIStoryboard(
-            name: "Main",
-            bundle: nil)
-        
-        let destination: CameraViewController = storyboard.instantiateViewController(withIdentifier: "camera") as! CameraViewController
-        
-        destination.cam = (sections[sections.keys.sorted()[indexPath.section]]?[indexPath.row])!
-        if searchController.isActive && searchController.searchBar.text != "" {
-            destination.cam = (filteredSections[filteredSections.keys.sorted()[indexPath.section]]?[indexPath.row])!
+        if (selectModeOn) {
+            selectedCameras.append((filteredSections[filteredSections.keys.sorted()[indexPath.section]]?[indexPath.row])!)
+        }else{
+            tableView.deselectRow(at: indexPath, animated: true)
+            
+            let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            let destination: CameraViewController = storyboard.instantiateViewController(withIdentifier: "camera") as! CameraViewController
+            
+            destination.cameras = [(filteredSections[filteredSections.keys.sorted()[indexPath.section]]?[indexPath.row])!]
+            navigationController?.pushViewController(destination, animated: true)
+            
         }
-        navigationController?.pushViewController(destination, animated: true)
     }
     func getCameraList(){
         
         let request = URLRequest(url: URL(string: "https://traffic.ottawa.ca/map/camera_list")!)
-        let task = URLSession.shared.dataTask(with: request) { data,response,_ in
-            
+        let task = URLSession.shared.dataTask(with: request) { data, _, _ in
+            do{
+                let parsedData = try JSONSerialization.jsonObject(with: data! as Data, options: JSONSerialization.ReadingOptions.allowFragments) as! NSArray
+                
+                for item in parsedData{
+                    let camera = Camera(dict: item as! [String:AnyObject])
+                    self.cameras.append(camera)
+                }
+                
+            } catch let error as NSError {
+                print(error)
+            }
         }
         task.resume()
     }
-    
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-    
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    
-    // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -230,14 +177,7 @@ class TableViewController: UITableViewController {
             let dest = segue.destination as! MapViewController
             dest.cameras = cameras
         }
-
     }
-    
-
-    
-    
-    
-    
 }
 
 
