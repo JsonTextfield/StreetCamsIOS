@@ -14,6 +14,7 @@ class TableViewController: UITableViewController {
     var cameras = [Camera]()
     var filteredSections = [String: [Camera]]()
     var selectedCameras = [Camera]()
+    let dispatch_group = DispatchGroup()
     let maxNum = 4
     
     var showCamsBtn = UIBarButtonItem(title: "Show (1)",  style: .plain, target: self, action: #selector(TableViewController.didTapButton))
@@ -44,16 +45,26 @@ class TableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let dispatch_group = DispatchGroup()
         
         dispatch_group.enter()
         getCameraList()
-        dispatch_group.leave()
         
         dispatch_group.notify(queue: DispatchQueue.main, work: DispatchWorkItem(){
             // Won't get here until everything has finished
             
             self.searchController.searchBar.placeholder = "Search from \(self.cameras.count) locations"
+            
+            for camera in self.cameras{
+                let regex = try! NSRegularExpression(pattern: "\\W", options: [])
+                let firstLetter = regex.stringByReplacingMatches(in: camera.name, options: [], range: NSRange(location: 0, length:camera.name.count), withTemplate: "").first!.description
+                
+                if self.sections[firstLetter] == nil{
+                    self.sections[firstLetter] = []
+                }
+                self.sections[firstLetter]!.append(camera)
+                
+            }
+            self.filteredSections = self.sections
             
             self.tableView.reloadData()
             
@@ -184,17 +195,7 @@ class TableViewController: UITableViewController {
                     let camera = Camera(dict: item as! [String:AnyObject])
                     self.cameras.append(camera)
                 }
-                for camera in self.cameras{
-                    let regex = try! NSRegularExpression(pattern: "\\W", options: [])
-                    let firstLetter = regex.stringByReplacingMatches(in: camera.name, options: [], range: NSRange(location: 0, length:camera.name.count), withTemplate: "").first!.description
-                    
-                    if self.sections[firstLetter] == nil{
-                        self.sections[firstLetter] = []
-                    }
-                    self.sections[firstLetter]!.append(camera)
-                    
-                }
-                self.filteredSections = self.sections
+                self.dispatch_group.leave()
             } catch let error as NSError {
                 print(error)
             }

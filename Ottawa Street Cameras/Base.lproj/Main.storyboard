@@ -22,9 +22,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qz5-On-Bdv">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qz5-On-Bdv">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <tableView autoresizesSubviews="NO" clipsSubviews="YES" contentMode="bottom" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="200" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Rtb-42-0f3">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
@@ -37,7 +36,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="joN-dS-1Gx">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="joN-dS-1Gx">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
@@ -82,8 +81,12 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Qz5-On-Bdv" secondAttribute="bottom" id="1L2-n7-Nbc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Rtb-42-0f3" secondAttribute="trailing" constant="-16" id="IcE-cR-9sQ"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Rtb-42-0f3" secondAttribute="bottom" id="Kch-C7-BcX"/>
+                            <constraint firstAttribute="trailing" secondItem="Qz5-On-Bdv" secondAttribute="trailing" id="Nb4-lH-cee"/>
+                            <constraint firstItem="Qz5-On-Bdv" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="VDf-ps-kyC"/>
+                            <constraint firstItem="Qz5-On-Bdv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="myn-fO-Gvh"/>
                             <constraint firstItem="Rtb-42-0f3" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="uaA-Il-Ug2"/>
                             <constraint firstItem="Rtb-42-0f3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="ux5-uq-pPU"/>
                         </constraints>
