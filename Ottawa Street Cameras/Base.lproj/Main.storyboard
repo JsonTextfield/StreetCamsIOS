@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Q3u-KC-bFi">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -19,33 +19,33 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qz5-On-Bdv">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
-                            <tableView autoresizesSubviews="NO" clipsSubviews="YES" contentMode="bottom" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="200" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Rtb-42-0f3">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="200" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Rtb-42-0f3">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="camImage" rowHeight="200" id="nUO-KS-cSQ" customClass="CameraTableViewCell" customModule="Ottawa_Street_Cameras" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="200"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="camImage" rowHeight="300" id="nUO-KS-cSQ" customClass="CameraTableViewCell" customModule="Ottawa_Street_Cameras" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="300"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nUO-KS-cSQ" id="noe-YA-fo0">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="joN-dS-1Gx">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="200" id="qB8-hH-hJF"/>
-                                                    </constraints>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="infinite" translatesAutoresizingMaskIntoConstraints="NO" id="joN-dS-1Gx">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="308"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qmp-em-O3q">
-                                                    <rect key="frame" x="173" y="184" width="29" height="16"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sample street name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qmp-em-O3q">
+                                                    <rect key="frame" x="100.5" y="280" width="120" height="20"/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="Gz5-W9-nec"/>
+                                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="200" id="J13-Ag-AtC"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -53,14 +53,12 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="qmp-em-O3q" secondAttribute="trailing" constant="180" id="58I-jV-aaE"/>
-                                                <constraint firstAttribute="bottom" secondItem="qmp-em-O3q" secondAttribute="bottom" id="R04-6V-igP"/>
-                                                <constraint firstItem="qmp-em-O3q" firstAttribute="leading" relation="lessThanOrEqual" secondItem="noe-YA-fo0" secondAttribute="leading" constant="180" id="Tic-Mi-hom"/>
-                                                <constraint firstItem="qmp-em-O3q" firstAttribute="centerX" secondItem="noe-YA-fo0" secondAttribute="centerX" id="c9V-g8-eja"/>
-                                                <constraint firstItem="joN-dS-1Gx" firstAttribute="centerY" secondItem="noe-YA-fo0" secondAttribute="centerY" id="mGQ-XB-Kzr"/>
-                                                <constraint firstItem="joN-dS-1Gx" firstAttribute="centerX" secondItem="noe-YA-fo0" secondAttribute="centerX" id="mL7-85-EtK"/>
-                                                <constraint firstItem="qmp-em-O3q" firstAttribute="top" relation="lessThanOrEqual" secondItem="noe-YA-fo0" secondAttribute="top" constant="190" id="o8T-Ok-1Qf"/>
-                                                <constraint firstItem="joN-dS-1Gx" firstAttribute="leading" secondItem="noe-YA-fo0" secondAttribute="leading" id="q2I-c3-Tcg"/>
+                                                <constraint firstItem="joN-dS-1Gx" firstAttribute="leading" secondItem="noe-YA-fo0" secondAttribute="leading" id="B2v-VO-Xw7"/>
+                                                <constraint firstAttribute="bottom" secondItem="qmp-em-O3q" secondAttribute="bottom" id="DeQ-Ud-ILQ"/>
+                                                <constraint firstItem="qmp-em-O3q" firstAttribute="centerX" secondItem="noe-YA-fo0" secondAttribute="centerX" id="Fnj-9e-8yW"/>
+                                                <constraint firstItem="joN-dS-1Gx" firstAttribute="top" secondItem="noe-YA-fo0" secondAttribute="top" id="Ieh-vv-mfo"/>
+                                                <constraint firstItem="joN-dS-1Gx" firstAttribute="bottomMargin" secondItem="noe-YA-fo0" secondAttribute="bottom" id="Mur-ZD-3sF"/>
+                                                <constraint firstAttribute="trailing" secondItem="joN-dS-1Gx" secondAttribute="trailing" id="dlv-m5-EVi"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -99,27 +97,27 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="996" y="823.53823088455783"/>
+            <point key="canvasLocation" x="991.875" y="820.77464788732391"/>
         </scene>
         <!--tableView Controller-->
         <scene sceneID="mlg-Fb-RXR">
             <objects>
                 <tableViewController id="Cgt-uo-vLf" userLabel="tableView Controller" customClass="TableViewController" customModule="Ottawa_Street_Cameras" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsMultipleSelection="YES" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" id="V36-C5-RN3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="intersection" rowHeight="80" id="xW6-vk-zm9" customClass="ListItem" customModule="Ottawa_Street_Cameras" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                                <rect key="frame" x="0.0" y="28" width="320" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xW6-vk-zm9" id="9Wr-8Z-uOI">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="text" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1iT-ZR-2dO">
-                                            <rect key="frame" x="16" y="21" width="343" height="38"/>
+                                            <rect key="frame" x="16" y="21" width="288" height="38"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="highlightedColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -170,11 +168,11 @@
                         <viewControllerLayoutGuide type="bottom" id="hcb-dk-Un0"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="URx-hz-8jt">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="aAX-NH-P59">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -198,7 +196,7 @@
             <objects>
                 <navigationController id="Q3u-KC-bFi" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="sXR-YP-KuD">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <textAttributes key="titleTextAttributes">

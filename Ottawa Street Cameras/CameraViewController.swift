@@ -14,31 +14,44 @@ class CameraViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet var imageTableView: UITableView!
     @IBOutlet var backgroundImg: UIImageView!
     @IBOutlet var errorLbl: UILabel!
-    var timer:Timer = Timer.init()
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cameras.count
-    }
+    var portrait = true
+    var dispatchGroup = DispatchGroup()
+    var images = [UIImage]()
+    var timers = [Timer]()
     
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = imageTableView.dequeueReusableCell(withIdentifier: "camImage", for: indexPath) as! CameraTableViewCell
-        cell.camName.text = cameras[indexPath.row].name
-        return cell
-    }
     
     func getSessionId(){
         let request = URLRequest(url: URL(string: "https://traffic.ottawa.ca/map")!)
         let task = URLSession.shared.dataTask(with: request as URLRequest) { data , urlResponse,_ in
+            
+            for camera in self.cameras{
+                self.dispatchGroup.enter()
+                self.download(num: camera.num)
+            }
+            self.dispatchGroup.notify(queue: DispatchQueue.main, execute: {
+                self.comp()
+            })
+
         }
         task.resume()
+        
     }
+    func comp(){
+        imageTableView.reloadData()
+        backgroundImg.image = images[0]
+        for i in 0...cameras.count-1{
+            timers[i] = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(CameraViewController.downloadImage), userInfo: ["camera": cameras[i]], repeats: true)
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         var title = ""
         for i in cameras{
             title += i.name+", "
+            timers.append(Timer())
         }
         let label = UILabel(frame: CGRect(x:0, y:0, width:400, height:50))
         label.backgroundColor = UIColor.clear
@@ -49,62 +62,97 @@ class CameraViewController: UIViewController, UITableViewDelegate, UITableViewDa
         label.text = title.substring(to: title.index(title.endIndex, offsetBy: -2))
         self.navigationItem.titleView = label
         
+        imageTableView.dataSource = self
+        imageTableView.delegate = self
+        
         getSessionId()
         
-        imageTableView.delegate = self
-        imageTableView.dataSource = self
+
         
-        
-        timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(CameraViewController.downloadImage), userInfo: nil, repeats: true)
-        
-        
-        
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if portrait {
+            return 220
+        }
+        else{
+            return self.view.frame.height
+        }
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return images.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = imageTableView.dequeueReusableCell(withIdentifier: "camImage", for: indexPath) as! CameraTableViewCell
+        //let cell = CameraTableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "camImage") as! CameraTableViewCell
+        cell.camName.text = cameras[indexPath.row].name
+        cell.sourceImageView.image = images[indexPath.row]
+        return cell
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        coordinator.animate(alongsideTransition: { (UIViewControllerTransitionCoordinatorContext) -> Void in
+            let orientation = UIApplication.shared.statusBarOrientation
+            self.portrait = orientation == .portrait
+            self.imageTableView.reloadData()
+            
+        }) { (UIViewControllerTransitionCoordinatorContext) -> Void in
+            
+        }
     }
     func getDataFromUrl(url: URL, completion: @escaping (_ data: Data?, _  response: URLResponse?, _ error: Error?) -> Void) {
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             completion(data, response, error)
             }.resume()
     }
-    func downloadImage() {
-        for i in 0...cameras.count-1{
-            let camera = cameras[i]
+    func download(num: Int) {
+        let url = URL(string: "https://traffic.ottawa.ca/map/camera?id=\(num)")!
+        getDataFromUrl(url: url) { (data, response, error)  in
             
-            let url = URL(string: "https://traffic.ottawa.ca/map/camera?id=\(camera.num)")!
-            getDataFromUrl(url: url) { (data, response, error)  in
+            let image = UIImage(data: data!)
+            self.images.append(image!)
+            
+            self.dispatchGroup.leave()
+        }
+    }
+    func downloadImage(timer: Timer) {
+        let dictionary = timer.userInfo as! [String: Camera]
+        let camera = dictionary["camera"]!
+        let url = URL(string: "https://traffic.ottawa.ca/map/camera?id=\(camera.num)")!
+        getDataFromUrl(url: url) { (data, response, error)  in
+            
+            /*guard let data = data, error == nil else {
+             self.errorLbl.isHidden = false
+             //self.cameraImage.isHidden = true
+             self.timer.invalidate()
+             return
+             }*/
+            
+            DispatchQueue.main.async() { () -> Void in
+                //self.cameraImage.isHidden = false
+                let image = UIImage(data: data!)
                 
-                /*guard let data = data, error == nil else {
-                 self.errorLbl.isHidden = false
-                 //self.cameraImage.isHidden = true
-                 self.timer.invalidate()
-                 return
-                 }*/
-                
-
-                DispatchQueue.main.async() { () -> Void in
-                    //self.cameraImage.isHidden = false
+                if let cell = (self.imageTableView.cellForRow(at: IndexPath.init(row: self.cameras.index(of: camera)!, section: 0))){
+                    let c = cell as! CameraTableViewCell
                     
-                    if let cell = (self.imageTableView.cellForRow(at: IndexPath.init(row: i, section: 0))){
-                        let c = cell as! CameraTableViewCell
-                        c.sourceImageView.image = UIImage(data: data!)
-                        
-                    }
-                    if(i == 0){
-                        let currentFilter = CIFilter(name: "CIGaussianBlur")
-                        let beginImage = CIImage(image: UIImage(data: data!)!)
-                        currentFilter!.setValue(beginImage, forKey: kCIInputImageKey)
-                        currentFilter!.setValue(10, forKey: kCIInputRadiusKey)
-                        
-                        let cropFilter = CIFilter(name: "CICrop")
-                        cropFilter!.setValue(currentFilter!.outputImage, forKey: kCIInputImageKey)
-                        cropFilter!.setValue(CIVector(cgRect: beginImage!.extent), forKey: "inputRectangle")
-                        
-                        let output = cropFilter!.outputImage
-                        let processedImage = UIImage(ciImage: output!)
-                        
-                        self.backgroundImg.image = processedImage
-                        
-                    }
+                    c.sourceImageView.image = image
                 }
+                if(camera == self.cameras[0]){
+                    let currentFilter = CIFilter(name: "CIGaussianBlur")
+                    let beginImage = CIImage(image: image!)
+                    currentFilter!.setValue(beginImage, forKey: kCIInputImageKey)
+                    currentFilter!.setValue(10, forKey: kCIInputRadiusKey)
+                    
+                    let cropFilter = CIFilter(name: "CICrop")
+                    cropFilter!.setValue(currentFilter!.outputImage, forKey: kCIInputImageKey)
+                    cropFilter!.setValue(CIVector(cgRect: beginImage!.extent), forKey: "inputRectangle")
+                    
+                    let output = cropFilter!.outputImage
+                    let processedImage = UIImage(ciImage: output!)
+                    
+                    self.backgroundImg.image = processedImage
+                    
+                }
+                
             }
         }
     }
@@ -113,6 +161,8 @@ class CameraViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Dispose of any resources that can be recreated.
     }
     override func viewWillDisappear(_ animated: Bool) {
-        timer.invalidate()
+        for timer in timers{
+            timer.invalidate()
+        }
     }
 }

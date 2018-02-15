@@ -49,7 +49,7 @@ class TableViewController: UITableViewController {
         dispatch_group.enter()
         getCameraList()
         
-        dispatch_group.notify(queue: DispatchQueue.main, work: DispatchWorkItem(){
+        dispatch_group.notify(queue: DispatchQueue.main, execute: {
             // Won't get here until everything has finished
             
             self.searchController.searchBar.placeholder = "Search from \(self.cameras.count) locations"
