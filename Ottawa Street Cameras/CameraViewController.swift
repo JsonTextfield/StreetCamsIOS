@@ -15,7 +15,7 @@ class CameraViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet var backgroundImg: UIImageView!
     @IBOutlet var errorLbl: UILabel!
     
-    var portrait = true
+    //var portrait = true
     var dispatchGroup = DispatchGroup()
     var images = [UIImage]()
     var timers = [Timer]()
@@ -32,19 +32,17 @@ class CameraViewController: UIViewController, UITableViewDelegate, UITableViewDa
             self.dispatchGroup.notify(queue: DispatchQueue.main, execute: {
                 self.comp()
             })
-
         }
         task.resume()
-        
     }
+    
     func comp(){
         imageTableView.reloadData()
-        backgroundImg.image = images[0]
+        backgroundImg.image = blurImage(image: images[0])
         for i in 0...cameras.count-1{
             timers[i] = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(CameraViewController.downloadImage), userInfo: ["camera": cameras[i]], repeats: true)
         }
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,23 +65,20 @@ class CameraViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         getSessionId()
         
-
-        
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if portrait {
-            return 220
-        }
-        else{
-            return self.view.frame.height
-        }
+        let image = images[indexPath.row]
+        let widthRatio = self.view.frame.width / image.size.width
+        let height = widthRatio * image.size.height
+        return height
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return images.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = imageTableView.dequeueReusableCell(withIdentifier: "camImage", for: indexPath) as! CameraTableViewCell
-        //let cell = CameraTableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "camImage") as! CameraTableViewCell
+        //let cell = CameraTableViewCell(style: .default, reuseIdentifier: "camImage")
         cell.camName.text = cameras[indexPath.row].name
         cell.sourceImageView.image = images[indexPath.row]
         return cell
@@ -91,8 +86,8 @@ class CameraViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         coordinator.animate(alongsideTransition: { (UIViewControllerTransitionCoordinatorContext) -> Void in
-            let orientation = UIApplication.shared.statusBarOrientation
-            self.portrait = orientation == .portrait
+            //let orientation = UIApplication.shared.statusBarOrientation
+            //self.portrait = orientation == .portrait
             self.imageTableView.reloadData()
             
         }) { (UIViewControllerTransitionCoordinatorContext) -> Void in
@@ -137,29 +132,35 @@ class CameraViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     c.sourceImageView.image = image
                 }
                 if(camera == self.cameras[0]){
-                    let currentFilter = CIFilter(name: "CIGaussianBlur")
-                    let beginImage = CIImage(image: image!)
-                    currentFilter!.setValue(beginImage, forKey: kCIInputImageKey)
-                    currentFilter!.setValue(10, forKey: kCIInputRadiusKey)
-                    
-                    let cropFilter = CIFilter(name: "CICrop")
-                    cropFilter!.setValue(currentFilter!.outputImage, forKey: kCIInputImageKey)
-                    cropFilter!.setValue(CIVector(cgRect: beginImage!.extent), forKey: "inputRectangle")
-                    
-                    let output = cropFilter!.outputImage
-                    let processedImage = UIImage(ciImage: output!)
-                    
-                    self.backgroundImg.image = processedImage
+                    self.backgroundImg.image = self.blurImage(image: image!)
                     
                 }
                 
             }
         }
     }
+    
+    func blurImage(image: UIImage) -> UIImage{
+        let currentFilter = CIFilter(name: "CIGaussianBlur")
+        let beginImage = CIImage(image: image)
+        currentFilter!.setValue(beginImage, forKey: kCIInputImageKey)
+        currentFilter!.setValue(10, forKey: kCIInputRadiusKey)
+        
+        let cropFilter = CIFilter(name: "CICrop")
+        cropFilter!.setValue(currentFilter!.outputImage, forKey: kCIInputImageKey)
+        cropFilter!.setValue(CIVector(cgRect: beginImage!.extent), forKey: "inputRectangle")
+        
+        let output = cropFilter!.outputImage
+        let processedImage = UIImage(ciImage: output!)
+        
+        return processedImage
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         for timer in timers{
             timer.invalidate()

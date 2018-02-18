@@ -96,7 +96,7 @@ class TableViewController: UITableViewController {
     func longPress(longPressGestureRecognizer: UILongPressGestureRecognizer) {
         
         if longPressGestureRecognizer.state == UIGestureRecognizerState.began {
-            if(selectModeOn){
+            if(selectModeOn || searchController.isActive){
                 return
             }
             selectModeOn = true
