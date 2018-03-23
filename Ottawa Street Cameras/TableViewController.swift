@@ -8,44 +8,68 @@
 
 import UIKit
 
-class TableViewController: UITableViewController {
+class TableViewController: UITableViewController, UISearchControllerDelegate {
     var selectModeOn = false
-    var sections = [String: [Camera]]()
+    var sections = [Character: [Camera]]()
     var cameras = [Camera]()
-    var filteredSections = [String: [Camera]]()
     var selectedCameras = [Camera]()
     let dispatch_group = DispatchGroup()
-    let maxNum = 4
+    let maxNum = 3
     
-    var showCamsBtn = UIBarButtonItem(title: "Show (1)",  style: .plain, target: self, action: #selector(TableViewController.didTapButton))
     let searchController = UISearchController(searchResultsController: nil)
     
     @IBOutlet var listView: UITableView!
     
     func filterContentForSearchText(searchText: String, scope: String = "All") {
-        filteredSections = sections
-        let regex = try! NSRegularExpression(pattern: "\\W", options: [])
-        let firstLetter = regex.stringByReplacingMatches(in: searchText, options: [], range: NSRange(location: 0, length:searchText.count), withTemplate: "")
+        resetSections()
         
-        if(firstLetter.count < 1){
-            filteredSections = sections
-        }
-        else{
-            for i in 0 ... sections.keys.count-1{
-                let sectionTitle = sections.keys.sorted()[i]
-                filteredSections[sectionTitle] = filteredSections[sectionTitle]?.filter({( candy : Camera) -> Bool in
-                    return candy.name.lowercased().contains(searchText.lowercased())
+        if(!searchText.isEmpty) {
+            for (i, data) in sections {
+                sections[i] = data.filter({( camera : Camera) -> Bool in
+                    return camera.getName().lowercased().contains(searchText.lowercased())
                 })
-                if(filteredSections[sectionTitle]!.count == 0){
-                    filteredSections.removeValue(forKey: sectionTitle)
-                }
-            }}
+            }
+        }
+        
         tableView.reloadData()
+    }
+    @objc func endSelecting(){
+        selectModeOn = false
+        selectedCameras.removeAll()
+        navigationController?.setToolbarHidden(true, animated: true)
+    }
+    func didDismissSearchController(_ searchController: UISearchController) {
+        endSelecting()
+    }
+    
+    func resetSections(){
+        sections.removeAll()
+        for camera in self.cameras{
+            let regex = try! NSRegularExpression(pattern: "\\W", options: [])
+            let firstLetter = regex.stringByReplacingMatches(in: camera.getName(), options: [], range: NSRange(location: 0, length:camera.getName().count), withTemplate: "").first!
+            
+            if self.sections[firstLetter] == nil{
+                self.sections[firstLetter] = []
+            }
+            self.sections[firstLetter]!.append(camera)
+        }
+    }
+    
+    func selectCamera(camera: Camera) -> Bool {
+        if(selectedCameras.contains(camera)){
+            selectedCameras.remove(at: selectedCameras.index(of: camera)!)
+        }else if(selectedCameras.count < maxNum){
+            selectedCameras.append(camera)
+        }
+        return selectedCameras.contains(camera)
+    }
+    
+    func getCamera(indexPath: IndexPath) -> Camera{
+        return (sections[sections.keys.sorted()[indexPath.section]]?[indexPath.row])!
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         dispatch_group.enter()
         getCameraList()
         
@@ -54,23 +78,15 @@ class TableViewController: UITableViewController {
             
             self.searchController.searchBar.placeholder = "Search from \(self.cameras.count) locations"
             
-            for camera in self.cameras{
-                let regex = try! NSRegularExpression(pattern: "\\W", options: [])
-                let firstLetter = regex.stringByReplacingMatches(in: camera.name, options: [], range: NSRange(location: 0, length:camera.name.count), withTemplate: "").first!.description
-                
-                if self.sections[firstLetter] == nil{
-                    self.sections[firstLetter] = []
-                }
-                self.sections[firstLetter]!.append(camera)
-                
-            }
-            self.filteredSections = self.sections
+            self.resetSections()
+
             
             self.tableView.reloadData()
             
             self.tableView.estimatedRowHeight = self.tableView.rowHeight
             self.tableView.rowHeight = UITableViewAutomaticDimension
             
+            self.searchController.delegate = self
             self.searchController.searchResultsUpdater = self
             self.searchController.searchBar.delegate = self
             self.definesPresentationContext = true
@@ -84,34 +100,35 @@ class TableViewController: UITableViewController {
             let v = UIView()
             v.backgroundColor = UIColor.black
             self.tableView.backgroundView = v
-          
             
             let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(TableViewController.longPress))
             self.view.addGestureRecognizer(longPressRecognizer)
-            self.showCamsBtn = UIBarButtonItem(title: "Show (1)",  style: .plain, target: self, action: #selector(TableViewController.didTapButton))
         })
         
     }
     
-    func longPress(longPressGestureRecognizer: UILongPressGestureRecognizer) {
+    @objc func longPress(longPressGestureRecognizer: UILongPressGestureRecognizer) {
         
         if longPressGestureRecognizer.state == UIGestureRecognizerState.began {
-            if(selectModeOn || searchController.isActive){
-                return
+            if(!selectModeOn){
+                selectModeOn = true
+                selectedCameras.removeAll()
+                navigationController?.setToolbarHidden(false, animated: true)
+                let showCamsBtn = UIBarButtonItem(title: "Show locations",  style: .plain, target: self, action: #selector(TableViewController.didTapButton))
+                let clearBtn = UIBarButtonItem(title: "Cancel",  style: .plain, target: self, action: #selector(TableViewController.endSelecting))
+                navigationController?.toolbar.items = [showCamsBtn, clearBtn]
             }
-            selectModeOn = true
             
-            
-            navigationItem.rightBarButtonItem = showCamsBtn
             let touchPoint = longPressGestureRecognizer.location(in: self.view)
             if let indexPath = tableView.indexPathForRow(at: touchPoint) {
-                selectedCameras = [filteredSections[filteredSections.keys.sorted()[(indexPath.section)]]![(indexPath.row)]]
+                
                 tableView.selectRow(at: indexPath, animated: true, scrollPosition: UITableViewScrollPosition.none)
+                tableView(tableView, didSelectRowAt: indexPath)
             }
         }
     }
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return filteredSections.keys.count
+        return sections.keys.count
     }
     
     override func didReceiveMemoryWarning() {
@@ -119,18 +136,18 @@ class TableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
-    
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return filteredSections[filteredSections.keys.sorted()[section]]!.count
+        return sections[sections.keys.sorted()[section]]!.count
         
     }
     override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        
-        return filteredSections.keys.sorted()
+        if(searchController.isActive){
+            return nil
+        }
+        return sections.keys.sorted().map{ String($0) }
     }
     
     
@@ -138,41 +155,23 @@ class TableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "intersection", for: indexPath) as! ListItem
         //cell.selectionStyle = .none
-        let camera = (filteredSections[filteredSections.keys.sorted()[indexPath.section]]?[indexPath.row])!
+        let camera = getCamera(indexPath: indexPath)
         
-        cell.name.text = camera.name
+        cell.name.text = camera.getName()
         return cell
     }
-    override func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
-        tableView.cellForRow(at: indexPath)?.backgroundColor = UIColor.darkGray
-    }
-    override func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
-        tableView.cellForRow(at: indexPath)?.backgroundColor = UIColor.black
-    }
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        let camera = (filteredSections[filteredSections.keys.sorted()[indexPath.section]]?[indexPath.row])!
-        if (selectModeOn){
-            if let i = selectedCameras.index(of: camera){
-                selectedCameras.remove(at: i)
-                showCamsBtn.title = "Show (\(selectedCameras.count))"
-                if(selectedCameras.count == 0){
-                    showCamsBtn.title = "Show (1)"
-                    selectModeOn = false
-                    navigationItem.rightBarButtonItems?.removeFirst()
-                }
-            }
+        let camera = getCamera(indexPath: indexPath)
+        selectCamera(camera: camera)
+        if(selectedCameras.isEmpty){
+            selectModeOn = false
+            navigationController?.setToolbarHidden(true, animated: true)
         }
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let camera = (filteredSections[filteredSections.keys.sorted()[indexPath.section]]?[indexPath.row])!
-        if (selectModeOn) {
-            if(selectedCameras.count < maxNum){
-                selectedCameras.append(camera)
-            }else{
-                tableView.deselectRow(at: indexPath, animated: true)
-            }
-            showCamsBtn.title = "Show (\(selectedCameras.count))"
-        }else{
+        let camera = getCamera(indexPath: indexPath)
+        
+        if (!selectModeOn) {
             tableView.deselectRow(at: indexPath, animated: true)
             
             let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -181,8 +180,13 @@ class TableViewController: UITableViewController {
             
             destination.cameras = [camera]
             navigationController?.pushViewController(destination, animated: true)
-            
+        } else {
+            if(!selectCamera(camera: camera)){
+                tableView.deselectRow(at: indexPath, animated: true)
+            }
         }
+        
+        
     }
     func getCameraList(){
         
@@ -202,10 +206,10 @@ class TableViewController: UITableViewController {
         }
         task.resume()
     }
-    func didTapButton(sender: AnyObject){
+    @objc func didTapButton(sender: AnyObject){
         performSegue(withIdentifier: "showMultiple", sender: sender)
     }
-
+    
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

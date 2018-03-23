@@ -9,11 +9,11 @@
 import UIKit
 
 class CameraViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    @IBOutlet var loadingBar: UIActivityIndicatorView!
     var cameras = [Camera]()
     
     @IBOutlet var imageTableView: UITableView!
     @IBOutlet var backgroundImg: UIImageView!
-    @IBOutlet var errorLbl: UILabel!
     
     //var portrait = true
     var dispatchGroup = DispatchGroup()
@@ -37,6 +37,7 @@ class CameraViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func comp(){
+        loadingBar.stopAnimating()
         imageTableView.reloadData()
         backgroundImg.image = blurImage(image: images[0])
         for i in 0...cameras.count-1{
@@ -46,9 +47,10 @@ class CameraViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadingBar.startAnimating()
         var title = ""
         for i in cameras{
-            title += i.name+", "
+            title += i.getName()+", "
             timers.append(Timer())
         }
         let label = UILabel(frame: CGRect(x:0, y:0, width:400, height:50))
@@ -79,7 +81,7 @@ class CameraViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = imageTableView.dequeueReusableCell(withIdentifier: "camImage", for: indexPath) as! CameraTableViewCell
         //let cell = CameraTableViewCell(style: .default, reuseIdentifier: "camImage")
-        cell.camName.text = cameras[indexPath.row].name
+        cell.camName.text = cameras[indexPath.row].getName()
         cell.sourceImageView.image = images[indexPath.row]
         return cell
     }
@@ -109,7 +111,7 @@ class CameraViewController: UIViewController, UITableViewDelegate, UITableViewDa
             self.dispatchGroup.leave()
         }
     }
-    func downloadImage(timer: Timer) {
+    @objc func downloadImage(timer: Timer) {
         let dictionary = timer.userInfo as! [String: Camera]
         let camera = dictionary["camera"]!
         let url = URL(string: "https://traffic.ottawa.ca/map/camera?id=\(camera.num)")!

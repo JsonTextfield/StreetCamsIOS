@@ -16,6 +16,13 @@ import Foundation
     var lat = 0.0
     var lng = 0.0
     
+    func getName() -> String {
+        if (Locale.preferredLanguages[0].contains("fr")){
+            return nameFr
+        }
+        return name
+    }
+    
     init(dict:[String: AnyObject]){
         name = dict["description"] as! String
         nameFr = dict["descriptionFr"] as! String

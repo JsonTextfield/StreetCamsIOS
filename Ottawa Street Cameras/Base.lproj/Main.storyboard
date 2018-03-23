@@ -72,13 +72,9 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please connect to a network and try again" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FfH-DE-P52">
-                                <rect key="frame" x="187" y="333" width="0.0" height="0.0"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Oom-2O-zpk">
+                                <rect key="frame" x="150" y="274" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -86,16 +82,18 @@
                             <constraint firstAttribute="trailingMargin" secondItem="Rtb-42-0f3" secondAttribute="trailing" constant="-16" id="IcE-cR-9sQ"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Rtb-42-0f3" secondAttribute="bottom" id="Kch-C7-BcX"/>
                             <constraint firstAttribute="trailing" secondItem="Qz5-On-Bdv" secondAttribute="trailing" id="Nb4-lH-cee"/>
+                            <constraint firstItem="Oom-2O-zpk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PHQ-8j-Co7"/>
                             <constraint firstItem="Qz5-On-Bdv" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="VDf-ps-kyC"/>
                             <constraint firstItem="Qz5-On-Bdv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="myn-fO-Gvh"/>
                             <constraint firstItem="Rtb-42-0f3" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="uaA-Il-Ug2"/>
                             <constraint firstItem="Rtb-42-0f3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="ux5-uq-pPU"/>
+                            <constraint firstItem="Oom-2O-zpk" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="vj1-hJ-olK"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="backgroundImg" destination="Qz5-On-Bdv" id="wO3-ux-QYU"/>
-                        <outlet property="errorLbl" destination="FfH-DE-P52" id="rjC-h9-8OB"/>
                         <outlet property="imageTableView" destination="Rtb-42-0f3" id="LzS-zh-usb"/>
+                        <outlet property="loadingBar" destination="Oom-2O-zpk" id="D84-PL-XyF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -155,7 +153,7 @@
                     <connections>
                         <outlet property="listView" destination="V36-C5-RN3" id="nq8-rs-xfC"/>
                         <outlet property="tableView" destination="V36-C5-RN3" id="usj-Sc-9FJ"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="showMultiple" id="mem-gz-xSM"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="showMultiple" action="showDetailViewController:sender:" id="mem-gz-xSM"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jkx-3i-28r" userLabel="First Responder" sceneMemberID="firstResponder"/>

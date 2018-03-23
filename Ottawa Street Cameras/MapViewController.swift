@@ -18,13 +18,13 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         for camera in cameras{
             let annotation = MKPointAnnotation()
             annotation.coordinate = CLLocationCoordinate2DMake(camera.lat, camera.lng)
-            annotation.title = camera.name
+            annotation.title = camera.getName()
             mapView.addAnnotation(annotation)
         }
         mapView.showAnnotations(mapView.annotations, animated: true)
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -37,7 +37,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         let destination: CameraViewController = storyboard.instantiateViewController(withIdentifier: "camera") as! CameraViewController
         
         for c in cameras{
-            if c.name == (view.annotation?.title)!{
+            if c.getName() == (view.annotation?.title)!{
                 destination.cameras = [c]
             }
         }
