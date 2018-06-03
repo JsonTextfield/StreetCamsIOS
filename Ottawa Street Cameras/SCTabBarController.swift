@@ -16,18 +16,8 @@ class SCTabBarController: UITabBarController {
         super.viewDidLoad()
         
         getCameraList()
-        getNeighbourhoods()
         
         dispatch_group.notify(queue: DispatchQueue.main, execute: {
-            for camera in self.cameras {
-                for neighbourhood in self.neighbourhoods{
-                    if(neighbourhood.containsCamera(camera: camera)){
-                        camera.neighbourhood = neighbourhood.getName()
-                        break
-                    }
-                }
-            }
-            
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             appDelegate.cameras = self.cameras
             appDelegate.neighbourhoods = self.neighbourhoods
@@ -50,6 +40,7 @@ class SCTabBarController: UITabBarController {
                 
                 self.cameras = parsedData.map({(it) in Camera(dict: it as! [String: AnyObject])})
                 
+                self.getNeighbourhoods()
                 self.dispatch_group.leave()
             } catch let error as NSError {
                 print(error)
@@ -68,6 +59,15 @@ class SCTabBarController: UITabBarController {
                 
                 self.neighbourhoods = items.map({(it) in Neighbourhood(dict: it)})
                 
+                //takes too long for ui thread execution
+                for camera in self.cameras {
+                    for neighbourhood in self.neighbourhoods{
+                        if(neighbourhood.containsCamera(camera: camera)){
+                            camera.neighbourhood = neighbourhood.getName()
+                            break
+                        }
+                    }
+                }
                 self.dispatch_group.leave()
             } catch let error as NSError {
                 print(error)

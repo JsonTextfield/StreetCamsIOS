@@ -15,8 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var selectModeOn = false
     var cameras = [Camera]()
-    var neighbourhoods = [Neighbourhood]()
     var selectedCameras = [Camera]()
+    var neighbourhoods = [Neighbourhood]()
     let maxCameras = 4
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool{

@@ -11,9 +11,9 @@ import GoogleMaps
 class MapViewController: UIViewController, UISearchBarDelegate, GMSMapViewDelegate {
     @IBOutlet var googleMap: GMSMapView!
     @IBOutlet var searchBar: UISearchBar!
+    
     private var cameras = [Camera]()
     private var markers = [GMSMarker]()
-    private var region: MKCoordinateRegion!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,12 +56,9 @@ class MapViewController: UIViewController, UISearchBarDelegate, GMSMapViewDelega
      */
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        //mapView.addAnnotations(annotations)
-        if(!searchText.isEmpty) {
-            for marker in markers {
-                let camera = marker.userData as! Camera
-                marker.map = (camera.isVisible && camera.getName().lowercased().contains(searchText.lowercased())) ? googleMap : nil
-            }
+        for marker in markers {
+            let camera = marker.userData as! Camera
+            marker.map = (camera.isVisible && camera.getName().lowercased().contains(searchText.lowercased())) ? googleMap : nil
         }
     }
     
@@ -73,10 +70,12 @@ class MapViewController: UIViewController, UISearchBarDelegate, GMSMapViewDelega
         searchBar.endEditing(true)
         searchBar.setShowsCancelButton(false, animated: true)
     }
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(false, animated: true)
         searchBar.endEditing(true)
     }
+    
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
         let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         
