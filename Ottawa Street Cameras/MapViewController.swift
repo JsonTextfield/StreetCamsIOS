@@ -8,20 +8,24 @@
 
 import UIKit
 import MapKit
-class MapViewController: UIViewController, MKMapViewDelegate {
-
+class MapViewController: UIViewController, MKMapViewDelegate, UISearchBarDelegate {
     @IBOutlet var mapView: MKMapView!
-    var cameras = [Camera]()
+    @IBOutlet var searchBar: UISearchBar!
+    
+    private var cameras = [Camera]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        cameras = (UIApplication.shared.delegate as! AppDelegate).cameras
         mapView.delegate = self
-        for camera in cameras{
+        for camera in cameras {
             let annotation = MKPointAnnotation()
             annotation.coordinate = CLLocationCoordinate2DMake(camera.lat, camera.lng)
             annotation.title = camera.getName()
             mapView.addAnnotation(annotation)
         }
         mapView.showAnnotations(mapView.annotations, animated: true)
+        searchBar.delegate = self
+        searchBar.placeholder = "Search from \(cameras.count) locations"
         // Do any additional setup after loading the view.
     }
     
@@ -72,5 +76,20 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         // Pass the selected object to the new view controller.
     }
     */
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        resetMap()
+        if(!searchText.isEmpty) {
+            for i in mapView.annotations {
+                if !(i.title!!.lowercased().contains(searchText.lowercased())){
+                    mapView.view(for: i)?.isHidden = true
+                }
+            }
+        }
+    }
+    func resetMap(){
+        for i in mapView.annotations {
+            mapView.view(for: i)?.isHidden = false
+        }
+    }
 
 }

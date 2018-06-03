@@ -14,8 +14,7 @@ class ListViewController: UITableViewController, UISearchControllerDelegate {
     private var cameras = [Camera]()
     private var neighbourhoods = [Neighbourhood]()
     private var selectedCameras = [Camera]()
-    private let dispatch_group = DispatchGroup()
-    private let maxNum = 4
+    private var maxNum = 0
     
     private let searchController = UISearchController(searchResultsController: nil)
     
@@ -26,17 +25,17 @@ class ListViewController: UITableViewController, UISearchControllerDelegate {
             
             for (i, data) in sections {
                 sections[i] = { () -> [Camera] in
-                    if(searchText.starts(with: "f: ")){
+                    if(searchText.lowercased().starts(with: "f: ")){
                         return data.filter({( camera : Camera) -> Bool in
                             return camera.getName().lowercased().contains(searchText.dropFirst(3).lowercased()) && camera.isFavourite
                         })
                     }
-                    else if (searchText.starts(with: "h: ")){
+                    else if (searchText.lowercased().starts(with: "h: ")){
                         return data.filter({( camera : Camera) -> Bool in
                             return camera.getName().lowercased().contains(searchText.dropFirst(3).lowercased()) && !camera.isVisible
                         })
                     }
-                    else if (searchText.starts(with: "n: ")){
+                    else if (searchText.lowercased().starts(with: "n: ")){
                         return data.filter({( camera : Camera) -> Bool in
                             return camera.neighbourhood.lowercased().contains(searchText.dropFirst(3).lowercased())
                         })
@@ -92,39 +91,42 @@ class ListViewController: UITableViewController, UISearchControllerDelegate {
         return (sections[sections.keys.sorted()[indexPath.section]]?[indexPath.row])!
     }
     
+    func update(){
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        cameras = appDelegate.cameras
+        neighbourhoods = appDelegate.neighbourhoods
+        maxNum = appDelegate.maxCameras
+        
+        self.searchController.searchBar.placeholder = (cameras.isEmpty) ? "Loading..." : "Search from \(self.cameras.count) locations"
+        
+        self.resetSections()
+        self.tableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-            cameras = (UIApplication.shared.delegate as! AppDelegate).cameras
-        neighbourhoods = (UIApplication.shared.delegate as! AppDelegate).neighbourhoods
-            // Won't get here until everything has finished
-            self.searchController.searchBar.placeholder = "Search from \(self.cameras.count) locations"
-            
-            self.resetSections()
-            
-            self.tableView.reloadData()
-            
-            self.tableView.estimatedRowHeight = self.tableView.rowHeight
-            self.tableView.rowHeight = UITableViewAutomaticDimension
-            
-            self.searchController.delegate = self
-            self.searchController.searchResultsUpdater = self
-            self.searchController.searchBar.delegate = self
-            self.definesPresentationContext = true
-            self.searchController.dimsBackgroundDuringPresentation = false
-            self.searchController.searchBar.barTintColor = UIColor.clear
-            self.searchController.searchBar.backgroundColor = UIColor.clear
-            
-            self.tableView.sectionIndexBackgroundColor = UIColor.clear
-            self.tableView.tableHeaderView = self.searchController.searchBar
-            
-            let v = UIView()
-            v.backgroundColor = UIColor.black
-            self.tableView.backgroundView = v
-            
-            let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(ListViewController.longPress))
-            self.view.addGestureRecognizer(longPressRecognizer)
+        update()
         
+        self.tableView.estimatedRowHeight = self.tableView.rowHeight
+        self.tableView.rowHeight = UITableViewAutomaticDimension
         
+        self.searchController.delegate = self
+        self.searchController.searchResultsUpdater = self
+        self.searchController.searchBar.delegate = self
+        self.definesPresentationContext = true
+        self.searchController.dimsBackgroundDuringPresentation = false
+        self.searchController.searchBar.barTintColor = UIColor.clear
+        self.searchController.searchBar.backgroundColor = UIColor.clear
+        
+        self.tableView.sectionIndexBackgroundColor = UIColor.clear
+        self.tableView.tableHeaderView = self.searchController.searchBar
+        
+        let v = UIView()
+        v.backgroundColor = UIColor.black
+        self.tableView.backgroundView = v
+        
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(ListViewController.longPress))
+        self.view.addGestureRecognizer(longPressRecognizer)
     }
     
     @objc func longPress(longPressGestureRecognizer: UILongPressGestureRecognizer) {
@@ -159,9 +161,7 @@ class ListViewController: UITableViewController, UISearchControllerDelegate {
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return sections[sections.keys.sorted()[section]]!.count
-        
     }
     override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         if(searchController.isActive){
@@ -208,7 +208,7 @@ class ListViewController: UITableViewController, UISearchControllerDelegate {
         
         
     }
-
+    
     @objc func didTapButton(sender: AnyObject){
         performSegue(withIdentifier: "showMultiple", sender: sender)
     }
@@ -218,12 +218,10 @@ class ListViewController: UITableViewController, UISearchControllerDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        
         if segue.identifier == "showMultiple"{
             let dest = segue.destination as! CameraViewController
             dest.cameras = selectedCameras
         }
-        
     }
 }
 

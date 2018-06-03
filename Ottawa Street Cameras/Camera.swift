@@ -7,22 +7,21 @@
 //
 
 import Foundation
-@objc class Camera: NSObject{
-    var name = ""
-    var owner = ""
-    var nameFr = ""
-    var id = 0
-    var num = 0
-    var lat = 0.0
-    var lng = 0.0
+class Camera: NSObject{
+    private var name = ""
+    private var nameFr = ""
+    private(set) var owner = ""
+    private(set) var id = 0
+    private(set) var num = 0
+    private(set) var lat = 0.0
+    private(set) var lng = 0.0
+    var isVisible = true
+    var isFavourite = false
+    var neighbourhood = ""
     
     func getName() -> String {
-        if (Locale.preferredLanguages[0].contains("fr")){
-            return nameFr
-        }
-        return name
+        return (Locale.preferredLanguages[0].contains("fr")) ? nameFr : name
     }
-    
     init(dict:[String: AnyObject]){
         name = dict["description"] as! String
         nameFr = dict["descriptionFr"] as! String
@@ -34,9 +33,5 @@ import Foundation
         id = dict["id"] as! Int
         lat = dict["latitude"] as! Double
         lng = dict["longitude"] as! Double
-        
-    }
-    override init(){
-    
     }
 }

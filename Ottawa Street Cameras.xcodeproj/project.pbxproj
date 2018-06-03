@@ -8,36 +8,45 @@
 
 /* Begin PBXBuildFile section */
 		9A04B9271DEAAA4F00D0F07B /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A04B9261DEAAA4F00D0F07B /* ListItem.swift */; };
-		9A04B9291DEAABF500D0F07B /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A04B9281DEAABF500D0F07B /* TableViewController.swift */; };
+		9A04B9291DEAABF500D0F07B /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A04B9281DEAABF500D0F07B /* ListViewController.swift */; };
 		9A0EC3541EFAFC1600DF3A4D /* iTunesArtwork@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A0EC3531EFAFC1600DF3A4D /* iTunesArtwork@3x.png */; };
 		9A0EC3561EFAFDFC00DF3A4D /* iTunesArtwork@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A0EC3551EFAFDFC00DF3A4D /* iTunesArtwork@1x.png */; };
-		9A1BACD01F08549400E30F0D /* CamDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1BACCF1F08549400E30F0D /* CamDB.m */; };
 		9A1BACD51F085D1D00E30F0D /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A1BACD41F085D1D00E30F0D /* libsqlite3.0.tbd */; };
-		9A1BACD71F08604400E30F0D /* camera_list.db in Resources */ = {isa = PBXBuildFile; fileRef = 9A1BACD61F08604400E30F0D /* camera_list.db */; };
 		9A31D4391DEA85B200C90D79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A31D4381DEA85B200C90D79 /* AppDelegate.swift */; };
 		9A31D43E1DEA85B200C90D79 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A31D43C1DEA85B200C90D79 /* Main.storyboard */; };
 		9A31D4431DEA85B200C90D79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A31D4421DEA85B200C90D79 /* Assets.xcassets */; };
 		9A31D4461DEA85B200C90D79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A31D4441DEA85B200C90D79 /* LaunchScreen.storyboard */; };
 		9A4507B41DFCE01D001036FC /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4507B31DFCE01C001036FC /* CameraViewController.swift */; };
 		9A4C2D132026A8DF008D9595 /* CameraTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4C2D122026A8DF008D9595 /* CameraTableViewCell.swift */; };
-		9A4C2D1520276334008D9595 /* icons8-wall-mount-camera-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A4C2D1420276334008D9595 /* icons8-wall-mount-camera-50.png */; };
-		9A4C2D1720276346008D9595 /* icons8-map-pin-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A4C2D1620276346008D9595 /* icons8-map-pin-50.png */; };
 		9A79BBA31DEFF91A00E8F0AF /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A79BBA21DEFF91A00E8F0AF /* Camera.swift */; };
-		9A7AA7671F02EFE600C7B5D2 /* camera_list.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A7AA7661F02EFE600C7B5D2 /* camera_list.json */; };
 		9A7AA7691F02FAA300C7B5D2 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7AA7681F02FAA300C7B5D2 /* MapViewController.swift */; };
+		9ADE663720BBCEE4008A5A99 /* Neighbourhood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADE663620BBCEE4008A5A99 /* Neighbourhood.swift */; };
+		9AE7E1A220C2E4DC0087C78C /* SCTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE7E1A120C2E4DC0087C78C /* SCTabBarController.swift */; };
+		9AE7E1AD20C305F30087C78C /* outline_place_white_18pt.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AE7E1A420C305F20087C78C /* outline_place_white_18pt.xcassets */; };
+		9AE7E1AE20C305F30087C78C /* outline_place_white_24pt.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AE7E1A520C305F20087C78C /* outline_place_white_24pt.xcassets */; };
+		9AE7E1AF20C305F30087C78C /* outline_place_white_36pt.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AE7E1A620C305F20087C78C /* outline_place_white_36pt.xcassets */; };
+		9AE7E1B020C305F30087C78C /* outline_place_white_48pt.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AE7E1A720C305F20087C78C /* outline_place_white_48pt.xcassets */; };
+		9AE7E1B120C305F30087C78C /* outline_list_white_18pt.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AE7E1A920C305F20087C78C /* outline_list_white_18pt.xcassets */; };
+		9AE7E1B220C305F30087C78C /* outline_list_white_24pt.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AE7E1AA20C305F20087C78C /* outline_list_white_24pt.xcassets */; };
+		9AE7E1B320C305F30087C78C /* outline_list_white_36pt.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AE7E1AB20C305F20087C78C /* outline_list_white_36pt.xcassets */; };
+		9AE7E1B420C305F30087C78C /* outline_list_white_48pt.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AE7E1AC20C305F20087C78C /* outline_list_white_48pt.xcassets */; };
+		9AE7E1BA20C31D780087C78C /* baseline_place_white_18pt.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AE7E1B620C31D780087C78C /* baseline_place_white_18pt.xcassets */; };
+		9AE7E1BB20C31D780087C78C /* baseline_place_white_24pt.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AE7E1B720C31D780087C78C /* baseline_place_white_24pt.xcassets */; };
+		9AE7E1BC20C31D780087C78C /* baseline_place_white_36pt.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AE7E1B820C31D780087C78C /* baseline_place_white_36pt.xcassets */; };
+		9AE7E1BD20C31D780087C78C /* baseline_place_white_48pt.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AE7E1B920C31D780087C78C /* baseline_place_white_48pt.xcassets */; };
+		EE46259E27FFF2D5383B3032 /* Pods_Ottawa_Street_Cameras.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50B594B4DF1AD58FDD123B46 /* Pods_Ottawa_Street_Cameras.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0CD0562E6DCF17C64F480D05 /* Pods-Ottawa Street Cameras.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ottawa Street Cameras.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ottawa Street Cameras/Pods-Ottawa Street Cameras.debug.xcconfig"; sourceTree = "<group>"; };
+		50B594B4DF1AD58FDD123B46 /* Pods_Ottawa_Street_Cameras.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ottawa_Street_Cameras.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D7E4B30AF2C468953E8E67D /* Pods-Ottawa Street Cameras.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ottawa Street Cameras.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ottawa Street Cameras/Pods-Ottawa Street Cameras.release.xcconfig"; sourceTree = "<group>"; };
 		9A04B9261DEAAA4F00D0F07B /* ListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
-		9A04B9281DEAABF500D0F07B /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		9A04B9281DEAABF500D0F07B /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		9A0EC3531EFAFC1600DF3A4D /* iTunesArtwork@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iTunesArtwork@3x.png"; path = "../../../Desktop/Untitled-1/ios/iTunesArtwork@3x.png"; sourceTree = "<group>"; };
 		9A0EC3551EFAFDFC00DF3A4D /* iTunesArtwork@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iTunesArtwork@1x.png"; path = "../../../Desktop/Untitled-1/ios/iTunesArtwork@1x.png"; sourceTree = "<group>"; };
-		9A1BACCB1F084AE000E30F0D /* Ottawa Street Cameras-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Ottawa Street Cameras-Bridging-Header.h"; sourceTree = "<group>"; };
-		9A1BACCF1F08549400E30F0D /* CamDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CamDB.m; sourceTree = "<group>"; };
-		9A1BACD11F08550900E30F0D /* CamDB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CamDB.h; sourceTree = "<group>"; };
 		9A1BACD21F08574900E30F0D /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		9A1BACD41F085D1D00E30F0D /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
-		9A1BACD61F08604400E30F0D /* camera_list.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = camera_list.db; sourceTree = "<group>"; };
 		9A31D4351DEA85B100C90D79 /* Ottawa Street Cameras.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ottawa Street Cameras.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A31D4381DEA85B200C90D79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A31D43D1DEA85B200C90D79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -46,11 +55,22 @@
 		9A31D4471DEA85B200C90D79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A4507B31DFCE01C001036FC /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		9A4C2D122026A8DF008D9595 /* CameraTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraTableViewCell.swift; sourceTree = "<group>"; };
-		9A4C2D1420276334008D9595 /* icons8-wall-mount-camera-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-wall-mount-camera-50.png"; path = "../../../Desktop/icons8-wall-mount-camera-50.png"; sourceTree = "<group>"; };
-		9A4C2D1620276346008D9595 /* icons8-map-pin-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-map-pin-50.png"; path = "../../../Desktop/icons8-map-pin-50.png"; sourceTree = "<group>"; };
 		9A79BBA21DEFF91A00E8F0AF /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
-		9A7AA7661F02EFE600C7B5D2 /* camera_list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = camera_list.json; sourceTree = "<group>"; };
 		9A7AA7681F02FAA300C7B5D2 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		9ADE663620BBCEE4008A5A99 /* Neighbourhood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Neighbourhood.swift; sourceTree = "<group>"; };
+		9AE7E1A120C2E4DC0087C78C /* SCTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCTabBarController.swift; sourceTree = "<group>"; };
+		9AE7E1A420C305F20087C78C /* outline_place_white_18pt.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = outline_place_white_18pt.xcassets; sourceTree = "<group>"; };
+		9AE7E1A520C305F20087C78C /* outline_place_white_24pt.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = outline_place_white_24pt.xcassets; sourceTree = "<group>"; };
+		9AE7E1A620C305F20087C78C /* outline_place_white_36pt.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = outline_place_white_36pt.xcassets; sourceTree = "<group>"; };
+		9AE7E1A720C305F20087C78C /* outline_place_white_48pt.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = outline_place_white_48pt.xcassets; sourceTree = "<group>"; };
+		9AE7E1A920C305F20087C78C /* outline_list_white_18pt.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = outline_list_white_18pt.xcassets; sourceTree = "<group>"; };
+		9AE7E1AA20C305F20087C78C /* outline_list_white_24pt.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = outline_list_white_24pt.xcassets; sourceTree = "<group>"; };
+		9AE7E1AB20C305F20087C78C /* outline_list_white_36pt.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = outline_list_white_36pt.xcassets; sourceTree = "<group>"; };
+		9AE7E1AC20C305F20087C78C /* outline_list_white_48pt.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = outline_list_white_48pt.xcassets; sourceTree = "<group>"; };
+		9AE7E1B620C31D780087C78C /* baseline_place_white_18pt.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = baseline_place_white_18pt.xcassets; sourceTree = "<group>"; };
+		9AE7E1B720C31D780087C78C /* baseline_place_white_24pt.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = baseline_place_white_24pt.xcassets; sourceTree = "<group>"; };
+		9AE7E1B820C31D780087C78C /* baseline_place_white_36pt.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = baseline_place_white_36pt.xcassets; sourceTree = "<group>"; };
+		9AE7E1B920C31D780087C78C /* baseline_place_white_48pt.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = baseline_place_white_48pt.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,18 +79,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A1BACD51F085D1D00E30F0D /* libsqlite3.0.tbd in Frameworks */,
+				EE46259E27FFF2D5383B3032 /* Pods_Ottawa_Street_Cameras.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		19FF4ACE143F808E6E4EDBC2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0CD0562E6DCF17C64F480D05 /* Pods-Ottawa Street Cameras.debug.xcconfig */,
+				8D7E4B30AF2C468953E8E67D /* Pods-Ottawa Street Cameras.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		9A31D42C1DEA85B100C90D79 = {
 			isa = PBXGroup;
 			children = (
+				9AE7E1B520C31D780087C78C /* baseline-place-ios-white */,
+				9AE7E1A820C305F20087C78C /* outline-list-ios-white */,
+				9AE7E1A320C305F20087C78C /* outline-place-ios-white */,
 				9A31D4361DEA85B100C90D79 /* Products */,
 				9A31D4371DEA85B100C90D79 /* Ottawa Street Cameras */,
 				9A40AAAC1EF81A28004A0E46 /* Frameworks */,
+				19FF4ACE143F808E6E4EDBC2 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -85,13 +119,6 @@
 		9A31D4371DEA85B100C90D79 /* Ottawa Street Cameras */ = {
 			isa = PBXGroup;
 			children = (
-				9A1BACD61F08604400E30F0D /* camera_list.db */,
-				9A4C2D1620276346008D9595 /* icons8-map-pin-50.png */,
-				9A4C2D1420276334008D9595 /* icons8-wall-mount-camera-50.png */,
-				9A1BACD11F08550900E30F0D /* CamDB.h */,
-				9A1BACCB1F084AE000E30F0D /* Ottawa Street Cameras-Bridging-Header.h */,
-				9A7AA7661F02EFE600C7B5D2 /* camera_list.json */,
-				9A1BACCF1F08549400E30F0D /* CamDB.m */,
 				9A31D4471DEA85B200C90D79 /* Info.plist */,
 				9A0EC3551EFAFDFC00DF3A4D /* iTunesArtwork@1x.png */,
 				9A0EC3531EFAFC1600DF3A4D /* iTunesArtwork@3x.png */,
@@ -101,10 +128,12 @@
 				9A4507B31DFCE01C001036FC /* CameraViewController.swift */,
 				9A04B9261DEAAA4F00D0F07B /* ListItem.swift */,
 				9A7AA7681F02FAA300C7B5D2 /* MapViewController.swift */,
-				9A04B9281DEAABF500D0F07B /* TableViewController.swift */,
+				9A04B9281DEAABF500D0F07B /* ListViewController.swift */,
+				9ADE663620BBCEE4008A5A99 /* Neighbourhood.swift */,
 				9A31D4421DEA85B200C90D79 /* Assets.xcassets */,
 				9A31D4441DEA85B200C90D79 /* LaunchScreen.storyboard */,
 				9A31D43C1DEA85B200C90D79 /* Main.storyboard */,
+				9AE7E1A120C2E4DC0087C78C /* SCTabBarController.swift */,
 			);
 			path = "Ottawa Street Cameras";
 			sourceTree = "<group>";
@@ -114,9 +143,43 @@
 			children = (
 				9A1BACD41F085D1D00E30F0D /* libsqlite3.0.tbd */,
 				9A1BACD21F08574900E30F0D /* libsqlite3.tbd */,
+				50B594B4DF1AD58FDD123B46 /* Pods_Ottawa_Street_Cameras.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
+		};
+		9AE7E1A320C305F20087C78C /* outline-place-ios-white */ = {
+			isa = PBXGroup;
+			children = (
+				9AE7E1A420C305F20087C78C /* outline_place_white_18pt.xcassets */,
+				9AE7E1A520C305F20087C78C /* outline_place_white_24pt.xcassets */,
+				9AE7E1A620C305F20087C78C /* outline_place_white_36pt.xcassets */,
+				9AE7E1A720C305F20087C78C /* outline_place_white_48pt.xcassets */,
+			);
+			path = "outline-place-ios-white";
+			sourceTree = "<group>";
+		};
+		9AE7E1A820C305F20087C78C /* outline-list-ios-white */ = {
+			isa = PBXGroup;
+			children = (
+				9AE7E1A920C305F20087C78C /* outline_list_white_18pt.xcassets */,
+				9AE7E1AA20C305F20087C78C /* outline_list_white_24pt.xcassets */,
+				9AE7E1AB20C305F20087C78C /* outline_list_white_36pt.xcassets */,
+				9AE7E1AC20C305F20087C78C /* outline_list_white_48pt.xcassets */,
+			);
+			path = "outline-list-ios-white";
+			sourceTree = "<group>";
+		};
+		9AE7E1B520C31D780087C78C /* baseline-place-ios-white */ = {
+			isa = PBXGroup;
+			children = (
+				9AE7E1B620C31D780087C78C /* baseline_place_white_18pt.xcassets */,
+				9AE7E1B720C31D780087C78C /* baseline_place_white_24pt.xcassets */,
+				9AE7E1B820C31D780087C78C /* baseline_place_white_36pt.xcassets */,
+				9AE7E1B920C31D780087C78C /* baseline_place_white_48pt.xcassets */,
+			);
+			path = "baseline-place-ios-white";
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -125,9 +188,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9A31D44A1DEA85B200C90D79 /* Build configuration list for PBXNativeTarget "Ottawa Street Cameras" */;
 			buildPhases = (
+				AF18FB90EF8307373B976C09 /* [CP] Check Pods Manifest.lock */,
 				9A31D4311DEA85B100C90D79 /* Sources */,
 				9A31D4321DEA85B100C90D79 /* Frameworks */,
 				9A31D4331DEA85B100C90D79 /* Resources */,
+				6E0D7B92A96A3612EB541FE9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -145,7 +210,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = JsonTextfield;
 				TargetAttributes = {
 					9A31D4341DEA85B100C90D79 = {
@@ -187,19 +252,66 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AE7E1B420C305F30087C78C /* outline_list_white_48pt.xcassets in Resources */,
 				9A31D4461DEA85B200C90D79 /* LaunchScreen.storyboard in Resources */,
 				9A0EC3561EFAFDFC00DF3A4D /* iTunesArtwork@1x.png in Resources */,
-				9A7AA7671F02EFE600C7B5D2 /* camera_list.json in Resources */,
-				9A4C2D1520276334008D9595 /* icons8-wall-mount-camera-50.png in Resources */,
-				9A1BACD71F08604400E30F0D /* camera_list.db in Resources */,
+				9AE7E1AE20C305F30087C78C /* outline_place_white_24pt.xcassets in Resources */,
+				9AE7E1B220C305F30087C78C /* outline_list_white_24pt.xcassets in Resources */,
+				9AE7E1BD20C31D780087C78C /* baseline_place_white_48pt.xcassets in Resources */,
+				9AE7E1BC20C31D780087C78C /* baseline_place_white_36pt.xcassets in Resources */,
+				9AE7E1BB20C31D780087C78C /* baseline_place_white_24pt.xcassets in Resources */,
 				9A31D4431DEA85B200C90D79 /* Assets.xcassets in Resources */,
-				9A4C2D1720276346008D9595 /* icons8-map-pin-50.png in Resources */,
+				9AE7E1AD20C305F30087C78C /* outline_place_white_18pt.xcassets in Resources */,
+				9AE7E1B320C305F30087C78C /* outline_list_white_36pt.xcassets in Resources */,
 				9A0EC3541EFAFC1600DF3A4D /* iTunesArtwork@3x.png in Resources */,
+				9AE7E1B120C305F30087C78C /* outline_list_white_18pt.xcassets in Resources */,
+				9AE7E1B020C305F30087C78C /* outline_place_white_48pt.xcassets in Resources */,
+				9AE7E1BA20C31D780087C78C /* baseline_place_white_18pt.xcassets in Resources */,
 				9A31D43E1DEA85B200C90D79 /* Main.storyboard in Resources */,
+				9AE7E1AF20C305F30087C78C /* outline_place_white_36pt.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6E0D7B92A96A3612EB541FE9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Ottawa Street Cameras/Pods-Ottawa Street Cameras-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Ottawa Street Cameras/Pods-Ottawa Street Cameras-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AF18FB90EF8307373B976C09 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Ottawa Street Cameras-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9A31D4311DEA85B100C90D79 /* Sources */ = {
@@ -208,11 +320,12 @@
 			files = (
 				9A4C2D132026A8DF008D9595 /* CameraTableViewCell.swift in Sources */,
 				9A04B9271DEAAA4F00D0F07B /* ListItem.swift in Sources */,
-				9A1BACD01F08549400E30F0D /* CamDB.m in Sources */,
 				9A7AA7691F02FAA300C7B5D2 /* MapViewController.swift in Sources */,
 				9A4507B41DFCE01D001036FC /* CameraViewController.swift in Sources */,
+				9ADE663720BBCEE4008A5A99 /* Neighbourhood.swift in Sources */,
 				9A79BBA31DEFF91A00E8F0AF /* Camera.swift in Sources */,
-				9A04B9291DEAABF500D0F07B /* TableViewController.swift in Sources */,
+				9AE7E1A220C2E4DC0087C78C /* SCTabBarController.swift in Sources */,
+				9A04B9291DEAABF500D0F07B /* ListViewController.swift in Sources */,
 				9A31D4391DEA85B200C90D79 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -248,15 +361,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -299,15 +420,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -336,6 +465,7 @@
 		};
 		9A31D44B1DEA85B200C90D79 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0CD0562E6DCF17C64F480D05 /* Pods-Ottawa Street Cameras.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CLANG_ENABLE_MODULES = YES;
@@ -357,6 +487,7 @@
 		};
 		9A31D44C1DEA85B200C90D79 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D7E4B30AF2C468953E8E67D /* Pods-Ottawa Street Cameras.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CLANG_ENABLE_MODULES = YES;

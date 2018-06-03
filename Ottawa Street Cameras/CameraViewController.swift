@@ -40,13 +40,14 @@ class CameraViewController: UIViewController, UITableViewDelegate, UITableViewDa
         loadingBar.stopAnimating()
         imageTableView.reloadData()
         backgroundImg.image = blurImage(image: images[0])
-        for i in 0...cameras.count-1{
+        for i in 0..<cameras.count{
             timers[i] = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(CameraViewController.downloadImage), userInfo: ["camera": cameras[i]], repeats: true)
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.setToolbarHidden(true, animated: true)
         loadingBar.startAnimating()
         var title = ""
         for i in cameras{
