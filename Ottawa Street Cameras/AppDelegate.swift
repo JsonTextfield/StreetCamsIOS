@@ -17,9 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var neighbourhoods = [Neighbourhood]()
     var selectedCameras = [Camera]()
     let maxCameras = 4
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-
+    
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool{
         // Override point for customization after application launch.
         return true
     }

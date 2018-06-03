@@ -22,6 +22,9 @@ class Camera: NSObject{
     func getName() -> String {
         return (Locale.preferredLanguages[0].contains("fr")) ? nameFr : name
     }
+    func getSortableName() -> String {
+        return getName().replacingOccurrences( of:"^\\W", with: "", options: .regularExpression)
+    }
     init(dict:[String: AnyObject]){
         name = dict["description"] as! String
         nameFr = dict["descriptionFr"] as! String

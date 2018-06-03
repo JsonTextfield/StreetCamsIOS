@@ -34,6 +34,7 @@
 		9AE7E1BB20C31D780087C78C /* baseline_place_white_24pt.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AE7E1B720C31D780087C78C /* baseline_place_white_24pt.xcassets */; };
 		9AE7E1BC20C31D780087C78C /* baseline_place_white_36pt.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AE7E1B820C31D780087C78C /* baseline_place_white_36pt.xcassets */; };
 		9AE7E1BD20C31D780087C78C /* baseline_place_white_48pt.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AE7E1B920C31D780087C78C /* baseline_place_white_48pt.xcassets */; };
+		9AE7E1C120C3A4C90087C78C /* MyAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE7E1C020C3A4C90087C78C /* MyAnnotation.swift */; };
 		EE46259E27FFF2D5383B3032 /* Pods_Ottawa_Street_Cameras.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50B594B4DF1AD58FDD123B46 /* Pods_Ottawa_Street_Cameras.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,7 @@
 		9AE7E1B720C31D780087C78C /* baseline_place_white_24pt.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = baseline_place_white_24pt.xcassets; sourceTree = "<group>"; };
 		9AE7E1B820C31D780087C78C /* baseline_place_white_36pt.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = baseline_place_white_36pt.xcassets; sourceTree = "<group>"; };
 		9AE7E1B920C31D780087C78C /* baseline_place_white_48pt.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = baseline_place_white_48pt.xcassets; sourceTree = "<group>"; };
+		9AE7E1C020C3A4C90087C78C /* MyAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAnnotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,12 +101,12 @@
 			isa = PBXGroup;
 			children = (
 				9AE7E1B520C31D780087C78C /* baseline-place-ios-white */,
+				9A40AAAC1EF81A28004A0E46 /* Frameworks */,
+				9A31D4371DEA85B100C90D79 /* Ottawa Street Cameras */,
 				9AE7E1A820C305F20087C78C /* outline-list-ios-white */,
 				9AE7E1A320C305F20087C78C /* outline-place-ios-white */,
-				9A31D4361DEA85B100C90D79 /* Products */,
-				9A31D4371DEA85B100C90D79 /* Ottawa Street Cameras */,
-				9A40AAAC1EF81A28004A0E46 /* Frameworks */,
 				19FF4ACE143F808E6E4EDBC2 /* Pods */,
+				9A31D4361DEA85B100C90D79 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,13 +129,14 @@
 				9A4C2D122026A8DF008D9595 /* CameraTableViewCell.swift */,
 				9A4507B31DFCE01C001036FC /* CameraViewController.swift */,
 				9A04B9261DEAAA4F00D0F07B /* ListItem.swift */,
-				9A7AA7681F02FAA300C7B5D2 /* MapViewController.swift */,
 				9A04B9281DEAABF500D0F07B /* ListViewController.swift */,
+				9A7AA7681F02FAA300C7B5D2 /* MapViewController.swift */,
+				9AE7E1C020C3A4C90087C78C /* MyAnnotation.swift */,
 				9ADE663620BBCEE4008A5A99 /* Neighbourhood.swift */,
+				9AE7E1A120C2E4DC0087C78C /* SCTabBarController.swift */,
 				9A31D4421DEA85B200C90D79 /* Assets.xcassets */,
 				9A31D4441DEA85B200C90D79 /* LaunchScreen.storyboard */,
 				9A31D43C1DEA85B200C90D79 /* Main.storyboard */,
-				9AE7E1A120C2E4DC0087C78C /* SCTabBarController.swift */,
 			);
 			path = "Ottawa Street Cameras";
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 			files = (
 				9A4C2D132026A8DF008D9595 /* CameraTableViewCell.swift in Sources */,
 				9A04B9271DEAAA4F00D0F07B /* ListItem.swift in Sources */,
+				9AE7E1C120C3A4C90087C78C /* MyAnnotation.swift in Sources */,
 				9A7AA7691F02FAA300C7B5D2 /* MapViewController.swift in Sources */,
 				9A4507B41DFCE01D001036FC /* CameraViewController.swift in Sources */,
 				9ADE663720BBCEE4008A5A99 /* Neighbourhood.swift in Sources */,

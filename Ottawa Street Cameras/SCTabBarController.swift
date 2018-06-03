@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SwiftyJSON
 class SCTabBarController: UITabBarController {
     private var cameras = [Camera]()
     private var neighbourhoods = [Neighbourhood]()
@@ -17,7 +16,18 @@ class SCTabBarController: UITabBarController {
         super.viewDidLoad()
         
         getCameraList()
+        getNeighbourhoods()
+        
         dispatch_group.notify(queue: DispatchQueue.main, execute: {
+            for camera in self.cameras {
+                for neighbourhood in self.neighbourhoods{
+                    if(neighbourhood.containsCamera(camera: camera)){
+                        camera.neighbourhood = neighbourhood.getName()
+                        break
+                    }
+                }
+            }
+            
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             appDelegate.cameras = self.cameras
             appDelegate.neighbourhoods = self.neighbourhoods
@@ -26,26 +36,11 @@ class SCTabBarController: UITabBarController {
             let mapView = ((self.viewControllers![1] as! UINavigationController).childViewControllers[0] as! MapViewController)
             
             listView.update()
+            if (mapView.isViewLoaded) {
+                mapView.dataReady()
+            }
         })
-        // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
     private func getCameraList(){
         dispatch_group.enter()
         let url = URL(string: "https://traffic.ottawa.ca/map/camera_list")
@@ -54,7 +49,7 @@ class SCTabBarController: UITabBarController {
                 let parsedData = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments) as! [AnyObject]
                 
                 self.cameras = parsedData.map({(it) in Camera(dict: it as! [String: AnyObject])})
-                self.getNeighbourhoods()
+                
                 self.dispatch_group.leave()
             } catch let error as NSError {
                 print(error)
@@ -72,14 +67,7 @@ class SCTabBarController: UITabBarController {
                 let items = parsedData["features"] as! [[String: AnyObject]]
                 
                 self.neighbourhoods = items.map({(it) in Neighbourhood(dict: it)})
-                for camera in self.cameras {
-                    for neighbourhood in self.neighbourhoods{
-                        if(neighbourhood.containsCamera(camera: camera)){
-                            camera.neighbourhood = neighbourhood.getName()
-                            break
-                        }
-                    }
-                }
+                
                 self.dispatch_group.leave()
             } catch let error as NSError {
                 print(error)

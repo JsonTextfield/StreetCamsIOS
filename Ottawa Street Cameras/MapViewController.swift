@@ -11,44 +11,43 @@ import MapKit
 class MapViewController: UIViewController, MKMapViewDelegate, UISearchBarDelegate {
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var searchBar: UISearchBar!
-    
     private var cameras = [Camera]()
+    private var annotations = [MyAnnotation]()
+    private var region: MKCoordinateRegion!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        cameras = (UIApplication.shared.delegate as! AppDelegate).cameras
         mapView.delegate = self
-        for camera in cameras {
-            let annotation = MKPointAnnotation()
-            annotation.coordinate = CLLocationCoordinate2DMake(camera.lat, camera.lng)
-            annotation.title = camera.getName()
-            mapView.addAnnotation(annotation)
-        }
-        mapView.showAnnotations(mapView.annotations, animated: true)
         searchBar.delegate = self
-        searchBar.placeholder = "Search from \(cameras.count) locations"
-        // Do any additional setup after loading the view.
+        dataReady()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    func dataReady(){
+        cameras = (UIApplication.shared.delegate as! AppDelegate).cameras
+        searchBar.placeholder = (cameras.isEmpty) ? "Loading..." : "Search from \(self.cameras.count) locations"
+        for camera in cameras {
+            let annotation = MyAnnotation(camera: camera)
+            annotations.append(annotation)
+            mapView.addAnnotation(annotation)
+            mapView.view(for: annotation)?.isHidden = !camera.isVisible
+        }
+        mapView.showAnnotations(mapView.annotations, animated: false)
+    }
+    
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        let storyboard : UIStoryboard = UIStoryboard(
-            name: "Main",
-            bundle: nil)
+        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         
         let destination: CameraViewController = storyboard.instantiateViewController(withIdentifier: "camera") as! CameraViewController
         
-        for c in cameras{
-            if c.getName() == (view.annotation?.title)!{
-                destination.cameras = [c]
-            }
-        }
-        
+        destination.cameras = [(view.annotation as! MyAnnotation).camera]
         
         navigationController?.pushViewController(destination, animated: true)
     }
+    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is MKUserLocation { return nil }
         
@@ -59,37 +58,29 @@ class MapViewController: UIViewController, MKMapViewDelegate, UISearchBarDelegat
             let annotationView = MKPinAnnotationView(annotation:annotation, reuseIdentifier:"")
             annotationView.isEnabled = true
             annotationView.canShowCallout = true
-            
-            let btn = UIButton(type: .detailDisclosure)
-            annotationView.rightCalloutAccessoryView = btn
+            annotationView.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
             return annotationView
         }
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        resetMap()
+        //mapView.addAnnotations(annotations)
         if(!searchText.isEmpty) {
-            for i in mapView.annotations {
-                if !(i.title!!.lowercased().contains(searchText.lowercased())){
-                    mapView.view(for: i)?.isHidden = true
-                }
+            for item in mapView.annotations {
+                let marker = item as! MyAnnotation
+                mapView.view(for: item)?.isHidden = !marker.camera.isVisible && !(marker.camera.getName().lowercased().contains(searchText.lowercased()))
             }
         }
     }
-    func resetMap(){
-        for i in mapView.annotations {
-            mapView.view(for: i)?.isHidden = false
-        }
-    }
-
 }

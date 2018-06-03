@@ -10,6 +10,7 @@ import UIKit
 import SwiftyJSON
 class ListViewController: UITableViewController, UISearchControllerDelegate {
     private var selectModeOn = false
+    private var allSections = [Character: [Camera]]()
     private var sections = [Character: [Camera]]()
     private var cameras = [Camera]()
     private var neighbourhoods = [Neighbourhood]()
@@ -19,7 +20,7 @@ class ListViewController: UITableViewController, UISearchControllerDelegate {
     private let searchController = UISearchController(searchResultsController: nil)
     
     private func filterContentForSearchText(searchText: String, scope: String = "All") {
-        resetSections()
+        sections = allSections
         
         if(!searchText.isEmpty) {
             
@@ -54,28 +55,31 @@ class ListViewController: UITableViewController, UISearchControllerDelegate {
     @objc func endSelecting(){
         selectModeOn = false
         selectedCameras.removeAll()
-        //navigationController?.setToolbarHidden(true, animated: true)
+        navigationController?.setToolbarHidden(true, animated: true)
         for key in sections.keys{
             for i in 0...(sections[key]?.count)!{
                 tableView.deselectRow(at: IndexPath(row: i, section: sections.keys.sorted().index(of: key)!), animated: false)
             }
         }
     }
+    
     func didDismissSearchController(_ searchController: UISearchController) {
         endSelecting()
     }
     
-    private func resetSections(){
-        sections.removeAll()
-        for camera in self.cameras{
-            let regex = try! NSRegularExpression(pattern: "\\W", options: [])
-            let firstLetter = regex.stringByReplacingMatches(in: camera.getName(), options: [], range: NSRange(location: 0, length:camera.getName().count), withTemplate: "").first!
-            
-            if self.sections[firstLetter] == nil{
-                self.sections[firstLetter] = []
-            }
-            self.sections[firstLetter]!.append(camera)
+    private func setupIndex(){
+        cameras.sort { (c1, c2) -> Bool in
+            return c1.getSortableName() < c2.getSortableName()
         }
+        for camera in cameras {
+            let firstLetter = camera.getSortableName().first!
+            
+            if allSections[firstLetter] == nil{
+                allSections[firstLetter] = []
+            }
+            allSections[firstLetter]!.append(camera)
+        }
+        sections = allSections
     }
     
     private func selectCamera(camera: Camera) -> Bool {
@@ -99,8 +103,8 @@ class ListViewController: UITableViewController, UISearchControllerDelegate {
         
         self.searchController.searchBar.placeholder = (cameras.isEmpty) ? "Loading..." : "Search from \(self.cameras.count) locations"
         
-        self.resetSections()
-        self.tableView.reloadData()
+        setupIndex()
+        tableView.reloadData()
     }
     
     override func viewDidLoad() {
@@ -153,16 +157,10 @@ class ListViewController: UITableViewController, UISearchControllerDelegate {
         return sections.keys.count
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    // MARK: - Table view data source
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sections[sections.keys.sorted()[section]]!.count
     }
+    
     override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         if(searchController.isActive){
             return nil
@@ -180,6 +178,7 @@ class ListViewController: UITableViewController, UISearchControllerDelegate {
         cell.name.text = camera.getName()
         return cell
     }
+    
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         let camera = getCamera(indexPath: indexPath)
         selectCamera(camera: camera)
@@ -188,6 +187,7 @@ class ListViewController: UITableViewController, UISearchControllerDelegate {
             //navigationController?.setToolbarHidden(true, animated: true)
         }
     }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let camera = getCamera(indexPath: indexPath)
         
