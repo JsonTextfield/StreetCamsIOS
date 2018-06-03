@@ -169,21 +169,29 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="rEZ-ad-V4b">
                                 <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                             </mapView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cUE-Mn-FkG" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="120" width="320" height="399"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="GFQ-IX-uG4">
                                 <rect key="frame" x="0.0" y="64" width="320" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="czk-qC-mzm"/>
                                 </constraints>
                                 <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                             </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="rEZ-ad-V4b" firstAttribute="top" secondItem="6RG-vF-zbO" secondAttribute="bottom" id="1Lr-cc-708"/>
+                            <constraint firstItem="cUE-Mn-FkG" firstAttribute="leading" secondItem="1b9-l2-ESi" secondAttribute="leading" id="LgO-Pk-Pzm"/>
+                            <constraint firstItem="yXg-9j-Rf9" firstAttribute="top" secondItem="cUE-Mn-FkG" secondAttribute="bottom" id="MHL-Xb-Jio"/>
+                            <constraint firstItem="cUE-Mn-FkG" firstAttribute="top" secondItem="GFQ-IX-uG4" secondAttribute="bottom" id="NlU-oG-lPW"/>
                             <constraint firstItem="rEZ-ad-V4b" firstAttribute="leading" secondItem="1b9-l2-ESi" secondAttribute="leading" id="WXL-w1-VBh"/>
                             <constraint firstItem="yXg-9j-Rf9" firstAttribute="top" secondItem="rEZ-ad-V4b" secondAttribute="bottom" id="ah3-HE-NEL"/>
                             <constraint firstItem="GFQ-IX-uG4" firstAttribute="top" secondItem="6RG-vF-zbO" secondAttribute="bottom" id="ebM-ZZ-rzr"/>
+                            <constraint firstAttribute="trailing" secondItem="cUE-Mn-FkG" secondAttribute="trailing" id="exf-eL-OJR"/>
                             <constraint firstAttribute="trailing" secondItem="rEZ-ad-V4b" secondAttribute="trailing" id="mgj-xF-WYM"/>
                             <constraint firstItem="GFQ-IX-uG4" firstAttribute="leading" secondItem="1b9-l2-ESi" secondAttribute="leading" id="s28-XX-dlx"/>
                             <constraint firstAttribute="trailing" secondItem="GFQ-IX-uG4" secondAttribute="trailing" id="sDM-hK-zaA"/>
@@ -193,6 +201,7 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="sg0-pM-O15"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="googleMap" destination="cUE-Mn-FkG" id="Ssf-OD-dKq"/>
                         <outlet property="mapView" destination="rEZ-ad-V4b" id="rRf-MZ-QyH"/>
                         <outlet property="searchBar" destination="GFQ-IX-uG4" id="Ivu-0Q-tcn"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="showMultiple" id="DXs-CP-WNV"/>

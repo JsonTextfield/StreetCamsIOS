@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import GoogleMaps
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
@@ -19,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let maxCameras = 4
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool{
+        GMSServices.provideAPIKey("AIzaSyCwa_QXB8ewg6XEaVIJ2KVFISfPzTTxC28")
         // Override point for customization after application launch.
         return true
     }

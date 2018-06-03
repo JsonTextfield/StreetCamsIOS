@@ -7,18 +7,19 @@
 //
 
 import UIKit
-import MapKit
-class MapViewController: UIViewController, MKMapViewDelegate, UISearchBarDelegate {
-    @IBOutlet var mapView: MKMapView!
+import GoogleMaps
+class MapViewController: UIViewController, UISearchBarDelegate, GMSMapViewDelegate {
+    @IBOutlet var googleMap: GMSMapView!
     @IBOutlet var searchBar: UISearchBar!
     private var cameras = [Camera]()
-    private var annotations = [MyAnnotation]()
+    private var markers = [GMSMarker]()
     private var region: MKCoordinateRegion!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        mapView.delegate = self
+        googleMap.delegate = self
         searchBar.delegate = self
+        
         dataReady()
     }
     
@@ -29,38 +30,18 @@ class MapViewController: UIViewController, MKMapViewDelegate, UISearchBarDelegat
     func dataReady(){
         cameras = (UIApplication.shared.delegate as! AppDelegate).cameras
         searchBar.placeholder = (cameras.isEmpty) ? "Loading..." : "Search from \(self.cameras.count) locations"
+        var latlngbounds = GMSCoordinateBounds()
         for camera in cameras {
-            let annotation = MyAnnotation(camera: camera)
-            annotations.append(annotation)
-            mapView.addAnnotation(annotation)
-            mapView.view(for: annotation)?.isHidden = !camera.isVisible
+            let cameraLocation = CLLocationCoordinate2DMake(camera.lat, camera.lng)
+            latlngbounds = latlngbounds.includingCoordinate(cameraLocation)
+            let marker = GMSMarker(position: cameraLocation)
+            marker.title = camera.getName()
+            marker.userData = camera
+            marker.map = googleMap
+            markers.append(marker)
         }
-        mapView.showAnnotations(mapView.annotations, animated: false)
-    }
-    
-    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        let destination: CameraViewController = storyboard.instantiateViewController(withIdentifier: "camera") as! CameraViewController
-        
-        destination.cameras = [(view.annotation as! MyAnnotation).camera]
-        
-        navigationController?.pushViewController(destination, animated: true)
-    }
-    
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        if annotation is MKUserLocation { return nil }
-        
-        if let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "") {
-            annotationView.annotation = annotation
-            return annotationView
-        } else {
-            let annotationView = MKPinAnnotationView(annotation:annotation, reuseIdentifier:"")
-            annotationView.isEnabled = true
-            annotationView.canShowCallout = true
-            annotationView.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
-            return annotationView
-        }
+        googleMap.animate(with: GMSCameraUpdate.fit(latlngbounds, withPadding: 20))
+        googleMap.cameraTargetBounds = latlngbounds
     }
     
     
@@ -77,10 +58,33 @@ class MapViewController: UIViewController, MKMapViewDelegate, UISearchBarDelegat
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         //mapView.addAnnotations(annotations)
         if(!searchText.isEmpty) {
-            for item in mapView.annotations {
-                let marker = item as! MyAnnotation
-                mapView.view(for: item)?.isHidden = !marker.camera.isVisible && !(marker.camera.getName().lowercased().contains(searchText.lowercased()))
+            for marker in markers {
+                let camera = marker.userData as! Camera
+                marker.map = (camera.isVisible && camera.getName().lowercased().contains(searchText.lowercased())) ? googleMap : nil
             }
         }
     }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(true, animated: true)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+        searchBar.setShowsCancelButton(false, animated: true)
+    }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(false, animated: true)
+        searchBar.endEditing(true)
+    }
+    func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
+        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let destination: CameraViewController = storyboard.instantiateViewController(withIdentifier: "camera") as! CameraViewController
+        
+        destination.cameras = [marker.userData as! Camera]
+        
+        navigationController?.pushViewController(destination, animated: true)
+    }
+    
 }

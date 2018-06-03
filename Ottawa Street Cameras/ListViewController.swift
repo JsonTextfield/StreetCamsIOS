@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SwiftyJSON
 class ListViewController: UITableViewController, UISearchControllerDelegate {
     private var selectModeOn = false
     private var allSections = [Character: [Camera]]()
