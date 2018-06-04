@@ -13,7 +13,6 @@ import GoogleMaps
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
-    var selectModeOn = false
     var cameras = [Camera]()
     var selectedCameras = [Camera]()
     var neighbourhoods = [Neighbourhood]()

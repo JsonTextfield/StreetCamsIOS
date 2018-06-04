@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9A04B9271DEAAA4F00D0F07B /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A04B9261DEAAA4F00D0F07B /* ListItem.swift */; };
-		9A04B9291DEAABF500D0F07B /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A04B9281DEAABF500D0F07B /* ListViewController.swift */; };
+		9A08355E20C49FC900806683 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A08355D20C49FC800806683 /* ListViewController.swift */; };
+		9A08356020C4BD1000806683 /* GenericViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A08355F20C4BD1000806683 /* GenericViewController.swift */; };
 		9A0EC3541EFAFC1600DF3A4D /* iTunesArtwork@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A0EC3531EFAFC1600DF3A4D /* iTunesArtwork@3x.png */; };
 		9A0EC3561EFAFDFC00DF3A4D /* iTunesArtwork@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A0EC3551EFAFDFC00DF3A4D /* iTunesArtwork@1x.png */; };
 		9A1BACD51F085D1D00E30F0D /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A1BACD41F085D1D00E30F0D /* libsqlite3.0.tbd */; };
@@ -42,7 +43,8 @@
 		50B594B4DF1AD58FDD123B46 /* Pods_Ottawa_Street_Cameras.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ottawa_Street_Cameras.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D7E4B30AF2C468953E8E67D /* Pods-Ottawa Street Cameras.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ottawa Street Cameras.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ottawa Street Cameras/Pods-Ottawa Street Cameras.release.xcconfig"; sourceTree = "<group>"; };
 		9A04B9261DEAAA4F00D0F07B /* ListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
-		9A04B9281DEAABF500D0F07B /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		9A08355D20C49FC800806683 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		9A08355F20C4BD1000806683 /* GenericViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericViewController.swift; sourceTree = "<group>"; };
 		9A0EC3531EFAFC1600DF3A4D /* iTunesArtwork@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iTunesArtwork@3x.png"; path = "../../../Desktop/Untitled-1/ios/iTunesArtwork@3x.png"; sourceTree = "<group>"; };
 		9A0EC3551EFAFDFC00DF3A4D /* iTunesArtwork@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iTunesArtwork@1x.png"; path = "../../../Desktop/Untitled-1/ios/iTunesArtwork@1x.png"; sourceTree = "<group>"; };
 		9A1BACD21F08574900E30F0D /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -127,13 +129,14 @@
 				9A4C2D122026A8DF008D9595 /* CameraTableViewCell.swift */,
 				9A4507B31DFCE01C001036FC /* CameraViewController.swift */,
 				9A04B9261DEAAA4F00D0F07B /* ListItem.swift */,
-				9A04B9281DEAABF500D0F07B /* ListViewController.swift */,
 				9A7AA7681F02FAA300C7B5D2 /* MapViewController.swift */,
 				9ADE663620BBCEE4008A5A99 /* Neighbourhood.swift */,
 				9AE7E1A120C2E4DC0087C78C /* SCTabBarController.swift */,
 				9A31D4421DEA85B200C90D79 /* Assets.xcassets */,
 				9A31D4441DEA85B200C90D79 /* LaunchScreen.storyboard */,
 				9A31D43C1DEA85B200C90D79 /* Main.storyboard */,
+				9A08355D20C49FC800806683 /* ListViewController.swift */,
+				9A08355F20C4BD1000806683 /* GenericViewController.swift */,
 			);
 			path = "Ottawa Street Cameras";
 			sourceTree = "<group>";
@@ -319,13 +322,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A4C2D132026A8DF008D9595 /* CameraTableViewCell.swift in Sources */,
+				9A08355E20C49FC900806683 /* ListViewController.swift in Sources */,
+				9A08356020C4BD1000806683 /* GenericViewController.swift in Sources */,
 				9A04B9271DEAAA4F00D0F07B /* ListItem.swift in Sources */,
 				9A7AA7691F02FAA300C7B5D2 /* MapViewController.swift in Sources */,
 				9A4507B41DFCE01D001036FC /* CameraViewController.swift in Sources */,
 				9ADE663720BBCEE4008A5A99 /* Neighbourhood.swift in Sources */,
 				9A79BBA31DEFF91A00E8F0AF /* Camera.swift in Sources */,
 				9AE7E1A220C2E4DC0087C78C /* SCTabBarController.swift in Sources */,
-				9A04B9291DEAABF500D0F07B /* ListViewController.swift in Sources */,
 				9A31D4391DEA85B200C90D79 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

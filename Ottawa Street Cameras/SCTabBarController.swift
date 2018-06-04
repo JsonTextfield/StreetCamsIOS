@@ -25,12 +25,15 @@ class SCTabBarController: UITabBarController {
             let listView = ((self.viewControllers![0] as! UINavigationController).childViewControllers[0] as! ListViewController)
             let mapView = ((self.viewControllers![1] as! UINavigationController).childViewControllers[0] as! MapViewController)
             
-            listView.update()
+            if (listView.isViewLoaded){
+                listView.update()
+            }
             if (mapView.isViewLoaded) {
-                mapView.dataReady()
+                mapView.update()
             }
         })
     }
+    
     private func getCameraList(){
         dispatch_group.enter()
         let url = URL(string: "https://traffic.ottawa.ca/map/camera_list")
@@ -48,6 +51,7 @@ class SCTabBarController: UITabBarController {
         }
         task.resume()
     }
+    
     private func getNeighbourhoods(){
         dispatch_group.enter()
         let url = URL(string: "http://data.ottawa.ca/dataset/302ade92-51ec-4b26-a715-627802aa62a8/resource/f1163794-de80-4682-bda5-b13034984087/download/onsboundariesgen1.shp.json")
