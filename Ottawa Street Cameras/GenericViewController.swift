@@ -18,7 +18,9 @@ class GenericViewController: UIViewController, UISearchBarDelegate, UITableViewD
     @IBOutlet var cancelBtn: UIBarButtonItem!
     @IBOutlet var hideBtn: UIBarButtonItem!
     @IBOutlet var favouriteBtn: UIBarButtonItem!
+    @IBOutlet var unfavouriteBtn: UIBarButtonItem!
     @IBOutlet var showCamerasBtn: UIBarButtonItem!
+    @IBOutlet var unhideBtn: UIBarButtonItem!
     @IBOutlet var tabBar: UITabBar!
     
     private var selectModeOn = false
@@ -30,6 +32,9 @@ class GenericViewController: UIViewController, UISearchBarDelegate, UITableViewD
     private var sections = [Character: [Camera]]()
     private var neighbourhoods = [Neighbourhood]()
     let dispatchGroup = DispatchGroup()
+    
+    let favString = "favourites"
+    let hideString = "hidden"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,12 +48,28 @@ class GenericViewController: UIViewController, UISearchBarDelegate, UITableViewD
         tabBar.delegate = self
         
         tabBar.selectedItem = tabBar.items?[0]
-        
-        searchBar.placeholder = (cameras.isEmpty) ? "Loading..." : "Search from \(cameras.count) locations"
 
         dispatchGroup.notify(queue: DispatchQueue.main, execute: {
             self.update()
         })
+    }
+    
+    private func setupPrefs(){
+        let preferences = UserDefaults.standard
+        
+        let favs = preferences.object(forKey: favString)
+        let hidden = preferences.object(forKey: hideString)
+        
+        for camera in cameras {
+            if(favs != nil){
+                let list = favs as! [Int]
+                camera.isFavourite = list.contains(camera.num)
+            }
+            if(hidden != nil){
+                let list = hidden as! [Int]
+                camera.isVisible = !list.contains(camera.num)
+            }
+        }
     }
     
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
@@ -102,7 +123,14 @@ class GenericViewController: UIViewController, UISearchBarDelegate, UITableViewD
         task.resume()
     }
     
-    func updateMap(){
+    func update(){
+        searchBar.placeholder = "Search from \(cameras.count) locations"
+        
+        setupPrefs()
+        
+        setupIndex()
+        filterList(searchText: "")
+        
         var mapBounds = GMSCoordinateBounds()
         
         for camera in cameras {
@@ -117,61 +145,68 @@ class GenericViewController: UIViewController, UISearchBarDelegate, UITableViewD
             
             markers.append(marker)
         }
-        googleMap.animate(with: GMSCameraUpdate.fit(mapBounds, withPadding: 20))
-        googleMap.cameraTargetBounds = mapBounds
-    }
-    
-    func updateList(){
-        setupIndex()
-        tableView.reloadData()
-    }
-    
-    func update(){
-        searchBar.placeholder = (cameras.isEmpty) ? "Loading..." : "Search from \(cameras.count) locations"
         
-        updateList()
-        updateMap()
+        googleMap.cameraTargetBounds = mapBounds
+        googleMap.moveCamera(GMSCameraUpdate.fit(mapBounds, withPadding: 20))
         
         loadingBar.stopAnimating()
     }
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        for marker in markers {
-            let camera = marker.userData as! Camera
-            marker.map = (camera.isVisible && camera.getName().lowercased().contains(searchText.lowercased())) ? googleMap : nil
-            if(searchText.isEmpty){marker.map = googleMap}
-        }
+    func filterList(searchText: String){
         sections = allSections
-        
-        if(!searchText.isEmpty) {
-            
-            for (i, data) in sections {
-                sections[i] = { () -> [Camera] in
-                    if(searchText.lowercased().starts(with: "f: ")){
-                        return data.filter({( camera : Camera) -> Bool in
-                            return camera.getName().lowercased().contains(searchText.dropFirst(3).lowercased()) && camera.isFavourite
-                        })
-                    }
-                    else if (searchText.lowercased().starts(with: "h: ")){
-                        return data.filter({( camera : Camera) -> Bool in
-                            return camera.getName().lowercased().contains(searchText.dropFirst(3).lowercased()) && !camera.isVisible
-                        })
-                    }
-                    else if (searchText.lowercased().starts(with: "n: ")){
-                        return data.filter({( camera : Camera) -> Bool in
-                            return camera.neighbourhood.lowercased().contains(searchText.dropFirst(3).lowercased())
-                        })
-                    }
-                    else{
-                        return data.filter({( camera : Camera) -> Bool in
-                            return camera.getName().lowercased().contains(searchText.lowercased())
-                        })
-                    }
-                }()
-            }
+        for (i, data) in sections {
+            sections[i] = { () -> [Camera] in
+                if(searchText.lowercased().starts(with: "f: ")){
+                    return data.filter({( camera : Camera) -> Bool in
+                        return camera.getName().containsIgnoringCase(find: searchText.dropFirst(3)) && camera.isFavourite
+                    })
+                }
+                else if (searchText.lowercased().starts(with: "h: ")){
+                    return data.filter({( camera : Camera) -> Bool in
+                        return camera.getName().containsIgnoringCase(find: searchText.dropFirst(3)) && !camera.isVisible
+                    })
+                }
+                else if (searchText.lowercased().starts(with: "n: ")){
+                    return data.filter({( camera : Camera) -> Bool in
+                        return camera.neighbourhood.containsIgnoringCase(find: searchText.dropFirst(3))
+                    })
+                }
+                else{
+                    return data.filter({( camera : Camera) -> Bool in
+                        return camera.getName().containsIgnoringCase(find: searchText.dropFirst(0)) && camera.isVisible
+                    })
+                }
+            }()
         }
         
         tableView.reloadData()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        endSelecting()
+        
+        for marker in markers {
+            let camera = marker.userData as! Camera
+            
+            if((marker.userData as! Camera).isVisible){
+                marker.map = googleMap
+            }
+            
+            if(searchText.lowercased().starts(with: "f: ")){
+                marker.map = (camera.isFavourite && camera.getName().containsIgnoringCase(find: searchText.dropFirst(3))) ? googleMap : nil
+            }
+            else if (searchText.lowercased().starts(with: "h: ")){
+                marker.map = (!camera.isVisible && camera.getName().containsIgnoringCase(find: searchText.dropFirst(3))) ? googleMap : nil
+            }
+            else if (searchText.lowercased().starts(with: "n: ")){
+                marker.map = (camera.isVisible && camera.neighbourhood.containsIgnoringCase(find: searchText.dropFirst(3))) ? googleMap : nil
+            }
+            else {
+                marker.map = (camera.isVisible && camera.getName().containsIgnoringCase(find: searchText.dropFirst(0))) ? googleMap : nil
+            }
+        }
+        
+        filterList(searchText: searchText)
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
@@ -219,6 +254,18 @@ class GenericViewController: UIViewController, UISearchBarDelegate, UITableViewD
     @IBAction func cancelSelection(_ sender: Any) {
         endSelecting()
     }
+    @IBAction func unhideClicked(_ sender: Any) {
+        modifyPrefs(prefName: hideString, willAdd: false)
+    }
+    @IBAction func unfavouriteClicked(_ sender: Any) {
+        modifyPrefs(prefName: favString, willAdd: true)
+    }
+    @IBAction func hideClicked(_ sender: Any) {
+        modifyPrefs(prefName: hideString, willAdd: true)
+    }
+    @IBAction func favouriteClicked(_ sender: Any) {
+        modifyPrefs(prefName: favString, willAdd: true)
+    }
     
     func endSelecting(){
         title = "StreetCams"
@@ -237,17 +284,58 @@ class GenericViewController: UIViewController, UISearchBarDelegate, UITableViewD
     }
     
     private func selectCamera(camera: Camera) -> Bool {
+        toolbar.items = [showCamerasBtn,cancelBtn]
         if(selectedCameras.contains(camera)){
             selectedCameras.remove(at: selectedCameras.index(of: camera)!)
-        }else{
+        } else {
             selectedCameras.append(camera)
         }
+        
+        if(selectedCameras.isEmpty) {
+            return false
+        }
         showCamerasBtn.isEnabled = (selectedCameras.count <= maxNum)
+        
+        let allFavs = selectedCameras.reduce(selectedCameras[0].isFavourite, {(result: Bool, camera: Camera) -> Bool in
+            return result && camera.isFavourite
+        })
+        
+        if (allFavs) { //if everything selected is a favourite
+            //show unfavourite and hide favourite
+            toolbar.items?.insert(unfavouriteBtn, at: 1)
+            /*if (toolbar.items?.contains(favouriteBtn))!{
+                toolbar.items?.remove(at: (toolbar.items?.index(of: favouriteBtn))!)
+            }*/
+            
+        } else {
+            toolbar.items?.insert(favouriteBtn, at: 1)
+            /*if (toolbar.items?.contains(unfavouriteBtn))!{
+                toolbar.items?.remove(at: (toolbar.items?.index(of: unfavouriteBtn))!)
+            }*/
+        }
+        
+        let allInvis = selectedCameras.reduce(!selectedCameras[0].isVisible, {(result: Bool, camera: Camera) -> Bool in
+            return result && !camera.isVisible
+        })
+        
+        if (allInvis) {
+            toolbar.items?.insert(unhideBtn, at: 2)
+            /*if (toolbar.items?.contains(hideBtn))!{
+                toolbar.items?.remove(at: (toolbar.items?.index(of: hideBtn))!)
+            }*/
+        } else {
+            toolbar.items?.insert(hideBtn, at: 2)
+            /*if (toolbar.items?.contains(unhideBtn))!{
+                toolbar.items?.remove(at: (toolbar.items?.index(of: unhideBtn))!)
+            }*/
+        }
+        
         if(selectedCameras.count > 1){
             title = "\(selectedCameras.count) cameras selected"
         }else if(selectedCameras.count == 1){
             title = "1 camera selected"
         }
+        
         return selectedCameras.contains(camera)
     }
     
@@ -284,7 +372,7 @@ class GenericViewController: UIViewController, UISearchBarDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "intersection", for: indexPath) as! ListItem
-        //cell.selectionStyle = .none
+
         let camera = getCamera(indexPath: indexPath)
         
         cell.name.text = camera.getName()
@@ -337,12 +425,51 @@ class GenericViewController: UIViewController, UISearchBarDelegate, UITableViewD
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        if segue.identifier == "showMultiple"{
-            let dest = segue.destination as! CameraViewController
-            dest.cameras = selectedCameras
+    func modifyPrefs(prefName: String, willAdd: Bool){
+        let preferences = UserDefaults.standard
+        
+        if preferences.object(forKey: prefName) == nil {
+            preferences.set(selectedCameras.map({ (camera) -> Int in return camera.num }), forKey: prefName)
+        } else {
+            var list = preferences.object(forKey: prefName) as! [Int]
+            if(willAdd){
+                list += selectedCameras.map({ (camera) -> Int in return camera.num })
+            } else {
+                for camera in selectedCameras {
+                    if(list.contains(camera.num)){
+                        list.remove(at: list.index(of: camera.num)!)
+                    }
+                }
+            }
+            preferences.set(list, forKey: prefName)
         }
+        preferences.synchronize()
+        
+        for camera in cameras {
+            if(selectedCameras.contains(camera)){
+                if(prefName == favString){
+                    camera.isFavourite = willAdd
+                } else {
+                    camera.isVisible = !willAdd
+                }
+            }
+        }
+        
+        filterList(searchText: "")
+        endSelecting()
+    }
+}
+extension String {
+    func contains(find: Substring) -> Bool{
+        if (find.isEmpty){
+            return true
+        }
+        return self.range(of: find) != nil
+    }
+    func containsIgnoringCase(find: Substring) -> Bool{
+        if (find.isEmpty){
+            return true
+        }
+        return self.range(of: find, options: .caseInsensitive) != nil
     }
 }

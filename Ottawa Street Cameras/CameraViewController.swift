@@ -10,78 +10,82 @@ import UIKit
 
 class CameraViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet var loadingBar: UIActivityIndicatorView!
-    var cameras = [Camera]()
-    
     @IBOutlet var imageTableView: UITableView!
     @IBOutlet var backgroundImg: UIImageView!
     
-    //var portrait = true
     var dispatchGroup = DispatchGroup()
-    var images = [UIImage]()
+    var images = [Int: UIImage]()
+    var imageIsNew = [Int: Bool]()
     var timers = [Timer]()
-    
-    
-    func getSessionId(){
-        let request = URLRequest(url: URL(string: "https://traffic.ottawa.ca/map")!)
-        let task = URLSession.shared.dataTask(with: request as URLRequest) { data , urlResponse,_ in
-            
-            for camera in self.cameras{
-                self.dispatchGroup.enter()
-                self.download(num: camera.num)
-            }
-            self.dispatchGroup.notify(queue: DispatchQueue.main, execute: {
-                self.comp()
-            })
-        }
-        task.resume()
-    }
-    
-    func comp(){
-        loadingBar.stopAnimating()
-        imageTableView.reloadData()
-        backgroundImg.image = blurImage(image: images[0])
-        for i in 0..<cameras.count{
-            timers[i] = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(CameraViewController.downloadImage), userInfo: ["camera": cameras[i]], repeats: true)
-        }
-    }
+    var cameras = [Camera]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.setToolbarHidden(true, animated: true)
-        loadingBar.startAnimating()
-        var title = ""
-        for i in cameras{
-            title += i.getName()+", "
-            timers.append(Timer())
-        }
+        
+        timers = [Timer](repeating: Timer(), count: cameras.count)
+        
+        let myTitle = cameras.map { (camera) -> String in
+            return camera.getName()
+        }.joined(separator: ", ")
+        
+        /*if (cameras.count < 1){
+            myTitle = "\(cameras.count) cameras"
+        } else {
+            
+         } else {
+            myTitle = cameras[0].getName()
+        }*/
+        
+        title = myTitle
+        
         let label = UILabel(frame: CGRect(x:0, y:0, width:400, height:50))
         label.backgroundColor = UIColor.clear
         label.numberOfLines = 0
         label.font = UIFont.boldSystemFont(ofSize: 14.0)
         label.textAlignment = .center
         label.textColor = UIColor.white
-        label.text = title.substring(to: title.index(title.endIndex, offsetBy: -2))
+        label.text = myTitle
         self.navigationItem.titleView = label
-        
-        imageTableView.dataSource = self
-        imageTableView.delegate = self
         
         getSessionId()
         
+        dispatchGroup.notify(queue: DispatchQueue.main, execute: {
+            self.imageTableView.dataSource = self
+            self.imageTableView.delegate = self
+            self.imageTableView.reloadData()
+            self.backgroundImg.image = self.blurImage(image: self.images[0]!)
+            for i in 0..<self.cameras.count{
+                self.timers[i] = Timer.scheduledTimer(timeInterval: 0.6, target: self, selector: #selector(CameraViewController.downloadImage), userInfo: i, repeats: true)
+            }
+            self.loadingBar.stopAnimating()
+        })
+    }
+    
+    func getSessionId(){
+        self.dispatchGroup.enter()
+        let url = URL(string: "https://traffic.ottawa.ca/map")!
+        getDataFromUrl(url: url) { (data, response, error) in
+            for i in 0..<self.cameras.count{
+                self.dispatchGroup.enter()
+                self.download(index: i)
+            }
+            self.dispatchGroup.leave()
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let image = images[indexPath.row]
+        let image = images[indexPath.row]!
         let widthRatio = self.view.frame.width / image.size.width
         let height = widthRatio * image.size.height
         return height
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return images.count
+        return cameras.count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = imageTableView.dequeueReusableCell(withIdentifier: "camImage", for: indexPath) as! CameraTableViewCell
-        //let cell = CameraTableViewCell(style: .default, reuseIdentifier: "camImage")
         cell.camName.text = cameras[indexPath.row].getName()
         cell.sourceImageView.image = images[indexPath.row]
         return cell
@@ -100,22 +104,28 @@ class CameraViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func getDataFromUrl(url: URL, completion: @escaping (_ data: Data?, _  response: URLResponse?, _ error: Error?) -> Void) {
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             completion(data, response, error)
-            }.resume()
+        }.resume()
     }
-    func download(num: Int) {
-        let url = URL(string: "https://traffic.ottawa.ca/map/camera?id=\(num)")!
+    func download(index: Int) {
+        
+        let url = URL(string: "https://traffic.ottawa.ca/map/camera?id=\(cameras[index].num)")!
         getDataFromUrl(url: url) { (data, response, error)  in
             
-            let image = UIImage(data: data!)
-            self.images.append(image!)
+            let image = UIImage(data: data!)!
+            self.images[index] = image
+            self.imageIsNew[index] = true
             
             self.dispatchGroup.leave()
         }
     }
     @objc func downloadImage(timer: Timer) {
-        let dictionary = timer.userInfo as! [String: Camera]
-        let camera = dictionary["camera"]!
-        let url = URL(string: "https://traffic.ottawa.ca/map/camera?id=\(camera.num)")!
+        
+        let i = timer.userInfo as! Int
+        
+        self.imageIsNew[i] = false
+
+        
+        let url = URL(string: "https://traffic.ottawa.ca/map/camera?id=\(cameras[i].num)")!
         getDataFromUrl(url: url) { (data, response, error)  in
             
             /*guard let data = data, error == nil else {
@@ -126,19 +136,18 @@ class CameraViewController: UIViewController, UITableViewDelegate, UITableViewDa
              }*/
             
             DispatchQueue.main.async() { () -> Void in
-                //self.cameraImage.isHidden = false
-                let image = UIImage(data: data!)
-                
-                if let cell = (self.imageTableView.cellForRow(at: IndexPath.init(row: self.cameras.index(of: camera)!, section: 0))){
-                    let c = cell as! CameraTableViewCell
+                if (!self.imageIsNew[i]!){
+                    let image = UIImage(data: data!)!
+                    self.images[i] = image
+                    if let cell = self.imageTableView.cellForRow(at: IndexPath(row: i, section: 0)){
+                        (cell as! CameraTableViewCell).sourceImageView.image = image
+                    }
                     
-                    c.sourceImageView.image = image
+                    if(i == 0){
+                        self.backgroundImg.image = self.blurImage(image: image)
+                    }
+                    self.imageIsNew[i] = true
                 }
-                if(camera == self.cameras[0]){
-                    self.backgroundImg.image = self.blurImage(image: image!)
-                    
-                }
-                
             }
         }
     }

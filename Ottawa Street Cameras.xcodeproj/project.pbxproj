@@ -128,15 +128,15 @@
 				9A79BBA21DEFF91A00E8F0AF /* Camera.swift */,
 				9A4C2D122026A8DF008D9595 /* CameraTableViewCell.swift */,
 				9A4507B31DFCE01C001036FC /* CameraViewController.swift */,
+				9A08355F20C4BD1000806683 /* GenericViewController.swift */,
 				9A04B9261DEAAA4F00D0F07B /* ListItem.swift */,
+				9A08355D20C49FC800806683 /* ListViewController.swift */,
 				9A7AA7681F02FAA300C7B5D2 /* MapViewController.swift */,
 				9ADE663620BBCEE4008A5A99 /* Neighbourhood.swift */,
 				9AE7E1A120C2E4DC0087C78C /* SCTabBarController.swift */,
 				9A31D4421DEA85B200C90D79 /* Assets.xcassets */,
 				9A31D4441DEA85B200C90D79 /* LaunchScreen.storyboard */,
 				9A31D43C1DEA85B200C90D79 /* Main.storyboard */,
-				9A08355D20C49FC800806683 /* ListViewController.swift */,
-				9A08355F20C4BD1000806683 /* GenericViewController.swift */,
 			);
 			path = "Ottawa Street Cameras";
 			sourceTree = "<group>";

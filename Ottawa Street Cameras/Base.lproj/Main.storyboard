@@ -19,14 +19,14 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qz5-On-Bdv">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Rtb-42-0f3">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="camImage" id="nUO-KS-cSQ" customClass="CameraTableViewCell" customModule="Ottawa_Street_Cameras" customModuleProvider="target">
@@ -73,7 +73,7 @@
                                 </prototypes>
                             </tableView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Oom-2O-zpk">
-                                <rect key="frame" x="142" y="209" width="37" height="37"/>
+                                <rect key="frame" x="142" y="265.5" width="37" height="37"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -98,7 +98,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="816" y="878"/>
+            <point key="canvasLocation" x="816" y="1597"/>
         </scene>
         <!--StreetCams-->
         <scene sceneID="cVR-0E-EA6">
@@ -109,22 +109,23 @@
                         <viewControllerLayoutGuide type="bottom" id="keH-6M-QZ7"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="4FF-pL-jMm">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="dHV-aU-VgV">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                 <subviews>
-                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="J68-7N-bLR">
+                                    <searchBar contentMode="redraw" barStyle="black" searchBarStyle="prominent" placeholder="Loading..." translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J68-7N-bLR">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="56" id="YyQ-Ez-gfj"/>
                                         </constraints>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="location"/>
                                     </searchBar>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IdA-i5-o0d">
                                         <rect key="frame" x="0.0" y="56" width="320" height="399"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <gestureRecognizers/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="intersection" rowHeight="80" id="wav-hZ-eiS" customClass="ListItem" customModule="Ottawa_Street_Cameras" customModuleProvider="target">
@@ -134,11 +135,10 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="text" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="09N-C8-X6N">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Riverside Drive &amp; Heron Road" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="09N-C8-X6N">
                                                             <rect key="frame" x="15" y="21" width="290" height="38"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </label>
                                                     </subviews>
                                                     <constraints>
@@ -148,6 +148,7 @@
                                                         <constraint firstAttribute="bottomMargin" secondItem="09N-C8-X6N" secondAttribute="bottom" constant="10" id="rae-eq-6HY"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <gestureRecognizers/>
                                                 <connections>
                                                     <outlet property="name" destination="09N-C8-X6N" id="8uy-UQ-FDG"/>
@@ -162,7 +163,7 @@
                                         <rect key="frame" x="0.0" y="455" width="320" height="0.0"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
-                                    <toolbar hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mOm-JF-D75">
+                                    <toolbar hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mOm-JF-D75">
                                         <rect key="frame" x="0.0" y="411" width="320" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="KMh-uG-4JW"/>
@@ -173,16 +174,35 @@
                                                     <action selector="showCameras:" destination="ctM-uh-6wJ" id="Ucn-lN-fM8"/>
                                                 </connections>
                                             </barButtonItem>
-                                            <barButtonItem title="Favourite" id="qD1-Au-VFM"/>
-                                            <barButtonItem title="Hide" id="KsA-HD-PEr"/>
+                                            <barButtonItem title="Unfavourite" id="POv-3s-fv1">
+                                                <connections>
+                                                    <action selector="unfavouriteClicked:" destination="ctM-uh-6wJ" id="a6E-So-V8f"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem title="Favourite" id="qD1-Au-VFM">
+                                                <connections>
+                                                    <action selector="favouriteClicked:" destination="ctM-uh-6wJ" id="dPz-1a-Ccv"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem title="Unhide" id="uty-J0-Sbg">
+                                                <connections>
+                                                    <action selector="unhideClicked:" destination="ctM-uh-6wJ" id="8HG-Kc-n6d"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem title="Hide" id="KsA-HD-PEr">
+                                                <connections>
+                                                    <action selector="hideClicked:" destination="ctM-uh-6wJ" id="2WZ-dN-mhZ"/>
+                                                </connections>
+                                            </barButtonItem>
                                             <barButtonItem systemItem="cancel" id="Ahc-VD-EVM">
                                                 <connections>
                                                     <action selector="cancelSelection:" destination="ctM-uh-6wJ" id="2uj-Y6-Bjb"/>
                                                 </connections>
                                             </barButtonItem>
                                         </items>
+                                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </toolbar>
-                                    <tabBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vdm-i0-Eez">
+                                    <tabBar contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vdm-i0-Eez">
                                         <rect key="frame" x="0.0" y="455" width="320" height="49"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -207,8 +227,8 @@
                                     <constraint firstItem="J68-7N-bLR" firstAttribute="top" secondItem="dHV-aU-VgV" secondAttribute="top" id="uEp-sV-T9v"/>
                                 </constraints>
                             </stackView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ivb-5c-m7N">
-                                <rect key="frame" x="150" y="274" width="20" height="20"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="ivb-5c-m7N">
+                                <rect key="frame" x="142" y="234" width="37" height="37"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -235,6 +255,8 @@
                         <outlet property="tabBar" destination="Vdm-i0-Eez" id="b5m-x3-baa"/>
                         <outlet property="tableView" destination="IdA-i5-o0d" id="Um5-UR-Tkj"/>
                         <outlet property="toolbar" destination="mOm-JF-D75" id="1qu-qz-1uM"/>
+                        <outlet property="unfavouriteBtn" destination="POv-3s-fv1" id="61Y-Mb-v5o"/>
+                        <outlet property="unhideBtn" destination="uty-J0-Sbg" id="WAm-Ws-o3F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D3k-cJ-nC9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -244,7 +266,7 @@
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1561.875" y="1731.338028169014"/>
+            <point key="canvasLocation" x="101" y="1597"/>
         </scene>
         <!--StreetCams-->
         <scene sceneID="jPx-Z4-7rO">
@@ -324,7 +346,6 @@
                         <outlet property="searchBar" destination="GFQ-IX-uG4" id="Ivu-0Q-tcn"/>
                         <outlet property="showCamerasBtn" destination="Vqo-fW-OVc" id="tFq-WV-dJC"/>
                         <outlet property="toolbar" destination="5MA-IU-ngR" id="HHi-Gv-HLU"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="showMultiple" id="DXs-CP-WNV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uks-Ab-W6H" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -366,8 +387,8 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="text" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WsY-8p-hMp">
                                                             <rect key="frame" x="15" y="21" width="290" height="38"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <color key="highlightedColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="highlightedColor" red="0.33333333333333331" green="0.3333333432674408" blue="0.3333333432674408" alpha="1" colorSpace="calibratedRGB"/>
                                                         </label>
                                                     </subviews>
                                                     <constraints>
@@ -443,7 +464,6 @@
                         <outlet property="menu" destination="etu-LU-UsS" id="fwR-Qg-jpg"/>
                         <outlet property="searchBar" destination="fJO-Sk-JG5" id="hB4-6A-rkH"/>
                         <outlet property="showCamerasBtn" destination="mSl-kn-YDf" id="8kC-da-CxK"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="showMultiple" id="chW-xV-gqj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZRJ-EJ-IlP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -525,7 +545,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cln-Y0-9zm" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Qgj-mj-2lj">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="Qgj-mj-2lj">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -536,14 +556,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YRK-8d-Bh0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="564.375" y="1731.338028169014"/>
+            <point key="canvasLocation" x="-615" y="1598"/>
         </scene>
     </scenes>
     <resources>
         <image name="baseline_place_white_24pt" width="24" height="24"/>
         <image name="outline_list_white_24pt" width="24" height="24"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="chW-xV-gqj"/>
-    </inferredMetricsTieBreakers>
 </document>
