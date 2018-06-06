@@ -147,7 +147,7 @@ class GenericViewController: UIViewController, UISearchBarDelegate, UITableViewD
             marker.title = camera.getName()
             marker.userData = camera
             marker.map = googleMap
-            
+            marker.icon = camera.isFavourite ? GMSMarker.markerImage(with: .yellow) : GMSMarker.markerImage(with: .red)
             markers.append(marker)
         }
         
@@ -247,7 +247,15 @@ class GenericViewController: UIViewController, UISearchBarDelegate, UITableViewD
             destination.cameras = [marker.userData as! Camera]
             navigationController?.pushViewController(destination, animated: true)
         } else {
-            marker.icon = selectCamera(camera: marker.userData as! Camera) ? GMSMarker.markerImage(with: .blue) : GMSMarker.markerImage(with: .red)
+            if(selectCamera(camera: marker.userData as! Camera)){
+                marker.icon = GMSMarker.markerImage(with: .blue)
+            }
+            else if((marker.userData as! Camera).isFavourite){
+                marker.icon = GMSMarker.markerImage(with: .yellow)
+            }
+            else {
+                marker.icon = GMSMarker.markerImage(with: .red)
+            }
         }
     }
     
@@ -273,7 +281,7 @@ class GenericViewController: UIViewController, UISearchBarDelegate, UITableViewD
         modifyPrefs(prefName: hideString, willAdd: false)
     }
     @IBAction func unfavouriteClicked(_ sender: Any) {
-        modifyPrefs(prefName: favString, willAdd: true)
+        modifyPrefs(prefName: favString, willAdd: false)
     }
     @IBAction func hideClicked(_ sender: Any) {
         modifyPrefs(prefName: hideString, willAdd: true)
@@ -379,6 +387,7 @@ class GenericViewController: UIViewController, UISearchBarDelegate, UITableViewD
         let camera = getCamera(indexPath: indexPath)
         
         cell.name.text = camera.getName()
+        cell.starIcon.isHidden = !camera.isFavourite
         return cell
     }
     
@@ -449,8 +458,8 @@ class GenericViewController: UIViewController, UISearchBarDelegate, UITableViewD
         preferences.synchronize()
         
         setupPrefs()
-        filterList(searchText: "")
-        filterMap(searchText: "")
+        filterList(searchText: searchBar.text!)
+        filterMap(searchText: searchBar.text!)
         endSelecting()
     }
 }

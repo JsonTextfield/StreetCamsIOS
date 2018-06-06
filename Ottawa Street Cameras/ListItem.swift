@@ -10,5 +10,5 @@ import UIKit
 
 class ListItem: UITableViewCell {
     @IBOutlet var name: UILabel!
-
+    @IBOutlet var starIcon: UIImageView!
 }

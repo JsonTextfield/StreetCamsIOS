@@ -21,6 +21,10 @@
 		9A4C2D132026A8DF008D9595 /* CameraTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4C2D122026A8DF008D9595 /* CameraTableViewCell.swift */; };
 		9A79BBA31DEFF91A00E8F0AF /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A79BBA21DEFF91A00E8F0AF /* Camera.swift */; };
 		9A7AA7691F02FAA300C7B5D2 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7AA7681F02FAA300C7B5D2 /* MapViewController.swift */; };
+		9AA0F51E20C7A0670068A40D /* baseline_star_white_18pt.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AA0F51A20C7A0670068A40D /* baseline_star_white_18pt.xcassets */; };
+		9AA0F51F20C7A0670068A40D /* baseline_star_white_24pt.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AA0F51B20C7A0670068A40D /* baseline_star_white_24pt.xcassets */; };
+		9AA0F52020C7A0670068A40D /* baseline_star_white_36pt.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AA0F51C20C7A0670068A40D /* baseline_star_white_36pt.xcassets */; };
+		9AA0F52120C7A0670068A40D /* baseline_star_white_48pt.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AA0F51D20C7A0670068A40D /* baseline_star_white_48pt.xcassets */; };
 		9ADE663720BBCEE4008A5A99 /* Neighbourhood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADE663620BBCEE4008A5A99 /* Neighbourhood.swift */; };
 		9AE7E1A220C2E4DC0087C78C /* SCTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE7E1A120C2E4DC0087C78C /* SCTabBarController.swift */; };
 		9AE7E1AD20C305F30087C78C /* outline_place_white_18pt.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AE7E1A420C305F20087C78C /* outline_place_white_18pt.xcassets */; };
@@ -59,6 +63,10 @@
 		9A4C2D122026A8DF008D9595 /* CameraTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraTableViewCell.swift; sourceTree = "<group>"; };
 		9A79BBA21DEFF91A00E8F0AF /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		9A7AA7681F02FAA300C7B5D2 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		9AA0F51A20C7A0670068A40D /* baseline_star_white_18pt.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = baseline_star_white_18pt.xcassets; sourceTree = "<group>"; };
+		9AA0F51B20C7A0670068A40D /* baseline_star_white_24pt.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = baseline_star_white_24pt.xcassets; sourceTree = "<group>"; };
+		9AA0F51C20C7A0670068A40D /* baseline_star_white_36pt.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = baseline_star_white_36pt.xcassets; sourceTree = "<group>"; };
+		9AA0F51D20C7A0670068A40D /* baseline_star_white_48pt.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = baseline_star_white_48pt.xcassets; sourceTree = "<group>"; };
 		9ADE663620BBCEE4008A5A99 /* Neighbourhood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Neighbourhood.swift; sourceTree = "<group>"; };
 		9AE7E1A120C2E4DC0087C78C /* SCTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCTabBarController.swift; sourceTree = "<group>"; };
 		9AE7E1A420C305F20087C78C /* outline_place_white_18pt.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = outline_place_white_18pt.xcassets; sourceTree = "<group>"; };
@@ -100,6 +108,7 @@
 		9A31D42C1DEA85B100C90D79 = {
 			isa = PBXGroup;
 			children = (
+				9AA0F51920C7A0670068A40D /* baseline-star-ios-white */,
 				9AE7E1B520C31D780087C78C /* baseline-place-ios-white */,
 				9A40AAAC1EF81A28004A0E46 /* Frameworks */,
 				9A31D4371DEA85B100C90D79 /* Ottawa Street Cameras */,
@@ -149,6 +158,17 @@
 				50B594B4DF1AD58FDD123B46 /* Pods_Ottawa_Street_Cameras.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9AA0F51920C7A0670068A40D /* baseline-star-ios-white */ = {
+			isa = PBXGroup;
+			children = (
+				9AA0F51A20C7A0670068A40D /* baseline_star_white_18pt.xcassets */,
+				9AA0F51B20C7A0670068A40D /* baseline_star_white_24pt.xcassets */,
+				9AA0F51C20C7A0670068A40D /* baseline_star_white_36pt.xcassets */,
+				9AA0F51D20C7A0670068A40D /* baseline_star_white_48pt.xcassets */,
+			);
+			path = "baseline-star-ios-white";
 			sourceTree = "<group>";
 		};
 		9AE7E1A320C305F20087C78C /* outline-place-ios-white */ = {
@@ -257,17 +277,21 @@
 			files = (
 				9AE7E1B420C305F30087C78C /* outline_list_white_48pt.xcassets in Resources */,
 				9A31D4461DEA85B200C90D79 /* LaunchScreen.storyboard in Resources */,
+				9AA0F51F20C7A0670068A40D /* baseline_star_white_24pt.xcassets in Resources */,
 				9A0EC3561EFAFDFC00DF3A4D /* iTunesArtwork@1x.png in Resources */,
 				9AE7E1AE20C305F30087C78C /* outline_place_white_24pt.xcassets in Resources */,
 				9AE7E1B220C305F30087C78C /* outline_list_white_24pt.xcassets in Resources */,
+				9AA0F51E20C7A0670068A40D /* baseline_star_white_18pt.xcassets in Resources */,
 				9AE7E1BD20C31D780087C78C /* baseline_place_white_48pt.xcassets in Resources */,
 				9AE7E1BC20C31D780087C78C /* baseline_place_white_36pt.xcassets in Resources */,
 				9AE7E1BB20C31D780087C78C /* baseline_place_white_24pt.xcassets in Resources */,
 				9A31D4431DEA85B200C90D79 /* Assets.xcassets in Resources */,
+				9AA0F52120C7A0670068A40D /* baseline_star_white_48pt.xcassets in Resources */,
 				9AE7E1AD20C305F30087C78C /* outline_place_white_18pt.xcassets in Resources */,
 				9AE7E1B320C305F30087C78C /* outline_list_white_36pt.xcassets in Resources */,
 				9A0EC3541EFAFC1600DF3A4D /* iTunesArtwork@3x.png in Resources */,
 				9AE7E1B120C305F30087C78C /* outline_list_white_18pt.xcassets in Resources */,
+				9AA0F52020C7A0670068A40D /* baseline_star_white_36pt.xcassets in Resources */,
 				9AE7E1B020C305F30087C78C /* outline_place_white_48pt.xcassets in Resources */,
 				9AE7E1BA20C31D780087C78C /* baseline_place_white_18pt.xcassets in Resources */,
 				9A31D43E1DEA85B200C90D79 /* Main.storyboard in Resources */,

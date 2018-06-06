@@ -136,22 +136,30 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Riverside Drive &amp; Heron Road" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="09N-C8-X6N">
-                                                            <rect key="frame" x="15" y="21" width="290" height="38"/>
+                                                            <rect key="frame" x="15" y="21" width="225" height="38"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </label>
+                                                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="baseline_star_white_24pt" translatesAutoresizingMaskIntoConstraints="NO" id="w75-TA-ieg">
+                                                            <rect key="frame" x="286" y="10" width="24" height="60"/>
+                                                            <color key="tintColor" red="1" green="0.90204535590277779" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </imageView>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailingMargin" secondItem="09N-C8-X6N" secondAttribute="trailing" id="FFq-zo-vo6"/>
-                                                        <constraint firstItem="09N-C8-X6N" firstAttribute="top" secondItem="wZn-2o-5dE" secondAttribute="topMargin" constant="10" id="TEH-oM-sW8"/>
-                                                        <constraint firstItem="09N-C8-X6N" firstAttribute="leading" secondItem="wZn-2o-5dE" secondAttribute="leadingMargin" id="fSe-OI-PQG"/>
-                                                        <constraint firstAttribute="bottomMargin" secondItem="09N-C8-X6N" secondAttribute="bottom" constant="10" id="rae-eq-6HY"/>
+                                                        <constraint firstItem="09N-C8-X6N" firstAttribute="leading" secondItem="wZn-2o-5dE" secondAttribute="leadingMargin" id="HuZ-hS-y9J"/>
+                                                        <constraint firstAttribute="bottom" secondItem="w75-TA-ieg" secondAttribute="bottom" constant="10" id="JLm-mz-Uq0"/>
+                                                        <constraint firstItem="09N-C8-X6N" firstAttribute="top" secondItem="wZn-2o-5dE" secondAttribute="topMargin" constant="10" id="KGg-Bw-AEv"/>
+                                                        <constraint firstAttribute="bottomMargin" secondItem="09N-C8-X6N" secondAttribute="bottom" constant="10" id="OXJ-yo-QGW"/>
+                                                        <constraint firstItem="w75-TA-ieg" firstAttribute="top" secondItem="wZn-2o-5dE" secondAttribute="top" constant="10" id="Sre-sg-ftd"/>
+                                                        <constraint firstAttribute="trailing" secondItem="w75-TA-ieg" secondAttribute="trailing" constant="10" id="cpF-3d-Mlu"/>
+                                                        <constraint firstItem="w75-TA-ieg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="09N-C8-X6N" secondAttribute="trailing" constant="10" id="ldJ-cW-bvX"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <gestureRecognizers/>
                                                 <connections>
                                                     <outlet property="name" destination="09N-C8-X6N" id="8uy-UQ-FDG"/>
+                                                    <outlet property="starIcon" destination="w75-TA-ieg" id="dfc-6P-dxk"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -266,7 +274,7 @@
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="101" y="1597"/>
+            <point key="canvasLocation" x="99.375" y="1596.1267605633802"/>
         </scene>
         <!--StreetCams-->
         <scene sceneID="jPx-Z4-7rO">
@@ -561,6 +569,7 @@
     </scenes>
     <resources>
         <image name="baseline_place_white_24pt" width="24" height="24"/>
+        <image name="baseline_star_white_24pt" width="24" height="24"/>
         <image name="outline_list_white_24pt" width="24" height="24"/>
     </resources>
 </document>
