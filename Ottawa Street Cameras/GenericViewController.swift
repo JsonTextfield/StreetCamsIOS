@@ -36,7 +36,7 @@ class GenericViewController: UIViewController, UISearchBarDelegate, UITableViewD
     let favString = "favourites"
     let hideString = "hidden"
     
-    override func viewDidLoad() {
+    override func viewDidLoad(){
         super.viewDidLoad()
         
         getCameraList()
@@ -75,6 +75,10 @@ class GenericViewController: UIViewController, UISearchBarDelegate, UITableViewD
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         tableView.isHidden = (tabBar.items?.index(of: item) == 1)
         googleMap.isHidden = (tabBar.items?.index(of: item) == 0)
+        
+        if(!googleMap.isHidden){
+            filterMap(searchText: "")
+        }
     }
     
     private func getCameraList(){
@@ -130,6 +134,7 @@ class GenericViewController: UIViewController, UISearchBarDelegate, UITableViewD
         
         setupIndex()
         filterList(searchText: "")
+        filterMap(searchText: "")
         
         var mapBounds = GMSCoordinateBounds()
         
@@ -147,7 +152,8 @@ class GenericViewController: UIViewController, UISearchBarDelegate, UITableViewD
         }
         
         googleMap.cameraTargetBounds = mapBounds
-        googleMap.moveCamera(GMSCameraUpdate.fit(mapBounds, withPadding: 20))
+        googleMap.animate(with: GMSCameraUpdate.fit(mapBounds, withPadding: 20))
+        googleMap.setMinZoom(8, maxZoom: 20)
         
         loadingBar.stopAnimating()
     }
@@ -182,13 +188,12 @@ class GenericViewController: UIViewController, UISearchBarDelegate, UITableViewD
         tableView.reloadData()
     }
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        endSelecting()
-        
+    func filterMap(searchText: String){
+        var mapBounds = GMSCoordinateBounds()
         for marker in markers {
             let camera = marker.userData as! Camera
             
-            if((marker.userData as! Camera).isVisible){
+            if(camera.isVisible){
                 marker.map = googleMap
             }
             
@@ -204,8 +209,17 @@ class GenericViewController: UIViewController, UISearchBarDelegate, UITableViewD
             else {
                 marker.map = (camera.isVisible && camera.getName().containsIgnoringCase(find: searchText.dropFirst(0))) ? googleMap : nil
             }
+            
+            if(marker.map == googleMap){
+                mapBounds = mapBounds.includingCoordinate(marker.position)
+            }
         }
-        
+        googleMap.animate(with: GMSCameraUpdate.fit(mapBounds, withPadding: 20))
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        endSelecting()
+        filterMap(searchText: searchText)
         filterList(searchText: searchText)
     }
     
@@ -215,23 +229,25 @@ class GenericViewController: UIViewController, UISearchBarDelegate, UITableViewD
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.endEditing(true)
-        searchBar.setShowsCancelButton(false, animated: true)
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.setShowsCancelButton(false, animated: true)
         searchBar.endEditing(true)
     }
     
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(false, animated: true)
+    }
+    
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
-        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let destination: CameraViewController = storyboard.instantiateViewController(withIdentifier: "camera") as! CameraViewController
-        
         if(!selectModeOn){
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let destination = storyboard.instantiateViewController(withIdentifier: "camera") as! CameraViewController
+            
             destination.cameras = [marker.userData as! Camera]
             navigationController?.pushViewController(destination, animated: true)
         } else {
-            selectCamera(camera: marker.userData as! Camera)
+            marker.icon = selectCamera(camera: marker.userData as! Camera) ? GMSMarker.markerImage(with: .blue) : GMSMarker.markerImage(with: .red)
         }
     }
     
@@ -240,12 +256,11 @@ class GenericViewController: UIViewController, UISearchBarDelegate, UITableViewD
             selectModeOn = true
             toolbar.isHidden = false
         }
-        selectCamera(camera: marker.userData as! Camera)
-        marker.iconView?.tintColor = UIColor.blue
+        marker.icon = selectCamera(camera: marker.userData as! Camera) ? GMSMarker.markerImage(with: .blue) : GMSMarker.markerImage(with: .red)
     }
     @IBAction func showCameras(_ sender: Any) {
-        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let destination: CameraViewController = storyboard.instantiateViewController(withIdentifier: "camera") as! CameraViewController
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let destination = storyboard.instantiateViewController(withIdentifier: "camera") as! CameraViewController
         
         destination.cameras = selectedCameras
         
@@ -274,44 +289,40 @@ class GenericViewController: UIViewController, UISearchBarDelegate, UITableViewD
         toolbar.isHidden = true
         
         //need to unhighlight markers
-        
+        for marker in markers {
+            marker.icon = GMSMarker.markerImage(with: .red)
+        }
         
         for (key, value) in sections {
             for i in 0..<value.count {
-                tableView.deselectRow(at: IndexPath(row: i, section: sections.keys.sorted().index(of: key)!), animated: false)
+                tableView.deselectRow(at: IndexPath(row: i, section: sections.keys.sorted().index(of: key)!), animated: true)
             }
         }
     }
     
     private func selectCamera(camera: Camera) -> Bool {
-        toolbar.items = [showCamerasBtn,cancelBtn]
         if(selectedCameras.contains(camera)){
             selectedCameras.remove(at: selectedCameras.index(of: camera)!)
         } else {
             selectedCameras.append(camera)
         }
-        
         if(selectedCameras.isEmpty) {
+            endSelecting()
             return false
         }
+        
+        toolbar.items = [showCamerasBtn, cancelBtn]
         showCamerasBtn.isEnabled = (selectedCameras.count <= maxNum)
         
         let allFavs = selectedCameras.reduce(selectedCameras[0].isFavourite, {(result: Bool, camera: Camera) -> Bool in
             return result && camera.isFavourite
         })
         
-        if (allFavs) { //if everything selected is a favourite
-            //show unfavourite and hide favourite
+        if (allFavs) {
+            //show unfavourite or favourite button
             toolbar.items?.insert(unfavouriteBtn, at: 1)
-            /*if (toolbar.items?.contains(favouriteBtn))!{
-                toolbar.items?.remove(at: (toolbar.items?.index(of: favouriteBtn))!)
-            }*/
-            
         } else {
             toolbar.items?.insert(favouriteBtn, at: 1)
-            /*if (toolbar.items?.contains(unfavouriteBtn))!{
-                toolbar.items?.remove(at: (toolbar.items?.index(of: unfavouriteBtn))!)
-            }*/
         }
         
         let allInvis = selectedCameras.reduce(!selectedCameras[0].isVisible, {(result: Bool, camera: Camera) -> Bool in
@@ -320,19 +331,13 @@ class GenericViewController: UIViewController, UISearchBarDelegate, UITableViewD
         
         if (allInvis) {
             toolbar.items?.insert(unhideBtn, at: 2)
-            /*if (toolbar.items?.contains(hideBtn))!{
-                toolbar.items?.remove(at: (toolbar.items?.index(of: hideBtn))!)
-            }*/
         } else {
             toolbar.items?.insert(hideBtn, at: 2)
-            /*if (toolbar.items?.contains(unhideBtn))!{
-                toolbar.items?.remove(at: (toolbar.items?.index(of: unhideBtn))!)
-            }*/
         }
         
         if(selectedCameras.count > 1){
             title = "\(selectedCameras.count) cameras selected"
-        }else if(selectedCameras.count == 1){
+        } else if(selectedCameras.count == 1) {
             title = "1 camera selected"
         }
         
@@ -345,9 +350,7 @@ class GenericViewController: UIViewController, UISearchBarDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         let camera = getCamera(indexPath: indexPath)
-        if(!selectCamera(camera: camera) && selectedCameras.isEmpty){
-            endSelecting()
-        }
+        selectCamera(camera: camera)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -435,37 +438,23 @@ class GenericViewController: UIViewController, UISearchBarDelegate, UITableViewD
             if(willAdd){
                 list += selectedCameras.map({ (camera) -> Int in return camera.num })
             } else {
-                for camera in selectedCameras {
-                    if(list.contains(camera.num)){
-                        list.remove(at: list.index(of: camera.num)!)
-                    }
-                }
+                list = list.filter({ (it) -> Bool in
+                    return !selectedCameras.map({ (camera) -> Int in
+                        return camera.num
+                    }).contains(it)
+                })
             }
             preferences.set(list, forKey: prefName)
         }
         preferences.synchronize()
         
-        for camera in cameras {
-            if(selectedCameras.contains(camera)){
-                if(prefName == favString){
-                    camera.isFavourite = willAdd
-                } else {
-                    camera.isVisible = !willAdd
-                }
-            }
-        }
-        
+        setupPrefs()
         filterList(searchText: "")
+        filterMap(searchText: "")
         endSelecting()
     }
 }
 extension String {
-    func contains(find: Substring) -> Bool{
-        if (find.isEmpty){
-            return true
-        }
-        return self.range(of: find) != nil
-    }
     func containsIgnoringCase(find: Substring) -> Bool{
         if (find.isEmpty){
             return true
