@@ -9,8 +9,7 @@
 import UIKit
 import GoogleMaps
 class GenericViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, GMSMapViewDelegate, UITabBarDelegate {
-    
-    @IBOutlet var searchBar: UISearchBar!
+
     @IBOutlet var googleMap: GMSMapView!
     @IBOutlet var loadingBar: UIActivityIndicatorView!
     @IBOutlet var tableView: UITableView!
@@ -22,6 +21,8 @@ class GenericViewController: UIViewController, UISearchBarDelegate, UITableViewD
     @IBOutlet var showCamerasBtn: UIBarButtonItem!
     @IBOutlet var unhideBtn: UIBarButtonItem!
     @IBOutlet var tabBar: UITabBar!
+    
+    private let searchBar = UISearchBar()
     
     private var selectModeOn = false
     private var cameras = [Camera]()
@@ -36,13 +37,23 @@ class GenericViewController: UIViewController, UISearchBarDelegate, UITableViewD
     let favString = "favourites"
     let hideString = "hidden"
     
+    func setupSearchBar(){
+        searchBar.searchBarStyle = .prominent
+        searchBar.barStyle = .black
+        searchBar.delegate = self
+        searchBar.barTintColor = .black
+        searchBar.placeholder = "Loading..."
+    }
+    
     override func viewDidLoad(){
         super.viewDidLoad()
+        
+        setupSearchBar()
+        self.navigationItem.titleView = searchBar
         
         getCameraList()
         
         googleMap.delegate = self
-        searchBar.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
         tabBar.delegate = self

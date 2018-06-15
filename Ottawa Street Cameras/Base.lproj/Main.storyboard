@@ -115,16 +115,8 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="dHV-aU-VgV">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                 <subviews>
-                                    <searchBar contentMode="redraw" barStyle="black" searchBarStyle="prominent" placeholder="Loading..." translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J68-7N-bLR">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="56" id="YyQ-Ez-gfj"/>
-                                        </constraints>
-                                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="location"/>
-                                    </searchBar>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IdA-i5-o0d">
-                                        <rect key="frame" x="0.0" y="56" width="320" height="399"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <gestureRecognizers/>
                                         <prototypes>
@@ -227,12 +219,9 @@
                                     <constraint firstItem="mOm-JF-D75" firstAttribute="leading" secondItem="dHV-aU-VgV" secondAttribute="leading" id="6qC-BD-Qnp"/>
                                     <constraint firstItem="Vdm-i0-Eez" firstAttribute="top" secondItem="mOm-JF-D75" secondAttribute="bottom" id="9km-96-vYx"/>
                                     <constraint firstItem="Vdm-i0-Eez" firstAttribute="leading" secondItem="dHV-aU-VgV" secondAttribute="leading" id="F5P-Ik-nEj"/>
-                                    <constraint firstAttribute="trailing" secondItem="J68-7N-bLR" secondAttribute="trailing" id="FhC-Pe-0B6"/>
                                     <constraint firstAttribute="trailing" secondItem="Vdm-i0-Eez" secondAttribute="trailing" id="Gri-CD-7Ge"/>
-                                    <constraint firstItem="J68-7N-bLR" firstAttribute="leading" secondItem="dHV-aU-VgV" secondAttribute="leading" id="Vpq-MJ-Gv0"/>
                                     <constraint firstAttribute="trailing" secondItem="mOm-JF-D75" secondAttribute="trailing" id="qnc-yy-hwu"/>
                                     <constraint firstAttribute="bottom" secondItem="Vdm-i0-Eez" secondAttribute="bottom" id="rve-mM-5Vl"/>
-                                    <constraint firstItem="J68-7N-bLR" firstAttribute="top" secondItem="dHV-aU-VgV" secondAttribute="top" id="uEp-sV-T9v"/>
                                 </constraints>
                             </stackView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="ivb-5c-m7N">
@@ -258,7 +247,6 @@
                         <outlet property="googleMap" destination="Qqq-Z5-z8L" id="Hg1-jf-MQv"/>
                         <outlet property="hideBtn" destination="KsA-HD-PEr" id="S2y-qv-jPs"/>
                         <outlet property="loadingBar" destination="ivb-5c-m7N" id="AaU-8H-f3b"/>
-                        <outlet property="searchBar" destination="J68-7N-bLR" id="ctR-M7-ZIU"/>
                         <outlet property="showCamerasBtn" destination="kwR-MN-SAa" id="RR0-mr-zOK"/>
                         <outlet property="tabBar" destination="Vdm-i0-Eez" id="b5m-x3-baa"/>
                         <outlet property="tableView" destination="IdA-i5-o0d" id="Um5-UR-Tkj"/>
