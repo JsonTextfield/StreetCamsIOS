@@ -32,17 +32,55 @@ class GenericViewController: UIViewController, UISearchBarDelegate, UITableViewD
     private var allSections = [Character: [Camera]]()
     private var sections = [Character: [Camera]]()
     private var neighbourhoods = [Neighbourhood]()
+    private var sortingByLocation = false
     let dispatchGroup = DispatchGroup()
     
     let favString = "favourites"
     let hideString = "hidden"
     
+    @IBAction func showMenu(_ sender: UIBarButtonItem) {
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
+        actionSheet.view.tintColor = .black
+        actionSheet.addAction(UIAlertAction(title: "Sort by name", style: .default, handler: { _ in
+            self.sortingByLocation = false
+            self.tableView.reloadData()
+        }))
+        actionSheet.addAction(UIAlertAction(title: "Sort by distance", style: .default, handler: { _ in
+            self.sortingByLocation = true
+            self.tableView.reloadData()
+        }))
+        actionSheet.addAction(UIAlertAction(title: "Favourites", style: .default, handler: { _ in
+            self.searchBar.text = "f: "
+            self.endSelecting()
+            self.filterMap(searchText: self.searchBar.text!)
+            self.filterList(searchText: self.searchBar.text!)
+        }))
+        actionSheet.addAction(UIAlertAction(title: "Hidden", style: .default, handler: { _ in
+            self.searchBar.text = "h: "
+            self.endSelecting()
+            self.filterMap(searchText: self.searchBar.text!)
+            self.filterList(searchText: self.searchBar.text!)
+        }))
+        actionSheet.addAction(UIAlertAction(title: "Neighbourhoods", style: .default, handler: { _ in
+            self.searchBar.text = "n: "
+            self.endSelecting()
+            self.filterMap(searchText: self.searchBar.text!)
+            self.filterList(searchText: self.searchBar.text!)
+        }))
+        actionSheet.addAction(UIAlertAction(title: "Random", style: .default, handler: { _ in
+            let randomIndex = Int(arc4random_uniform(UInt32(self.cameras.count)))
+            self.selectedCameras = [self.cameras[randomIndex]]
+            self.showCameras(actionSheet)
+        }))
+        actionSheet.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.cancel, handler: nil))
+        present(actionSheet, animated: true, completion: nil)
+    }
     func setupSearchBar(){
         searchBar.searchBarStyle = .prominent
         searchBar.barStyle = .black
-        searchBar.delegate = self
         searchBar.barTintColor = .black
         searchBar.placeholder = "Loading..."
+        searchBar.delegate = self
     }
     
     override func viewDidLoad(){
@@ -167,6 +205,7 @@ class GenericViewController: UIViewController, UISearchBarDelegate, UITableViewD
         googleMap.setMinZoom(8, maxZoom: 20)
         
         loadingBar.stopAnimating()
+        
     }
     
     func filterList(searchText: String){
@@ -194,6 +233,10 @@ class GenericViewController: UIViewController, UISearchBarDelegate, UITableViewD
                     })
                 }
             }()
+        }
+        
+        if(sections.isEmpty){
+            sections = allSections
         }
         
         tableView.reloadData()
@@ -411,7 +454,7 @@ class GenericViewController: UIViewController, UISearchBarDelegate, UITableViewD
     }
     
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        if(!(searchBar.text?.isEmpty)!){
+        if(!(searchBar.text?.isEmpty)! || sortingByLocation){
             return nil
         }
         return sections.keys.sorted().map{ String($0) }

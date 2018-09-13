@@ -8,17 +8,13 @@
 
 import Foundation
 import MapKit
-class Neighbourhood: NSObject{
-    private var name = ""
-    private var nameFr = ""
-    private(set) var id = 0
+class Neighbourhood: BilingualObject{
     private(set) var boundaries = [[CLLocationCoordinate2D]]()
     
-    func getName() -> String {
-        return (Locale.preferredLanguages[0].contains("fr")) ? nameFr : name
-    }
+
     
     init(dict:[String: AnyObject]){
+        super.init()
         let props = dict["properties"] as! [String: AnyObject]
         name = props["Name"] as! String
         nameFr = (props["Name_FR"] is NSNull) ? name : props["Name_FR"] as! String

@@ -7,11 +7,8 @@
 //
 
 import Foundation
-class Camera: NSObject{
-    private var name = ""
-    private var nameFr = ""
+class Camera: BilingualObject{
     private(set) var owner = ""
-    private(set) var id = 0
     private(set) var num = 0
     private(set) var lat = 0.0
     private(set) var lng = 0.0
@@ -19,13 +16,9 @@ class Camera: NSObject{
     var isFavourite = false
     var neighbourhood = ""
     
-    func getName() -> String {
-        return (Locale.preferredLanguages[0].contains("fr")) ? nameFr : name
-    }
-    func getSortableName() -> String {
-        return getName().replacingOccurrences( of:"^\\W", with: "", options: .regularExpression)
-    }
+
     init(dict:[String: AnyObject]){
+        super.init()
         name = dict["description"] as! String
         nameFr = dict["descriptionFr"] as! String
         owner = dict["type"] as! String

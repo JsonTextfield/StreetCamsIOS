@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cln-Y0-9zm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Sa6-UF-C7y">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -19,14 +19,14 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qz5-On-Bdv">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Rtb-42-0f3">
-                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="camImage" id="nUO-KS-cSQ" customClass="CameraTableViewCell" customModule="Ottawa_Street_Cameras" customModuleProvider="target">
@@ -37,17 +37,17 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="infinite" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="joN-dS-1Gx">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="52"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                                     <accessibility key="accessibilityConfiguration">
                                                         <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
                                                     </accessibility>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sample street name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qmp-em-O3q">
-                                                    <rect key="frame" x="100.5" y="24" width="120" height="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sample street name" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qmp-em-O3q">
+                                                    <rect key="frame" x="100.5" y="28" width="119.5" height="16"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.36328125" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="20" id="Gz5-W9-nec"/>
-                                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="200" id="J13-Ag-AtC"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" id="2pi-zL-FDh"/>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="16" id="mbf-sM-M1l"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -56,12 +56,14 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="joN-dS-1Gx" firstAttribute="leading" secondItem="noe-YA-fo0" secondAttribute="leading" id="B2v-VO-Xw7"/>
-                                                <constraint firstAttribute="bottom" secondItem="qmp-em-O3q" secondAttribute="bottom" id="DeQ-Ud-ILQ"/>
-                                                <constraint firstItem="qmp-em-O3q" firstAttribute="centerX" secondItem="noe-YA-fo0" secondAttribute="centerX" id="Fnj-9e-8yW"/>
-                                                <constraint firstItem="joN-dS-1Gx" firstAttribute="top" secondItem="noe-YA-fo0" secondAttribute="top" id="Ieh-vv-mfo"/>
-                                                <constraint firstItem="joN-dS-1Gx" firstAttribute="bottomMargin" secondItem="noe-YA-fo0" secondAttribute="bottom" id="Mur-ZD-3sF"/>
-                                                <constraint firstAttribute="trailing" secondItem="joN-dS-1Gx" secondAttribute="trailing" id="dlv-m5-EVi"/>
+                                                <constraint firstAttribute="trailing" secondItem="joN-dS-1Gx" secondAttribute="trailing" id="1O6-5p-3Mh"/>
+                                                <constraint firstItem="joN-dS-1Gx" firstAttribute="leading" secondItem="noe-YA-fo0" secondAttribute="leading" id="24y-4s-swQ"/>
+                                                <constraint firstItem="joN-dS-1Gx" firstAttribute="top" secondItem="noe-YA-fo0" secondAttribute="top" id="C1I-2K-Iuv"/>
+                                                <constraint firstItem="qmp-em-O3q" firstAttribute="centerX" secondItem="noe-YA-fo0" secondAttribute="centerX" id="JMP-rx-mz3"/>
+                                                <constraint firstItem="qmp-em-O3q" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="noe-YA-fo0" secondAttribute="leading" id="Shk-cM-iVX"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="qmp-em-O3q" secondAttribute="trailing" id="gBr-XG-rOo"/>
+                                                <constraint firstAttribute="bottom" secondItem="qmp-em-O3q" secondAttribute="bottom" id="rUP-DQ-970"/>
+                                                <constraint firstAttribute="bottom" secondItem="joN-dS-1Gx" secondAttribute="bottom" id="sPE-kh-Xy3"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -73,7 +75,7 @@
                                 </prototypes>
                             </tableView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Oom-2O-zpk">
-                                <rect key="frame" x="142" y="265.5" width="37" height="37"/>
+                                <rect key="frame" x="142" y="233.5" width="37" height="37"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -98,7 +100,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="816" y="1597"/>
+            <point key="canvasLocation" x="1882.5" y="1595.0704225352113"/>
         </scene>
         <!--StreetCams-->
         <scene sceneID="cVR-0E-EA6">
@@ -119,6 +121,8 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <gestureRecognizers/>
+                                        <color key="sectionIndexColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="intersection" rowHeight="80" id="wav-hZ-eiS" customClass="ListItem" customModule="Ottawa_Street_Cameras" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="320" height="80"/>
@@ -169,38 +173,39 @@
                                             <constraint firstAttribute="height" constant="44" id="KMh-uG-4JW"/>
                                         </constraints>
                                         <items>
-                                            <barButtonItem title="Show" id="kwR-MN-SAa">
+                                            <barButtonItem title="Show" image="baseline_photo_camera_white_24pt" id="kwR-MN-SAa">
                                                 <connections>
                                                     <action selector="showCameras:" destination="ctM-uh-6wJ" id="Ucn-lN-fM8"/>
                                                 </connections>
                                             </barButtonItem>
-                                            <barButtonItem title="Unfavourite" id="POv-3s-fv1">
+                                            <barButtonItem title="Unfavourite" image="outline_star_border_white_24pt" id="POv-3s-fv1">
                                                 <connections>
                                                     <action selector="unfavouriteClicked:" destination="ctM-uh-6wJ" id="a6E-So-V8f"/>
                                                 </connections>
                                             </barButtonItem>
-                                            <barButtonItem title="Favourite" id="qD1-Au-VFM">
+                                            <barButtonItem title="Favourite" image="baseline_star_white_24pt" id="qD1-Au-VFM">
                                                 <connections>
                                                     <action selector="favouriteClicked:" destination="ctM-uh-6wJ" id="dPz-1a-Ccv"/>
                                                 </connections>
                                             </barButtonItem>
-                                            <barButtonItem title="Unhide" id="uty-J0-Sbg">
+                                            <barButtonItem title="Unhide" image="baseline_visibility_white_24pt" id="uty-J0-Sbg">
                                                 <connections>
                                                     <action selector="unhideClicked:" destination="ctM-uh-6wJ" id="8HG-Kc-n6d"/>
                                                 </connections>
                                             </barButtonItem>
-                                            <barButtonItem title="Hide" id="KsA-HD-PEr">
+                                            <barButtonItem title="Hide" image="baseline_visibility_off_white_24pt" id="KsA-HD-PEr">
                                                 <connections>
                                                     <action selector="hideClicked:" destination="ctM-uh-6wJ" id="2WZ-dN-mhZ"/>
                                                 </connections>
                                             </barButtonItem>
-                                            <barButtonItem systemItem="cancel" id="Ahc-VD-EVM">
+                                            <barButtonItem image="baseline_close_white_24pt" id="Ahc-VD-EVM">
                                                 <connections>
                                                     <action selector="cancelSelection:" destination="ctM-uh-6wJ" id="2uj-Y6-Bjb"/>
                                                 </connections>
                                             </barButtonItem>
                                         </items>
-                                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="barTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </toolbar>
                                     <tabBar contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vdm-i0-Eez">
                                         <rect key="frame" x="0.0" y="455" width="320" height="49"/>
@@ -212,6 +217,7 @@
                                             <tabBarItem title="List" image="outline_list_white_24pt" id="AKV-ng-iRz"/>
                                             <tabBarItem title="Map" image="baseline_place_white_24pt" id="hYd-Op-Ma7"/>
                                         </items>
+                                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tabBar>
                                 </subviews>
                                 <gestureRecognizers/>
@@ -225,7 +231,7 @@
                                 </constraints>
                             </stackView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="ivb-5c-m7N">
-                                <rect key="frame" x="142" y="234" width="37" height="37"/>
+                                <rect key="frame" x="142" y="233.5" width="37" height="37"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -240,6 +246,12 @@
                     </view>
                     <navigationItem key="navigationItem" title="StreetCams" id="RG1-Sl-VCr">
                         <barButtonItem key="backBarButtonItem" title="Back" id="qbH-HX-4I9"/>
+                        <barButtonItem key="rightBarButtonItem" title="Menu" image="baseline_more_horiz_white_24pt" id="EYA-CF-gHz">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="showMenu:" destination="ctM-uh-6wJ" id="3gM-Tw-k0s"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="cancelBtn" destination="Ahc-VD-EVM" id="4MO-Db-pJb"/>
@@ -253,6 +265,7 @@
                         <outlet property="toolbar" destination="mOm-JF-D75" id="1qu-qz-1uM"/>
                         <outlet property="unfavouriteBtn" destination="POv-3s-fv1" id="61Y-Mb-v5o"/>
                         <outlet property="unhideBtn" destination="uty-J0-Sbg" id="WAm-Ws-o3F"/>
+                        <segue destination="BYZ-38-t0r" kind="show" id="hCA-7g-XTr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D3k-cJ-nC9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -262,7 +275,7 @@
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="99.375" y="1596.1267605633802"/>
+            <point key="canvasLocation" x="1012.5" y="1596.1267605633802"/>
         </scene>
         <!--StreetCams-->
         <scene sceneID="jPx-Z4-7rO">
@@ -346,7 +359,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uks-Ab-W6H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="101.25" y="877.81690140845069"/>
+            <point key="canvasLocation" x="43" y="878"/>
         </scene>
         <!--StreetCams-->
         <scene sceneID="EFl-lD-WeT">
@@ -469,7 +482,7 @@
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="816" y="168"/>
+            <point key="canvasLocation" x="686" y="168"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Haf-eb-ZBT">
@@ -534,30 +547,40 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pdm-lt-uq5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="99" y="168"/>
+            <point key="canvasLocation" x="41" y="168"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="z98-FJ-yaC">
+        <scene sceneID="yox-GO-eYM">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cln-Y0-9zm" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Sa6-UF-C7y" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="Qgj-mj-2lj">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="oe1-al-qUL">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="ctM-uh-6wJ" kind="relationship" relationship="rootViewController" id="HcJ-kj-iGS"/>
+                        <segue destination="ctM-uh-6wJ" kind="relationship" relationship="rootViewController" id="zib-gw-vJY"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YRK-8d-Bh0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3a1-L0-uzS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-615" y="1598"/>
+            <point key="canvasLocation" x="15" y="1596.1267605633802"/>
         </scene>
     </scenes>
     <resources>
+        <image name="baseline_close_white_24pt" width="24" height="24"/>
+        <image name="baseline_more_horiz_white_24pt" width="24" height="24"/>
+        <image name="baseline_photo_camera_white_24pt" width="24" height="24"/>
         <image name="baseline_place_white_24pt" width="24" height="24"/>
         <image name="baseline_star_white_24pt" width="24" height="24"/>
+        <image name="baseline_visibility_off_white_24pt" width="24" height="24"/>
+        <image name="baseline_visibility_white_24pt" width="24" height="24"/>
         <image name="outline_list_white_24pt" width="24" height="24"/>
+        <image name="outline_star_border_white_24pt" width="24" height="24"/>
     </resources>
 </document>
