@@ -8,8 +8,9 @@
 
 import UIKit
 import GoogleMaps
-class GenericViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, GMSMapViewDelegate, UITabBarDelegate {
-
+import CoreLocation
+class GenericViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, GMSMapViewDelegate, UITabBarDelegate, CLLocationManagerDelegate {
+    
     @IBOutlet var googleMap: GMSMapView!
     @IBOutlet var loadingBar: UIActivityIndicatorView!
     @IBOutlet var tableView: UITableView!
@@ -34,21 +35,33 @@ class GenericViewController: UIViewController, UISearchBarDelegate, UITableViewD
     private var neighbourhoods = [Neighbourhood]()
     private var sortingByLocation = false
     let dispatchGroup = DispatchGroup()
-    
+    let locationManager = CLLocationManager()
     let favString = "favourites"
     let hideString = "hidden"
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        locationManager.stopUpdatingLocation()
+        self.sortingByLocation = true
+        self.update()
+    }
     
     @IBAction func showMenu(_ sender: UIBarButtonItem) {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
         actionSheet.view.tintColor = .black
-        actionSheet.addAction(UIAlertAction(title: "Sort by name", style: .default, handler: { _ in
-            self.sortingByLocation = false
-            self.tableView.reloadData()
-        }))
-        actionSheet.addAction(UIAlertAction(title: "Sort by distance", style: .default, handler: { _ in
-            self.sortingByLocation = true
-            self.tableView.reloadData()
-        }))
+        if(sortingByLocation){
+            actionSheet.addAction(UIAlertAction(title: "Sort by name", style: .default, handler: { _ in
+                self.sortingByLocation = false
+                self.update()
+            }))
+        }else{
+            actionSheet.addAction(UIAlertAction(title: "Sort by distance", style: .default, handler: { _ in
+                self.locationManager.requestWhenInUseAuthorization()
+                if(CLLocationManager.locationServicesEnabled()){
+                    self.locationManager.delegate = self
+                    self.locationManager.startUpdatingLocation()
+                }
+            }))
+        }
         actionSheet.addAction(UIAlertAction(title: "Favourites", style: .default, handler: { _ in
             self.searchBar.text = "f: "
             self.endSelecting()
@@ -75,6 +88,7 @@ class GenericViewController: UIViewController, UISearchBarDelegate, UITableViewD
         actionSheet.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.cancel, handler: nil))
         present(actionSheet, animated: true, completion: nil)
     }
+    
     func setupSearchBar(){
         searchBar.searchBarStyle = .prominent
         searchBar.barStyle = .black
@@ -97,7 +111,7 @@ class GenericViewController: UIViewController, UISearchBarDelegate, UITableViewD
         tabBar.delegate = self
         
         tabBar.selectedItem = tabBar.items?[0]
-
+        
         dispatchGroup.notify(queue: DispatchQueue.main, execute: {
             self.update()
         })
@@ -178,7 +192,6 @@ class GenericViewController: UIViewController, UISearchBarDelegate, UITableViewD
     
     func update(){
         searchBar.placeholder = "Search from \(cameras.count) locations"
-        
         setupPrefs()
         
         setupIndex()
@@ -209,6 +222,7 @@ class GenericViewController: UIViewController, UISearchBarDelegate, UITableViewD
     }
     
     func filterList(searchText: String){
+        dispatchGroup.enter()
         sections = allSections
         for (i, data) in sections {
             sections[i] = { () -> [Camera] in
@@ -234,12 +248,14 @@ class GenericViewController: UIViewController, UISearchBarDelegate, UITableViewD
                 }
             }()
         }
-        
+        dispatchGroup.leave()
         if(sections.isEmpty){
             sections = allSections
         }
+        dispatchGroup.notify(queue: DispatchQueue.main, execute: {
+            self.tableView.reloadData()
+        })
         
-        tableView.reloadData()
     }
     
     func filterMap(searchText: String){
@@ -276,6 +292,7 @@ class GenericViewController: UIViewController, UISearchBarDelegate, UITableViewD
         filterMap(searchText: searchText)
         filterList(searchText: searchText)
     }
+    
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(true, animated: true)
@@ -345,6 +362,7 @@ class GenericViewController: UIViewController, UISearchBarDelegate, UITableViewD
     }
     
     func endSelecting(){
+        self.navigationItem.titleView = searchBar
         title = "StreetCams"
         selectModeOn = false
         selectedCameras.removeAll()
@@ -437,7 +455,7 @@ class GenericViewController: UIViewController, UISearchBarDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "intersection", for: indexPath) as! ListItem
-
+        
         let camera = getCamera(indexPath: indexPath)
         
         cell.name.text = camera.getName()
@@ -461,16 +479,26 @@ class GenericViewController: UIViewController, UISearchBarDelegate, UITableViewD
     }
     
     private func setupIndex(){
-        cameras.sort { (c1, c2) -> Bool in
-            return c1.getSortableName() < c2.getSortableName()
-        }
-        for camera in cameras {
-            let firstLetter = camera.getSortableName().first!
-            
-            if allSections[firstLetter] == nil{
-                allSections[firstLetter] = []
+        allSections = [:]
+        if(sortingByLocation){
+            cameras.sort(by: { (cam1: Camera, cam2: Camera) -> Bool in
+                let d1 = locationManager.location?.distance(from: CLLocation(latitude: cam1.lat, longitude: cam1.lng)) as! Double
+                let d2 = locationManager.location?.distance(from: CLLocation(latitude: cam2.lat, longitude: cam2.lng)) as! Double
+                return d1 < d2
+            })
+            allSections["_"] = cameras
+        }else{
+            cameras.sort { (c1, c2) -> Bool in
+                return c1.getSortableName() < c2.getSortableName()
             }
-            allSections[firstLetter]!.append(camera)
+            for camera in cameras {
+                let firstLetter = camera.getSortableName().first!
+                
+                if allSections[firstLetter] == nil{
+                    allSections[firstLetter] = []
+                }
+                allSections[firstLetter]!.append(camera)
+            }
         }
         sections = allSections
     }

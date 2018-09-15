@@ -18,4 +18,5 @@ class BilingualObject : NSObject {
     func getSortableName() -> String {
         return getName().replacingOccurrences( of:"^\\W", with: "", options: .regularExpression)
     }
+    
 }
